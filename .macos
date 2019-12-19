@@ -50,7 +50,7 @@ echo "installing apps with brew cask"
 brew cask install alfred google-chrome firefox brave-browser bettertouchtool \
 bartender itsycal visual-studio-code 1password dash iina discord avibrazil-rdm \
 qlcolorcode qlmarkdown qlstephen quicklook-json webpquicklook qlvideo spotify sip \
-front slack sketch spectacle the-unarchiver hyper flux notion postman daisydisk
+front slack sketch spectacle the-unarchiver hyper flux notion postman daisydisk chatmate-for-whatsapp
 
 echo "Generating an RSA token for GitHub"
 mkdir -p ~/.ssh
