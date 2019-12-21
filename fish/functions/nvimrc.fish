@@ -1,3 +1,3 @@
 function nvimrc
-	nvim ~/.config/nvim/init.vim 
+	nvim ~/dotfiles/nvim/init.vim 
 end
