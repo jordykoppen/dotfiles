@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # ~/.macos — https://mths.be/macos
-# Modified by Kent C. Dodds
+# Modified by Jordy Koppen
 # Run without downloading:
-# curl https://raw.githubusercontent.com/kentcdodds/dotfiles/master/.macos | bash
+# curl https://raw.githubusercontent.com/jordykoppen/dotfiles/master/.macos | bash
 
 # Close any open System Preferences panes, to prevent them from overriding
 # settings we’re about to change
@@ -29,13 +29,15 @@ echo "installing homebrew"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 echo "brew installing stuff"
-# ripgrep: rg is faster than alternatives
-# ffmpeg: eventually I'll need this for something
-# tree: really handy for listing out directories in text
-# bat: A cat(1) clone with syntax highlighting and Git integration.
-brew install git ripgrep bash-completion watchman tree bat
-# yarn: without node because we'll get it from installing n later
-brew install yarn --without-node
+# Install packages from Brewfile
+brew bundle --file="${HOME}/dotfiles/Brewfile"
+
+echo "installing oh-my-fish"
+curl -L https://get.oh-my.fish | fish
+
+echo "Change default shell to fish"
+sudo bash -c 'echo /usr/local/bin/fish >> /etc/shells'
+chsh -s /usr/local/bin/fish
 
 echo "installing node (via n-install)"
 curl -L https://git.io/n-install | bash
@@ -46,16 +48,10 @@ echo "npm --version: $(npm --version)"
 echo "installing a few global npm packages"
 npm install --global serve diff-so-fancy fkill-cli npm-quick-run semantic-release-cli
 
-echo "installing apps with brew cask"
-brew cask install alfred google-chrome firefox brave-browser bettertouchtool \
-bartender itsycal visual-studio-code 1password dash iina discord avibrazil-rdm \
-qlcolorcode qlmarkdown qlstephen quicklook-json webpquicklook qlvideo spotify sip \
-front slack sketch spectacle the-unarchiver hyper flux notion postman daisydisk
-
 echo "Generating an RSA token for GitHub"
 mkdir -p ~/.ssh
 touch ~/.ssh/config
-ssh-keygen -t rsa -b 4096 -C "me+github@jordykoppen.com"
+ssh-keygen -t rsa -b 4096 -C "jordykoppen@users.noreply.github.com "
 echo "Host *\n AddKeysToAgent yes\n UseKeychain yes\n IdentityFile ~/.ssh/id_rsa" | tee ~/.ssh/config
 eval "$(ssh-agent -s)"
 echo "run 'pbcopy < ~/.ssh/id_rsa.pub' and paste that into GitHub"
@@ -63,6 +59,10 @@ echo "run 'pbcopy < ~/.ssh/id_rsa.pub' and paste that into GitHub"
 echo "cloning dotfiles"
 git clone git@github.com:jordykoppen/dotfiles.git "${HOME}/dotfiles"
 ln -s "${HOME}/dotfiles/.gitignore_global" "${HOME}/.gitignore_global"
+ln -s "${HOME}/dotfiles/nvim" "${HOME}/.config/nvim"
+ln -s "${HOME}/dotfiles/alacritty" "${HOME}/.config/alacritty"
+ln -s "${HOME}/dotfiles/fish" "${HOME}/.config/fish"
+ln -s "${HOME}/dotfiles/starship.toml" "${HOME}/.config/starship.toml"
 
 echo "making system modifications:"
 
