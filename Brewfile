@@ -6,7 +6,6 @@ brew "bash-completion"
 brew "watchman"
 brew "tree"
 brew "bat"
-brew "yarn", args: ["without-node"]
 brew "rclone"
 brew "fzf"
 brew "fish"
