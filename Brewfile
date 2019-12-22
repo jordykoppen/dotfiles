@@ -11,6 +11,7 @@ brew "rclone"
 brew "fzf"
 brew "fish"
 brew "starship"
+brew "neovim"
 
 # CASKS
 cask "alfred"

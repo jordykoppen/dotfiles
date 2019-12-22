@@ -23,3 +23,5 @@ source ~/.config/nvim/config/keybinds.vim
 source ~/.config/nvim/config/autocmd.vim
 source ~/.config/nvim/config/fzf.vim
 source ~/.config/nvim/config/airline.vim
+source ~/.config/nvim/config/linters.vim
+source ~/.config/nvim/config/common.vim

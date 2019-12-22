@@ -7,6 +7,7 @@ Plug 'jistr/vim-nerdtree-tabs'
 
 " Insert or delete brackets, parens, quotes in pair.
 Plug 'jiangmiao/auto-pairs'
+Plug 'alvan/vim-closetag'
 " Material Theme
 Plug 'kaicataldo/material.vim'
 " Devicons for NERDTree
@@ -20,6 +21,7 @@ Plug 'tpope/vim-surround'
 " Syntax checking
 Plug 'scrooloose/syntastic'
 Plug 'mtscout6/syntastic-local-eslint.vim'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 "------------------------ COC ------------------------
 " coc for tslinting, auto complete and prettier
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
@@ -30,6 +32,9 @@ let g:coc_global_extensions = ['coc-eslint', 'coc-tsserver', 'coc-emmet', 'coc-c
 " vim-tsx will do all the coloring for jsx in the .tsx file
 Plug 'ianks/vim-tsx'
 Plug 'quramy/tsuquyomi'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'mlaursen/vim-react-snippets'
+Plug 'SirVer/ultisnips'
 "------------------------ VIM TSX ------------------------
 " by default, if you open tsx file, neovim does not show syntax colors
 " typescript-vim will do all the coloring for typescript keywords
