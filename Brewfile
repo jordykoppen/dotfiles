@@ -43,7 +43,7 @@ cask "daisydisk"
 cask "qlcolorcode"
 cask "qlmarkdown"
 cask "qlstephen"
-caks "quicklook-json"
+cask "quicklook-json"
 cask "webpquicklook"
 cask "qlvideo"
 
