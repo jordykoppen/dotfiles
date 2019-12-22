@@ -10,7 +10,7 @@ let g:NERDTreeWinSize=40
 let NERDTreeShowLineNumbers=1
 
 " ==== NerdTreeTabs settings
-let g:nerdtree_tabs_open_on_console_startup=1
+" let g:nerdtree_tabs_open_on_console_startup=1
 let g:nerdtree_tabs_autoclose=1
 let g:nerdtree_tabs_autofind=1
 let g:nerdtree_tabs_smart_startup_focus= 2

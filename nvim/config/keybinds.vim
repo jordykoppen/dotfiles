@@ -18,6 +18,7 @@ nnoremap : ;
 " NERDTree to :nt
 :map :nt :NERDTree<CR>
 nnoremap <Leader>f :NERDTreeToggle<Enter>
+map <Leader>n <plug>NERDTreeTabsToggle<CR>
 nnoremap <silent> <Leader>v :NERDTreeFind<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MULTIPURPOSE TAB KEY
