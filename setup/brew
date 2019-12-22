@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# Install packages from Brewfile
+
+echo "brew: installing formulaes and casks."
+brew bundle --file="${HOME}/dotfiles/Brewfile"
