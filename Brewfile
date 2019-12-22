@@ -13,6 +13,7 @@ brew "fish"
 brew "starship"
 brew "neovim"
 brew "mas"
+brew "tmux"
 
 ## CASKS
 cask "alfred"
