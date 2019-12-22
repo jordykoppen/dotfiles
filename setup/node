@@ -6,6 +6,8 @@ curl -o- -L https://yarnpkg.com/install.sh | bash
 echo "installing node (via n-install)"
 curl -L https://git.io/n-install | bash
 
+source ~/.zshrc
+
 echo "node --version: $(node --version)"
 echo "npm --version: $(npm --version)"
 
