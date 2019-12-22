@@ -12,8 +12,9 @@ brew "fzf"
 brew "fish"
 brew "starship"
 brew "neovim"
+brew "mas"
 
-# CASKS
+## CASKS
 cask "alfred"
 cask "alacritty"
 cask "bettertouchtool"
@@ -52,3 +53,8 @@ cask "google-chrome"
 cask "firefox"
 cask "brave-browser"
 
+## Mac App Store
+# As mas signin is broken for macOS 10.13+ you need to sign in manually first
+# mas "Spark",  id: 1176895641
+# mas "Amphetamine", id: 937984704
+# mas "Numbers", id: 409203825 
