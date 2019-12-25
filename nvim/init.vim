@@ -12,8 +12,12 @@ set wildmode=longest,list   " get bash-like tab completions
 set guifont="SF Mono Powerline":h11
 set number relativenumber
 set ruler
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
 filetype plugin indent on   " allows auto-indenting depending on file type
+filetype plugin on
 syntax on                   " syntax highlighting
 
 source ~/.config/nvim/config/plugins.vim

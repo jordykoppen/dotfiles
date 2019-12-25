@@ -37,8 +37,6 @@ let g:rg_command = '
 " - excludes filenames:  {'options': '--delimiter : --nth 4..'}
 command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
-nnoremap <C-p> :Files<Cr>
-nnoremap ;f :F<Cr>
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',

@@ -1,21 +1,23 @@
 call plug#begin('~/.config/nvim/plugged')
 " NERDTree ofcourse
 Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
 " NERDTree GIT plugin for showing changes.
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'jistr/vim-nerdtree-tabs'
 
 " Insert or delete brackets, parens, quotes in pair.
 Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
 " Material Theme
 Plug 'kaicataldo/material.vim'
+Plug 'morhetz/gruvbox'
 " Devicons for NERDTree
 Plug 'ryanoasis/vim-devicons'
 " NERDTree file/folder colors.
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " GIT
 Plug 'tpope/vim-fugitive' 
+Plug 'zivyangll/git-blame.vim'
 " Insert, changing quotes, parens, elements, etc. around blocks.
 Plug 'tpope/vim-surround'
 " Syntax checking
@@ -55,6 +57,8 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'ap/vim-css-color'
 " JSX highlighting
 Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'pangloss/vim-javascript'
+
 " Startscreen
 Plug 'mhinz/vim-startify'
 " Everything to do with fzf
