@@ -36,7 +36,6 @@ inoremap <expr> <tab> InsertTabWrapper()
 inoremap <s-tab> <c-n>
 
 " fzf.vim
-nnoremap <C-k> :BLines<Cr>
 nnoremap <C-p> :Files<Cr>
 nnoremap <leader>f :F<Cr>
 nnoremap <leader>l :Lines<Cr>

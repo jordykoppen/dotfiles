@@ -5,12 +5,15 @@ Plug 'scrooloose/nerdcommenter'
 " NERDTree GIT plugin for showing changes.
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
+" Vim test
+Plug 'janko/vim-test'
 " Insert or delete brackets, parens, quotes in pair.
 Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
 " Material Theme
 Plug 'kaicataldo/material.vim'
 Plug 'morhetz/gruvbox'
+Plug 'connorholyday/vim-snazzy'
 " Devicons for NERDTree
 Plug 'ryanoasis/vim-devicons'
 " NERDTree file/folder colors.
@@ -32,7 +35,6 @@ let g:coc_global_extensions = ['coc-eslint', 'coc-tsserver', 'coc-emmet', 'coc-c
 "------------------------ VIM TSX ------------------------
 " by default, if you open tsx file, neovim does not show syntax colors
 " vim-tsx will do all the coloring for jsx in the .tsx file
-Plug 'ianks/vim-tsx'
 Plug 'quramy/tsuquyomi'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'mlaursen/vim-react-snippets'
@@ -45,9 +47,10 @@ Plug 'leafgarland/typescript-vim'
 " most importantly you need a good color scheme to write good code :D
 Plug 'dikiaap/minimalist'
 " Statusline.
-Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline'
 " Statusline themes.
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 " JS linters and formatters
 Plug 'eslint/eslint'
 Plug 'prettier/prettier'
@@ -56,8 +59,12 @@ Plug 'terryma/vim-multiple-cursors'
 " Inline css colors
 Plug 'ap/vim-css-color'
 " JSX highlighting
+Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'yuezk/vim-js'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'pangloss/vim-javascript'
+
+Plug 'GabrieleLippi/yarn-vim'
 
 " Startscreen
 Plug 'mhinz/vim-startify'

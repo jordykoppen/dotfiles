@@ -1,4 +1,5 @@
 tap "homebrew/cask"
+tap "homebrew/cask-fonts"
 
 brew "git"
 brew "ripgrep"
@@ -38,6 +39,9 @@ cask "flux"
 cask "notion"
 cask "postman"
 cask "daisydisk"
+
+## FONTS
+cask "font-sourcecodepro-nerd-font"
 
 # Quicklook
 cask "qlcolorcode"

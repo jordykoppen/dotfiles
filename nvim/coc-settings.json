@@ -1,9 +1,19 @@
 {
-    "eslint.autoFixOnSave": true,
-    "eslint.filetypes": [
-      "javascript",
-      "javascriptreact",
-      "typescript",
-      "typescriptreact"
-    ]
+  "coc.preferences.formatOnSaveFiletypes": ["json", "vim"],
+  "eslint.autoFixOnSave": true,
+  "eslint.filetypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "suggest.snippetIndicator": "\u26a1 ",
+  "codeLens.enable": true,
+  "diagnostic.virtualText": true,
+  "diagnostic.errorSign": "◉",
+  "suggest.completionItemKindLabels": {
+    "module": " ",
+    "function": "ﬦ",
+    "variable": "ﮂ"
+  }
 }
