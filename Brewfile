@@ -17,7 +17,7 @@ brew "tmux"
 
 ## CASKS
 cask "alfred"
-cask "alacritty"
+cask "kitty"
 cask "bettertouchtool"
 cask "bartender"
 cask "itsycal"
