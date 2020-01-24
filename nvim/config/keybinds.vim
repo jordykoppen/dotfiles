@@ -12,6 +12,12 @@ noremap ss :w<CR>
 " use jj as escape to exit insert mode
 inoremap jj <Esc>
 
+" use qq to close buffer in normalmode
+noremap qq :q<CR>
+
+" use so to source in normal mode
+noremap so :so $MYVIMRC<CR>
+
 nnoremap ; :
 nnoremap : ;
 

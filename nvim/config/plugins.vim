@@ -63,6 +63,7 @@ Plug 'HerringtonDarkholme/yats.vim'
 " Plug 'yuezk/vim-js'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'pangloss/vim-javascript'
+Plug 'jparise/vim-graphql'
 
 Plug 'GabrieleLippi/yarn-vim'
 
