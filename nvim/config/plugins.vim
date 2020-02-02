@@ -1,4 +1,5 @@
 call plug#begin('~/.config/nvim/plugged')
+Plug 'wikitopian/hardmode'
 " NERDTree ofcourse
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
