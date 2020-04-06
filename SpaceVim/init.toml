@@ -38,12 +38,18 @@ default_position = 'top'
 default_height = 30
 
 [[layers]]
-name = 'ctrlp'
+name = 'fzf'
+
+[[layers]]
+name= 'git'
 
 [[layers]]
 name = 'autocomplete'
 auto-completion-return-key-behavior = "complete"
 auto-completion-tab-key-behavior = "smart"
+
+[[layers]]
+name = 'lang#html'
 
 [[layers]]
 name = 'lang#javascript'
@@ -54,6 +60,9 @@ name = "lang#typescript"
 [[layers]]
 name = 'lang#graphql'
 
+[[layers]]
+name = 'lang#rust'
+
 [[custom_plugins]]
 name = 'connorholyday/vim-snazzy'
 merged = 0
@@ -62,6 +71,8 @@ merged = 0
 name = "colorscheme"
 merged = 0
 
+#[[custom_plugins]]
+#name = "styled-components/vim-styled-components"
 # [[custom_plugins]]
 # name = "chrisbra/Colorizer"
 
