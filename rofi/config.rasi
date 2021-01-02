@@ -1,0 +1,21 @@
+configuration {
+  modi: "combi,keys,drun,run,window";
+  lines: 6;
+  show-icons: true;
+  terminal: "kitty";
+  run-shell-command: "{terminal}";
+  // drun-icon-theme: "Papirus-Dark";
+  combi-modi: "drun";
+  hide-scrollbar: true;
+  window-format: "{t}";
+  theme: "ayu-dark.rasi";
+  sidebar-mode: true;
+  combi-hide-mode-prefix: true;
+  display-window: "Windows";
+  display-windowcd: "Windows";
+  display-run: "Commands";
+  display-ssh: "SSH";
+  display-drun: "Applications";
+  display-combi: "All";
+  display-keys: "Keys";
+}
