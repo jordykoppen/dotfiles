@@ -5,4 +5,5 @@ log "Kill existing polybar instance" &
 killall polybar -q &
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; log "waiting for previous polybar instance to be shutdown..."; done 
 log "Start polybar instance" &
-polybar --config=$DOTFILES/polybar/config.ini example &
+source $DOTFILES/polybar/polybar_main &
+source $DOTFILES/polybar/polybar_secondary &
