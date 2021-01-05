@@ -3,6 +3,7 @@ source $DOTFILES/linux/log.sh
 
 log "Kill existing compton instance" &
 killall compton &
-log "Executing comton" &
+while pgrep -u $UID -x comtpon >/dev/null; do sleep 1; log "waiting for previous compton instance to be shutdown..."; done &
+log "Executing compton" &
 compton -b --config $HOME/.config/compton/compton.conf &
 log "Compton started" &
