@@ -66,6 +66,7 @@ autocmd BufRead .eslintrc set filetype=json
 autocmd BufRead .prettierrc set filetype=json
 autocmd BufRead .lintstagedrc set filetype=json
 autocmd BufRead .tslintrc set filetype=json
+autocmd BufRead .commitlintrc set filetype=json
 autocmd BufRead .dojorc set filetype=json
 autocmd BufRead .env* set filetype=sh
 
