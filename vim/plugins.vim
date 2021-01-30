@@ -26,5 +26,7 @@ Plug 'justinmk/vim-sneak'
 
 Plug 'tpope/vim-surround'
 
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
 call plug#end()
 
