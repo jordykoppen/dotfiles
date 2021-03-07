@@ -1,5 +1,14 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": ["json", "vim", "fish"],
+  "coc.preferences.formatOnSaveFiletypes": ["json", "vim", "fish", "prisma"],
+  "graphql.filetypes": [
+    "graphql",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "reason",
+    "prisma"
+  ],
   "eslint.enable": true,
   "eslint.autoFixOnSave": true,
   "eslint.filetypes": [

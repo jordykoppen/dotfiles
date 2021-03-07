@@ -12,6 +12,7 @@ let g:coc_global_extensions = [
   \ 'coc-highlight',
   \ 'coc-css',
   \ 'coc-cssmodules',
+  \ 'coc-graphql',
   \ 'coc-stylelintplus',
   \ 'coc-html',
   \ 'coc-svg',
