@@ -1,7 +1,6 @@
-#! /bin/fish
+#!/bin/zsh
 
-set -l WALLPAPER (random choice $DOTFILES/wallpapers/images/*)
+WALLPAPER=$(ls $DOTFILES/wallpapers/images/* | shuf -n 1)
 
 ln -sf -v $WALLPAPER $DOTFILES/wallpapers/current
-
 feh --bg-fill $DOTFILES/wallpapers/current

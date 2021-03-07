@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 # Create dir
 mkdir -p $HOME/.local/share/
 # Create symbolic link from dotfiles location to fonts dir

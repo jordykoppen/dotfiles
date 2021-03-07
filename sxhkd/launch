@@ -15,6 +15,8 @@ while pgrep -u $UID -x sxhkd >/dev/null; do sleep 1; log "waiting for previous s
 log "xset cursor repeat rate"
 xset r rate 150 50
 
+picom -b --config $CONFIG/picom/picom.conf &
+
 log "search for hotkey files"
 hotkeys=$(find . -type f -name hotkeys)
 echo hotkeys
@@ -24,3 +26,4 @@ done
 
 log "start sxhkd"
 sxhkd -c $DOTFILES/sxhkd/sxhkdrc $hotkeys
+

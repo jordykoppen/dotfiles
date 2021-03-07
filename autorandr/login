@@ -1,3 +1,3 @@
 #! /bin/sh
 
-$DOTFILES/autorandr/launch &
+# $DOTFILES/autorandr/launch &
