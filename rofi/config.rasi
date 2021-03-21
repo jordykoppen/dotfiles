@@ -1,15 +1,15 @@
 configuration {
-  modi: "combi,keys,drun,run,window";
-  lines: 6;
+  modi: "drun";
+  lines: 12;
   show-icons: true;
-  terminal: "kitty";
+  terminal: "alacritty";
   run-shell-command: "{terminal}";
   // drun-icon-theme: "Papirus-Dark";
   combi-modi: "drun";
   hide-scrollbar: true;
   window-format: "{t}";
-  theme: "ayu-dark.rasi";
-  sidebar-mode: true;
+  theme: "theme.rasi";
+  sidebar-mode: false;
   combi-hide-mode-prefix: true;
   display-window: "Windows";
   display-windowcd: "Windows";

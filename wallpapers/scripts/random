@@ -1,6 +1,6 @@
-#!/bin/zsh
+#!/bin/sh
 
 WALLPAPER=$(ls $DOTFILES/wallpapers/images/* | shuf -n 1)
 
-ln -sf -v $WALLPAPER $DOTFILES/wallpapers/current
-feh --bg-fill $DOTFILES/wallpapers/current
+ln -sf -v $WALLPAPER $DOTFILES/wallpapers/current >> /dev/null
+feh --bg-fill $DOTFILES/wallpapers/current >> /dev/null

@@ -1,3 +1,6 @@
 #! /bin/sh
 
-# $DOTFILES/autorandr/launch &
+xrandr --newmode "3840x2160_144.00"  1829.25  3840 4200 4624 5408  2160 2163 2168 2350 -hsync +vsync
+xrandr --addmode Virtual1 3840x2160_144.00
+
+$DOTFILES/autorandr/launch &

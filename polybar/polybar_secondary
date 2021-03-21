@@ -1,3 +1,3 @@
 #! /bin/sh
 
-polybar --config=$DOTFILES/polybar/config.ini secondary;
+polybar --config=$DOTFILES/polybar/config.ini secondary &

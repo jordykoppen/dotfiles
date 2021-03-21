@@ -1,0 +1,9 @@
+#!/bin/sh
+
+URL="https://source.unsplash.com/3840x2160/daily?light"
+OUTPUT_PATH=$DOTFILES/wallpapers/images/daily
+
+wget -O $OUTPUT_PATH $URL -nv
+
+ln -sf -v $DOTFILES/wallpapers/images/daily $DOTFILES/wallpapers/current >> /dev/null
+feh --bg-fill $DOTFILES/wallpapers/current >> /dev/null

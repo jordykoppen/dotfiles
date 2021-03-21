@@ -3,12 +3,9 @@ source $DOTFILES/vim/keymap.vim
 source $DOTFILES/vim/startify.vim
 source $DOTFILES/vim/coc.vim
 source $DOTFILES/vim/nerdtree.vim
+source $DOTFILES/vim/theme.vim
 
 set encoding=UTF-8
-set termguicolors
-let ayucolor="dark"
-colorscheme ayu
-
 set relativenumber
 set nowrap
 set noshowmode

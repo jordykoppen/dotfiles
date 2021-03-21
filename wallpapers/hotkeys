@@ -1,3 +1,3 @@
-# Random Wallpaper
-super + b
-  $DOTFILES/wallpapers/script/random
+# Wallpaper Rofi
+super + alt + b
+  rofi -show ws -modi ws:$DOTFILES/rofi/scripts/wallpaper-selector.sh -theme $DOTFILES/rofi/scripts/theme.rasi -lines 4

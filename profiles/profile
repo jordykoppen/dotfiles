@@ -2,3 +2,5 @@ export DOTFILES=$HOME/dotfiles
 export CONFIG=$HOME/.config
 export SXHKD_SHELL=/bin/sh
 # export GTK_THEME=Arc:dark
+export COLOR_THEME="dark"
+export XDG_DATA_DIRS=/usr/local/share:/usr/share:$DOTFILES/darkman

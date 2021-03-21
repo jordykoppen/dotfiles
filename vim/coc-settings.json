@@ -1,5 +1,5 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": ["json", "vim", "fish"],
+  "coc.preferences.formatOnSaveFiletypes": ["json", "vim", "fish", "prisma"],
   "eslint.enable": true,
   "eslint.autoFixOnSave": true,
   "eslint.filetypes": [

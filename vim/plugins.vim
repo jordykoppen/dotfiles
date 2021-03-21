@@ -18,6 +18,7 @@ Plug 'yarisgutierrez/ayu-lightline'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'jparise/vim-graphql'
+Plug 'pantharshit00/vim-prisma'
 
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'

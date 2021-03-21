@@ -17,13 +17,8 @@ xset r rate 150 50
 
 picom -b --config $CONFIG/picom/picom.conf &
 
-log "search for hotkey files"
-hotkeys=$(find . -type f -name hotkeys)
-echo hotkeys
-for hk in $hotkeys; do
-  log "found $hk"
-done
+HOTKEYS=$(sh $DOTFILES/sxhkd/scripts/source_hotkeys.zsh)
 
 log "start sxhkd"
-sxhkd -c $DOTFILES/sxhkd/sxhkdrc $hotkeys
+sxhkd -c $DOTFILES/sxhkd/sxhkdrc $HOTKEYS
 

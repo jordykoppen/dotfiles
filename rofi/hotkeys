@@ -1,8 +1,8 @@
-# program launcher
+# Program launcher
 super + space
   rofi -show
 
-# open rofi calculator
+# Open rofi calculator
 super + u
   rofi -modi calc -show calc
 

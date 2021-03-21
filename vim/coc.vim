@@ -11,6 +11,8 @@ let g:coc_global_extensions = [
   \ 'coc-emmet',
   \ 'coc-highlight',
   \ 'coc-css',
+  \ 'coc-graphql',
+  \ 'coc-prisma',
   \ 'coc-cssmodules',
   \ 'coc-stylelintplus',
   \ 'coc-html',

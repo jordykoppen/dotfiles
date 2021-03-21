@@ -1,6 +1,5 @@
 #! /bin/bash
-source $DOTFILES/linux/log.sh
 
-log "Start" &
+killall vmware-user
+
 vmware-user &
-log "Started" &
