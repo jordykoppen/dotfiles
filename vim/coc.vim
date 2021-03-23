@@ -19,6 +19,8 @@ let g:coc_global_extensions = [
   \ 'coc-svg',
   \ 'coc-yank',
   \ 'coc-actions',
+  \ 'coc-tabnine',
+  \ 'coc-graphql',
   \ ]
 
 function! s:cocActionsOpenFromSelected(type) abort
