@@ -14,7 +14,8 @@ random_unsplash () {
   URL="${BASE_URL}/random/3840x2160"
   OUTPUT_PATH="${UNSPLASH_PATH}/random"
 
-  get_unsplash $URL $OUTPUT_PATH
+  wget $URL -O $OUTPUT_PATH -nv
+  set_wallpaper $OUTPUT_PATH
 }
 
 daily_unsplash () {
