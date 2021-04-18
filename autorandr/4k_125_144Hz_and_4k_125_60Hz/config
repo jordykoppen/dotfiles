@@ -12,10 +12,10 @@ output Virtual8
 off
 output Virtual1
 crtc 0
-mode 3840x2160_144.00
+mode 3840x2160
 pos 0x0
 primary
-rate 143.94
+rate 60.00
 transform 1.250000,0.000000,0.000000,0.000000,1.250000,0.000000,0.000000,0.000000,1.000000
 output Virtual2
 crtc 1

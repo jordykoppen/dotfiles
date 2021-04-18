@@ -5,4 +5,4 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 source $HOME/.profile
 
 $DOTFILES/polybar/polybar_main &
-$DOTFILES/polybar/polybar_secondary &
+#$DOTFILES/polybar/polybar_secondary &

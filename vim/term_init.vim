@@ -16,6 +16,8 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
+set clipboard=unnamedplus
+
 " Remove tilde on empty lines
 let &fcs='eob: '
 

@@ -11,7 +11,7 @@ WEEK_NUM=$(date +%V)
 DAILY_NUM=$(date +"%d-%m-%y")
 
 random_unsplash () {
-  URL="${BASE_URL}/random/3840x2160"
+  URL="${BASE_URL}/random/3840*1600"
   OUTPUT_PATH="${UNSPLASH_PATH}/random"
 
   get_unsplash $URL $OUTPUT_PATH
