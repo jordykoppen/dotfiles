@@ -14,7 +14,7 @@
 }
 
 #window {
-  font: "SFMono Nerd Font 16";
+  font: "SFMono Nerd Font 1em";
   location: 0;
   background-color: @backgroundcolor;
   border-color: @accentcolor;

@@ -1,5 +1,6 @@
 configuration {
   modi: "drun";
+  dpi: 163;
   lines: 12;
   show-icons: true;
   terminal: "alacritty";
