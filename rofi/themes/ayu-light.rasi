@@ -14,7 +14,7 @@
 }
 
 #window {
-  font: "SFMono Nerd Font 1em";
+  font: "SFMono Nerd Font 8";
   location: 0;
   background-color: @backgroundcolor;
   border-color: @accentcolor;
@@ -38,7 +38,7 @@
 }
 
 element-icon {
-  size: 30;
+  size: 24;
   padding: 0 10 0 0;
 }
 
