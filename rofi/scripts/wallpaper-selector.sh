@@ -9,9 +9,10 @@ UNSPLASH_PATH=$DOTFILES/wallpapers/images/unsplash
 
 WEEK_NUM=$(date +%V)
 DAILY_NUM=$(date +"%d-%m-%y")
+RESOLUTION=$(xrandr --query |awk -F '[ +]' '/\<connected\>/{print $4}')
 
 random_unsplash () {
-  URL="${BASE_URL}/random/3840*1600"
+  URL="${BASE_URL}/random/${RESOLUTION}"
   OUTPUT_PATH="${UNSPLASH_PATH}/random"
 
   wget $URL -O $OUTPUT_PATH -nv
@@ -19,14 +20,14 @@ random_unsplash () {
 }
 
 daily_unsplash () {
-  URL="${BASE_URL}/3840x2160/daily"
+  URL="${BASE_URL}/${RESOLUTION}/daily"
   OUTPUT_PATH="${UNSPLASH_PATH}/daily/${DAILY_NUM}"
 
   get_unsplash $URL $OUTPUT_PATH
 }
 
 weekly_unsplash () {
-  URL="${BASE_URL}/3840x2160/weekly"
+  URL="${BASE_URL}/${RESOLUTION}/weekly"
   OUTPUT_PATH="${UNSPLASH_PATH}/weekly/${WEEK_NUM}"
 
   get_unsplash $URL $OUTPUT_PATH
