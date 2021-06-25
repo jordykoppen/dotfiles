@@ -3,6 +3,7 @@ let g:coc_global_extensions = [
   \ 'coc-sh',
   \ 'coc-pairs',
   \ 'coc-tsserver',
+  \ 'coc-go',
   \ 'coc-eslint', 
   \ 'coc-prettier', 
   \ 'coc-markdownlint', 
@@ -11,7 +12,6 @@ let g:coc_global_extensions = [
   \ 'coc-emmet',
   \ 'coc-highlight',
   \ 'coc-css',
-  \ 'coc-graphql',
   \ 'coc-prisma',
   \ 'coc-cssmodules',
   \ 'coc-stylelintplus',
@@ -20,7 +20,6 @@ let g:coc_global_extensions = [
   \ 'coc-yank',
   \ 'coc-actions',
   \ 'coc-tabnine',
-  \ 'coc-graphql',
   \ ]
 
 function! s:cocActionsOpenFromSelected(type) abort

@@ -19,6 +19,8 @@ Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'jparise/vim-graphql'
 Plug 'pantharshit00/vim-prisma'
+Plug 'tpope/vim-commentary'
+Plug 'suy/vim-context-commentstring'
 
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
