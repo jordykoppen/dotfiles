@@ -21,3 +21,7 @@ nnoremap <silent> <C-p> :Files<CR>
 
 " use ctrl-c to copy to clipboard register in visual mode
 vnoremap <C-c> "+y
+
+nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
+
+nnoremap <silent> <F3> :NERDTreeToggle<CR>

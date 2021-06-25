@@ -1,0 +1,1 @@
+alias dmenu="rofi -dmenu"

@@ -1,0 +1,61 @@
+/*
+ *
+ * Author  : Aditya Shakya
+ * Mail    : adi1090x@gmail.com
+ * Github  : @adi1090x
+ * Twitter : @adi1090x
+ *
+ */
+
+@import "../theme.rasi"
+
+
+window {
+    transparency:                   "real";
+    border-radius:                  0px;
+    location:                       center;
+	  width:	            						320px;
+}
+
+prompt {
+    enabled: 						            true;
+    padding:                        10px;
+	  text-color: 					          @accentcolor;
+    border:                  		    2px 2px 2px 2px;
+    border-radius:                  0px;
+    border-color:                  	@accent;
+}
+
+textbox-prompt-colon {
+	expand: 						false;
+	str: 							"Wallpaper source";
+	text-color: 					          @accentcolor;
+  horizontal-align: 0.5;
+  padding:                        12px 10px 0px 10px;
+}
+
+inputbar {
+	children: 						[ textbox-prompt-colon ];
+    spacing:                        0px;
+	  text-color: 					          @accentcolor;
+    expand:                         false;
+    position:                       center;
+}
+
+element {
+    text-color:                     @foreground;
+    orientation:                    vertical;
+    border-radius:                  0px;
+    padding:                        0px 10px;
+}
+
+entry {
+  padding: 0;
+}
+
+element-text {
+    expand:                         false;
+    horizontal-align: 0.5;
+    vertical-align:                 0;
+    margin:                         0px;
+}

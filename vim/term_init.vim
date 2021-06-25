@@ -3,12 +3,9 @@ source $DOTFILES/vim/keymap.vim
 source $DOTFILES/vim/startify.vim
 source $DOTFILES/vim/coc.vim
 source $DOTFILES/vim/nerdtree.vim
+source $DOTFILES/vim/theme.vim
 
 set encoding=UTF-8
-set termguicolors
-let ayucolor="dark"
-colorscheme ayu
-
 set relativenumber
 set nowrap
 set noshowmode
@@ -18,6 +15,8 @@ set cindent
 set tabstop=2
 set shiftwidth=2
 set expandtab
+
+set clipboard=unnamedplus
 
 " Remove tilde on empty lines
 let &fcs='eob: '
@@ -82,3 +81,4 @@ hi Comment cterm=italic
 hi Type cterm=italic
 
 hi VertSplit guifg=#243340
+

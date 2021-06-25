@@ -8,8 +8,8 @@
 #
 # All imports must either be absolute paths starting with `/`, or paths relative
 # to the user's home directory starting with `~/`.
-#import:
-#  - /path/to/alacritty.yml
+import:
+  - ~/.config/alacritty/theme.yml
 
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
@@ -46,11 +46,11 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 20
-    y: 20
+    x: 40
+    y: 40
 
   # Spread additional padding evenly around the terminal content.
-  dynamic_padding: false
+  dynamic_padding: true
 
   # Window decorations
   #
@@ -175,34 +175,11 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
 
+
+# ayu-light
+
 # Colors (Ayu Dark)
-colors:
   # Default colors
-  primary:
-    background: '0x0f1419'
-    foreground: '0xe6e1cf'
-
-  # Normal colors
-  normal:
-    black:   '0x000000'
-    red:     '0xf34a4a'
-    green:   '0xbae67e'
-    yellow:  '0xffee99'
-    blue:    '0x73d0ff'
-    magenta: '0xd4bfff'
-    cyan:    '0x83CEC6'
-    white:   '0xf2f2f2'
-
-  # Bright colors
-  bright:
-    black:   '0x737d87'
-    red:     '0xff3333'
-    green:   '0xc2d94c'
-    yellow:  '0xe7c547'
-    blue:    '0x59c2ff'
-    magenta: '0xb77ee0'
-    cyan:    '0x5ccfe6'
-    white:   '0xffffff'
 
 # Colors (Tomorrow Night)
 #colors:
@@ -368,16 +345,16 @@ colors:
   # When set to `true`, selected text will be copied to the primary clipboard.
   #save_to_clipboard: false
 
-#cursor:
+cursor:
   # Cursor style
-  #style:
+  style:
     # Cursor shape
     #
     # Values for `shape`:
     #   - ▇ Block
     #   - _ Underline
     #   - | Beam
-    #shape: Block
+    shape: Beam
 
     # Cursor blinking state
     #

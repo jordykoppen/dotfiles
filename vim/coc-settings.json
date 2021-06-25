@@ -1,5 +1,11 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": ["json", "vim", "fish", "prisma"],
+  "coc.preferences.formatOnSaveFiletypes": [
+    "json",
+    "vim",
+    "fish",
+    "prisma",
+    "grahql"
+  ],
   "graphql.filetypes": [
     "graphql",
     "javascript",
