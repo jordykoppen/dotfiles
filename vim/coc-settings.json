@@ -6,6 +6,15 @@
     "prisma",
     "grahql"
   ],
+  "graphql.filetypes": [
+    "graphql",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "reason",
+    "prisma"
+  ],
   "eslint.enable": true,
   "eslint.autoFixOnSave": true,
   "eslint.filetypes": [

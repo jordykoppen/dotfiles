@@ -14,6 +14,7 @@ let g:coc_global_extensions = [
   \ 'coc-css',
   \ 'coc-prisma',
   \ 'coc-cssmodules',
+  \ 'coc-graphql',
   \ 'coc-stylelintplus',
   \ 'coc-html',
   \ 'coc-svg',
