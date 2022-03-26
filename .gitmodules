@@ -1,0 +1,3 @@
+[submodule "neovim-lua"]
+	path = neovim-lua
+	url = git@github.com:jordykoppen/neovim-lua.git
