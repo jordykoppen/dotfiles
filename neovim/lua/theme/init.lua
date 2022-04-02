@@ -5,3 +5,6 @@ vim.g.moonlight_contrast = true
 vim.g.moonlight_borders = false
 
 require('moonlight').set()
+
+vim.o.termguicolors = true
+vim.cmd'colorscheme moonlight'

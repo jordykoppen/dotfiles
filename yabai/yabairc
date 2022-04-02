@@ -47,6 +47,6 @@ yabai -m config window_gap                   12
 
 
 # yabai -m rule --add app!="^(System Preferences)$" manage=off
-yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^System Preferences|Icons8$" manage=off
 
 echo "yabai configuration loaded.."

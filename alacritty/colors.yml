@@ -1,0 +1,62 @@
+schemes:
+  moonlight: &dark
+    primary:
+      background: '0x1e2030'
+      foreground: '0x7f85a3'
+
+    cursor:
+      text:   '0x7f85a3'
+      cursor: '0x808080'
+
+    normal:
+      black:   '0x444a73'
+      red:     '0xff5370'
+      green:   '0x4fd6be'
+      yellow:  '0xffc777'
+      blue:    '0x3e68d7'
+      magenta: '0xfc7b7b'
+      cyan:    '0x86e1fc'
+      white:   '0xd0d0d0'
+
+    bright:
+      black:   '0x828bb8'
+      red:     '0xff98a4'
+      green:   '0xc3e88d'
+      yellow:  '0xffc777'
+      blue:    '0x82aaff'
+      magenta: '0xff966c'
+      cyan:    '0xb4f9f8'
+      white:   '0x5f8787'
+  github_light: &light
+    # Default colors
+    primary:
+      background: '0xffffff'
+      foreground: '0x24292f'
+
+    # Normal colors
+    normal:
+      black:   '0x24292e'
+      red:     '0xd73a49'
+      green:   '0x28a745'
+      yellow:  '0xdbab09'
+      blue:    '0x0366d6'
+      magenta: '0x5a32a3'
+      cyan:    '0x0598bc'
+      white:   '0x6a737d'
+
+    # Bright colors
+    bright:
+      black:   '0x959da5'
+      red:     '0xcb2431'
+      green:   '0x22863a'
+      yellow:  '0xb08800'
+      blue:    '0x005cc5'
+      magenta: '0x5a32a3'
+      cyan:    '0x3192aa'
+      white:   '0xd1d5da'
+
+    indexed_colors:
+      - { index: 16, color: '0xd18616' }
+      - { index: 17, color: '0xcb2431' }
+
+colors: *dark

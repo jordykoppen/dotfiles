@@ -35,7 +35,10 @@ return require('packer').startup({function()
     requires = { 'nvim-lua/plenary.nvim' }
   }
   use 'jose-elias-alvarez/nvim-lsp-ts-utils'
-  use 'neovim/nvim-lspconfig'
+  use {
+    'neovim/nvim-lspconfig',
+    'williamboman/nvim-lsp-installer',
+  }
 
   use_with_config('L3MON4D3/LuaSnip', 'luasnip')
   use({
@@ -64,6 +67,7 @@ return require('packer').startup({function()
 
   -- themes
   use 'jordykoppen/moonlight.nvim'
+  use "projekt0n/github-nvim-theme"
   use_with_config('kyazdani42/nvim-web-devicons', 'devicons')
 
   -- comment

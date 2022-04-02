@@ -121,7 +121,6 @@ u.nmap('K', '<cmd>lua vim.lsp.buf.hover()<CR>')
 local AUTOCOMMANDS = {
   -- higlight yanked text
   'autocmd TextYankPost * silent! lua vim.highlight.on_yank({ higroup = "IncSearch", timeout = 500 })',
-
   -- terminals
   -- always start in insert mode
   'autocmd TermOpen & startinsert',
@@ -132,7 +131,7 @@ local AUTOCOMMANDS = {
   -- remove tilde on EOL
   "let &fcs='eob: '",
   -- set transparent background for signcolumn
-  'highlight clear SignColumn'
+  'highlight clear SignColumn',
 }
 
 -- Map over AUTOCOMMANDS and execute
@@ -155,7 +154,3 @@ end
 
 require('lsp')
 require('theme')
-
-
-
-

@@ -39,4 +39,18 @@ M.input = function(keys, mode)
   api.nvim_feedkeys(M.t(keys), mode or 'm', true)
 end
 
+function Sad(line_nr, from, to, fname)
+  vim.cmd(string.format("silent !sed -i '%ss/%s/%s/' %s", line_nr, from, to, fname)) 
+end
+
+M.increaseTerminalPadding = function() 
+  Sad('07', 0, 20, '~/dotfiles/alacritty/alacritty.yml')
+  Sad('08', 0, 20, '~/dotfiles/alacritty/alacritty.yml')
+end
+
+M.decreaseTerminalPadding = function()
+  Sad('07', 20, 0, '~/dotfiles/alacritty/alacritty.yml')
+  Sad('08', 20, 0, '~/dotfiles/alacritty/alacritty.yml')
+end
+
 return M

@@ -1,0 +1,4 @@
+neww
+splitw -v -p 20
+splitw -h
+set status off

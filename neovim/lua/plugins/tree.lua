@@ -29,6 +29,7 @@ tree.setup({
   },
   filters = {
     dotfiles = false,
+    custom = { ".DS_Store" }
   },
   view = {
     width = 30,
