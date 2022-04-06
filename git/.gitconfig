@@ -20,3 +20,5 @@
     default = simple
 [init]
   defaultBranch = main
+[hub]
+	protocol = ssh
