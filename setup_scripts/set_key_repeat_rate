@@ -1,3 +1,4 @@
+#!/bin/bash
 # Set key repeat rate as system preferences isn't fast enough 
 
 defaults write -g InitialKeyRepeat -int 10 # normal minimum is 15 (225 ms)
