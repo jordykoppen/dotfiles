@@ -1,4 +1,6 @@
 - defaults:
+    brew:
+      auto_bootstrap: true
     link:
       relink: true
       create: true
@@ -22,6 +24,7 @@
       mode: 0700
     ~/workspace:
 
+- install-brew: true
 - brewfile:
   - brew/Brewfile
 
