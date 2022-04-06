@@ -8,3 +8,6 @@ font:
   size: 12
 
 live_config_reload: true
+cursor:
+  style:
+    shape: Beam
