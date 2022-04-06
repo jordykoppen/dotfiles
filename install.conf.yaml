@@ -1,7 +1,7 @@
 - defaults:
-  link:
-    relink: true
-    create: true
+    link:
+      relink: true
+      create: true
 - clean: ['~']
 - link:
     # config folders
@@ -16,40 +16,40 @@
     ~/.gitconfig:         git/.gitconfig
 
 - create:
-  ~/.ssh:
-    mode: 0700
-  ~/workspace:
+    ~/.ssh:
+      mode: 0700
+    ~/workspace:
 
 - shell:
-  - [
-      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)",
-      Installing Brew,
-    ]
-  - [
-      brew bundle --file brew/Brewfile,
-      Installing Brew packages from Brewfile,
-    ]
-  - [
-      sudo sh -c 'echo $(which fish) >> /etc/shells',
-      Adding fish to known shells
-    ]
-  - [
-      chsh -s $(which fish),
-      Making fish the default shell
-    ]
-  - [
-      rm -rf ~/.local/share/nvim/site/pack/packer && git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim,
-      Installing Packer,
-    ]
-  - [
-      nvim --headless -u NONE -c 'autocmd User PackerComplete quitall' -c 'lua require("plugins")' -c 'lua require("packer").sync()',
-      Installing Neovim plugins,
-    ]
-  - [
-      fish setup_scripts/set_repeat_rate.fish,
-      Setting key repeat rate,
-    ]
-  - [
-      fish setup_scripts/add_ssh_key.fish,
-      Setting up SSH,
-    ]
+    - [
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)",
+          Installing Brew,
+      ]
+    - [
+          brew bundle --file brew/Brewfile,
+          Installing Brew packages from Brewfile,
+      ]
+    - [
+          sudo sh -c 'echo $(which fish) >> /etc/shells',
+          Adding fish to known shells
+      ]
+    - [
+          chsh -s $(which fish),
+          Making fish the default shell
+      ]
+    - [
+          rm -rf ~/.local/share/nvim/site/pack/packer && git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim,
+          Installing Packer,
+      ]
+    - [
+          nvim --headless -u NONE -c 'autocmd User PackerComplete quitall' -c 'lua require("plugins")' -c 'lua require("packer").sync()',
+          Installing Neovim plugins,
+      ]
+    - [
+          fish setup_scripts/set_repeat_rate.fish,
+          Setting key repeat rate,
+      ]
+    - [
+          fish setup_scripts/add_ssh_key.fish,
+          Setting up SSH,
+      ]
