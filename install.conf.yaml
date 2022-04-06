@@ -1,6 +1,4 @@
 - defaults:
-    brew:
-      auto_bootstrap: true
     link:
       relink: true
       create: true
@@ -24,11 +22,13 @@
       mode: 0700
     ~/workspace:
 
-- install-brew: true
-- brewfile:
-  - brew/Brewfile
-
 - shell:
+    -
+      description: Installing Brew
+      command: ./setup_scripts/brew
+      stdout: true
+      stdin: true
+      stderr: true
     - 
       description: "Setting up fish as default shell"
       command: "./setup_scripts/fish_setup"
