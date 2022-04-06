@@ -1,6 +1,4 @@
 #!/bin/bash
 
-FISH_BIN=$(which fish)
-
-sudo echo $FISH_BIN >> /etc/shells
-chsh -s $FISH_BIN
+sudo echo $(which fish) >> /etc/shells
+chsh -s $(which fish)
