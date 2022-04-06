@@ -16,6 +16,7 @@
 
     # Single files
     ~/.gitconfig:         git/.gitconfig
+    ~/.tmux.conf:         tmux/tmux.conf
 
 - create:
     ~/.ssh:
@@ -26,28 +27,18 @@
     -
       description: Installing Brew
       command: ./setup_scripts/brew
-      stdout: true
-      stdin: true
-      stderr: true
     - 
-      description: "Setting up fish as default shell"
-      command: "./setup_scripts/fish_setup"
-      stdout: true
-      stdin: true
-      stderr: true
-    - [
-          rm -rf ~/.local/share/nvim/site/pack/packer && git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim,
-          Installing Packer,
-      ]
-    - [
-          nvim --headless -u NONE -c 'autocmd User PackerComplete quitall' -c 'lua require("plugins")' -c 'lua require("packer").sync()',
-          Installing Neovim plugins,
-      ]
-    - [
-          ./setup_scripts/set_repeat_rate,
-          Setting key repeat rate,
-      ]
-    - [
-          fish setup_scripts/shh.fish,
-          Setting up SSH,
-      ]
+      description: Setting up fish as default shell
+      command: ./setup_scripts/fish_setup
+    - 
+      description: Setting system defaults
+      command: ./setup_scripts/system_defaults
+    -
+      description: Installing Packer
+      command: rm -rf ~/.local/share/nvim/site/pack/packer && git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+    -
+      description: Installing Neovim plugins
+      command: nvim --headless -u NONE -c 'autocmd User PackerComplete quitall' -c 'lua require("plugins")' -c 'lua require("packer").sync()'
+    -
+      description: Setting up SSH
+      command: ./setup_scripts/ssh.fish
