@@ -41,4 +41,4 @@
       command: nvim --headless -u NONE -c 'autocmd User PackerComplete quitall' -c 'lua require("plugins")' -c 'lua require("packer").sync()'
     -
       description: Setting up SSH
-      command: ./setup_scripts/ssh.fish
+      command: ./setup_scripts/ssh
