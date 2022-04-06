@@ -1,4 +1,3 @@
-alias git="hub"
 alias ga="git add"
 alias gc="git commit --verbose"
 alias gd="git diff"
