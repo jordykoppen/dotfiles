@@ -1,4 +1,4 @@
 #!/bin/bash
 
-echo $(which fish) >> /etc/shells
-chsh -s $(which fish)
+sudo echo $(which fish) >> /etc/shells
+sudp chsh -s $(which fish)
