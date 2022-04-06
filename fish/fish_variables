@@ -1,6 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export DOTFILES:/Users/jordykoppen/dotfiles
+SETUVAR --export EDITOR:nvim
 SETUVAR --export N_PREFIX:/Users/jordykoppen/\x2elocal/share/
 SETUVAR --export TERMINAL:alacritty
 SETUVAR __fish_initialized:3400
