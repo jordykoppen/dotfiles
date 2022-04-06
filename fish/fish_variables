@@ -1,7 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export DOTFILES:/Users/jordykoppen/dotfiles
 SETUVAR --export N_PREFIX:/Users/jordykoppen/\x2elocal/share/
-SETUVAR SYSTEM_THEME:light
 SETUVAR --export TERMINAL:alacritty
 SETUVAR __fish_initialized:3400
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
@@ -32,4 +32,4 @@ SETUVAR fish_pager_color_description:B3A06D\x1eyellow\x1e\x2di
 SETUVAR fish_pager_color_prefix:cyan\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
-SETUVAR fish_user_paths:/Users/jordykoppen/\x2elocal/share//bin\x1e/opt/homebrew/bin\x1e/Users/jordykoppen/\x2elocal/bin\x1e/Users/jordykoppen/\x2efig/bin
+SETUVAR fish_user_paths:/opt/homebrew/opt/arm\x2dgcc\x2dbin\x408/bin\x1e/opt/homebrew/opt/avr\x2dgcc\x408/bin\x1e/Users/jordykoppen/\x2elocal/share//bin\x1e/opt/homebrew/bin\x1e/Users/jordykoppen/\x2elocal/bin\x1e/Users/jordykoppen/\x2efig/bin

@@ -38,7 +38,7 @@ M.setup = function(on_attach, capabilities)
       capabilities = capabilities,
     }
   })
-  require('lspconfig').sumneko_lua.setup(luadev)
+  return luadev
 end
 
 return M

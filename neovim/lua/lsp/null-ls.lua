@@ -31,17 +31,17 @@ local sources = {
   b.hover.dictionary
 }
 
-local M = {}
-
-M.setup = function(on_attach)
-  null_ls.setup({
-    -- debug = true,
-    sources = sources,
-    on_attach = function(client, bufnr)
-      client.resolved_capabilities.document_formatting = false
-      on_attach(client, bufnr)
-    end,
-  })
-end
+local M = {
+  setup = function(on_attach)
+    return null_ls.setup({
+      -- debug = true,
+      sources = sources,
+      on_attach = function(client, bufnr)
+        client.resolved_capabilities.document_formatting = false
+        on_attach(client, bufnr)
+      end,
+    })
+  end
+}
 
 return M

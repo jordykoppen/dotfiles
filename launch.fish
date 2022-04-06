@@ -1,3 +1,3 @@
-for f in (find $HOME/dotfiles/**/alias.fish)
+for f in (find $DOTFILES/**/alias.fish)
   source $f
 end

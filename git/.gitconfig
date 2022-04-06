@@ -1,0 +1,22 @@
+[user]
+	name = Jordy Koppen
+	email = 24296556+jordykoppen@users.noreply.github.com
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    ui = true
+[core]
+    editor = nvim
+[apply]
+    whitespace = nowarn
+[mergetool]
+    keepBackup = false
+[difftool]
+    prompt = true
+[help]
+    autocorrect = 1
+[push]
+    default = simple
+[init]
+  defaultBranch = main

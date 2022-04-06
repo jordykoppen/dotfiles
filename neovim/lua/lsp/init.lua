@@ -4,28 +4,9 @@ local api = vim.api
 local lsp = vim.lsp
 local diagnostics = require('lsp.diagnostics')
 
-local preferred_formatting_clients = { 'denols', 'eslint' }
+local preferred_formatting_clients = { 'denols', 'eslint', 'prismals' }
 local fallback_formatting_client = 'null-ls'
-
 local buffer_client_ids = {}
-
--- local lsp_installer = require("nvim-lsp-installer")
---
--- -- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished
--- -- or if the server is already installed).
--- lsp_installer.on_server_ready(function(server)
---     local opts = {}
---
---     -- (optional) Customize the options passed to the server
---     -- if server.name == "tsserver" then
---     --     opts.root_dir = function() ... end
---     -- end
---
---     -- This setup() function will take the provided server configuration and decorate it with the necessary properties
---     -- before passing it onwards to lspconfig.
---     -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
---     server:setup(opts)
--- end)
 
 _G.formatting = function(bufnr)
   bufnr = tonumber(bufnr) or api.nvim_get_current_buf()
@@ -121,15 +102,39 @@ end
 local capabilities = lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
-for _, server in ipairs({
+local lsp_installer = require("nvim-lsp-installer")
+
+local server_configs = {
   'null-ls',
   'tsserver',
   'sumneko_lua',
   'eslint',
   'tailwindcss',
-  'css'
-}) do
-  require('lsp.' .. server).setup(on_attach, capabilities)
+  'css',
+  'prismals',
+}
+
+
+local function has_value (tab, val)
+    for _, value in ipairs(tab) do
+        if value == val then
+            return true
+        end
+    end
+
+    return false
 end
+
+-- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished
+-- or if the server is already installed).
+lsp_installer.on_server_ready(function(server)
+  local opts = { capabilities = capabilities, on_attach = on_attach, }
+
+  if has_value(server_configs, server.name) then
+    opts = require('lsp.' .. server.name).setup(on_attach, capabilities)
+  end
+
+  server:setup(opts)
+end)
 
 diagnostics.setup()

@@ -8,35 +8,34 @@ local ts_utils_settings = {
   filter_out_diagnostics_by_code = { 80001 }
 }
 
-local M = {}
+local M = {
+  setup = function(on_attach, capabilities)
+    local lspconfig = require("lspconfig")
+    local ts_utils = require("nvim-lsp-ts-utils")
 
-M.setup = function(on_attach, capabilities)
-  local lspconfig = require("lspconfig")
-  local ts_utils = require("nvim-lsp-ts-utils")
+    return { 
+      root_dir = lspconfig.util.root_pattern("package.json"),
+      init_options = ts_utils.init_options,
+      on_attach = function(client, bufnr)
+        client.resolved_capabilities.document_formatting = false
 
-  lspconfig["tsserver"].setup({
-    root_dir = lspconfig.util.root_pattern("package.json"),
-    init_options = ts_utils.init_options,
-    on_attach = function(client, bufnr)
-      client.resolved_capabilities.document_formatting = false
+        on_attach(client, bufnr)
 
-      on_attach(client, bufnr)
+        ts_utils.setup(ts_utils_settings)
+        ts_utils.setup_client(client)
 
-      ts_utils.setup(ts_utils_settings)
-      ts_utils.setup_client(client)
-
-      u.nmap("gs", ":TSLspOrganize<CR>")
-      u.nmap("gI", ":TSLspRenameFile<CR>")
-      u.nmap("go", ":TSLspImportAll<CR>")
-      -- u.imap("${", change_template_string_quotes, { nowait = true })
-    end,
-    flags = {
-      debounce_text_changes = 150,
-    },
-    capabilities = capabilities,
-    handlers = handlers,
-  })
-
-end
+        u.nmap("gs", ":TSLspOrganize<CR>")
+        u.nmap("gI", ":TSLspRenameFile<CR>")
+        u.nmap("go", ":TSLspImportAll<CR>")
+        -- u.imap("${", change_template_string_quotes, { nowait = true })
+      end,
+      flags = {
+        debounce_text_changes = 150,
+      },
+      capabilities = capabilities,
+      handlers = handlers,
+    }
+  end
+}
 
 return M
