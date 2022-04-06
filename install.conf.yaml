@@ -22,15 +22,10 @@
       mode: 0700
     ~/workspace:
 
+- brewfile:
+  - brew/Brewfile
+
 - shell:
-    - [
-          ./setup_scripts/brew
-          Installing Brew,
-      ]
-    - [
-          brew bundle --file brew/Brewfile,
-          Installing Brew packages from Brewfile,
-      ]
     - 
       description: "Setting up fish as default shell"
       command: "./setup_scripts/fish_setup"
