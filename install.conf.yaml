@@ -29,10 +29,12 @@
           brew bundle --file brew/Brewfile,
           Installing Brew packages from Brewfile,
       ]
-    - [
-          sudo sh -c 'echo $(which fish) >> /etc/shells',
-          Adding fish to known shells
-      ]
+    - 
+      description: "Adding fish to known shells"
+      command: "./setup_scripts/fish.sh"
+      stdout: true
+      stdin: true
+      stderr: true
     - [
           chsh -s $(which fish),
           Making fish the default shell
