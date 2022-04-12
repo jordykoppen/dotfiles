@@ -137,6 +137,15 @@ local AUTOCOMMANDS = {
 -- Map over AUTOCOMMANDS and execute
 for _, cmd in pairs(AUTOCOMMANDS) do vim.cmd(cmd) end
 
+vim.cmd([[
+if exists("did_load_filetypes")
+  finish
+endif
+augroup filetypedetect
+  au! BufRead,BufNewFile .env*  setfiletype sh
+augroup END
+]])
+
 -- source remaining config
 require('config')
 require('plugins')
