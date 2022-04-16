@@ -1,5 +1,6 @@
 require('nvim-treesitter.configs').setup({
-  ensure_installed = 'maintained',
+  ensure_installed = 'all',
+  ignore_install = { "phpdoc" }, -- phpdoc doesn't work on M1
   highlight = { enable = true },
   -- plugins
   autopairs = { enable = true },

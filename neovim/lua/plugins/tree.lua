@@ -4,6 +4,8 @@ u.nmap('<C-n>', ':NvimTreeFindFileToggle<CR>', { silent = true })
 
 local tree = require('nvim-tree')
 
+tree.open_replacing_current_buffer()
+
 -- each of these options are document at :help nvim-tree.OPTION_NAME
 tree.setup({
   disable_netrw = true,
@@ -18,7 +20,6 @@ tree.setup({
     enable = true,
     auto_open = true
   },
-  auto_close = true,
   open_on_tab = true,
   hijack_cursor = true,
 
@@ -34,7 +35,7 @@ tree.setup({
   view = {
     width = 30,
     height = 30,
-    hide_root_folder = true,
+    hide_root_folder = false,
     side = 'left',
   },
   actions = {

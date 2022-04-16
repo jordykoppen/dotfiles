@@ -64,6 +64,7 @@ global = {}
 -- NORMAL MODE
 -- quit everything on double qq
 u.nmap('qq', ':qall<CR>')
+u.nmap('<S-CR>', ':wqall<CR>')
 
 -- move around splits with Ctrl + hjkl
 u.nmap('<C-h>', '<C-w>h')
@@ -84,7 +85,7 @@ u.imap('<C-Space>', '<C-x><C-n>')
 -- Go to end of line in insert
 u.imap('<S-Tab>', '<Esc>A')
 -- Shift + Enter saves and closes all
-u.nmap('<S-CR>', ':wqall<CR>')
+u.imap('jj', '<Esc>')
 
 -- Jump to first non-blank charachter on current line
 u.nmap('H', '^')

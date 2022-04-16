@@ -52,6 +52,10 @@ return require('packer').startup({function()
     config = config('cmp')
   })
 
+  use("b0o/schemastore.nvim") -- simple access to json-language-server schemae
+
+  use("jose-elias-alvarez/typescript.nvim")
+
   use 'folke/lua-dev.nvim'
 
   -- keymap help
@@ -64,6 +68,7 @@ return require('packer').startup({function()
   -- utils
   use 'nvim-lua/plenary.nvim'
   use_with_config('RRethy/vim-illuminate', 'illum') -- Highlight other uses of cursor word
+  use_with_config("ibhagwan/fzf-lua", "fzf") -- better lua version of fzf.vim
 
   -- themes
   use 'jordykoppen/moonlight.nvim'

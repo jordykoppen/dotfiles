@@ -107,6 +107,12 @@ _G.packer_plugins = {
     path = "/Users/jordykoppen/.local/share/nvim/site/pack/packer/start/dashboard-nvim",
     url = "https://github.com/glepnir/dashboard-nvim"
   },
+  ["fzf-lua"] = {
+    config = { "require('plugins.fzf')" },
+    loaded = true,
+    path = "/Users/jordykoppen/.local/share/nvim/site/pack/packer/start/fzf-lua",
+    url = "https://github.com/ibhagwan/fzf-lua"
+  },
   ["github-nvim-theme"] = {
     loaded = true,
     path = "/Users/jordykoppen/.local/share/nvim/site/pack/packer/start/github-nvim-theme",
@@ -265,22 +271,42 @@ time([[Config for LuaSnip]], false)
 time([[Config for which-key.nvim]], true)
 require('plugins.whichkey')
 time([[Config for which-key.nvim]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-require('plugins.telescope')
-time([[Config for telescope.nvim]], false)
+-- Config for: vim-yoink
+time([[Config for vim-yoink]], true)
+require('plugins.yoink')
+time([[Config for vim-yoink]], false)
+-- Config for: Comment.nvim
+time([[Config for Comment.nvim]], true)
+require('plugins.comment')
+time([[Config for Comment.nvim]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
 require('plugins.treesitter')
 time([[Config for nvim-treesitter]], false)
+-- Config for: dashboard-nvim
+time([[Config for dashboard-nvim]], true)
+require('plugins.dashboard')
+time([[Config for dashboard-nvim]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+require('plugins.telescope')
+time([[Config for telescope.nvim]], false)
+-- Config for: neogen
+time([[Config for neogen]], true)
+require('plugins.neogen')
+time([[Config for neogen]], false)
+-- Config for: fzf-lua
+time([[Config for fzf-lua]], true)
+require('plugins.fzf')
+time([[Config for fzf-lua]], false)
 -- Config for: trouble.nvim
 time([[Config for trouble.nvim]], true)
 require('plugins.troubles')
 time([[Config for trouble.nvim]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-require('plugins.gitsigns')
-time([[Config for gitsigns.nvim]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+require('plugins.tree')
+time([[Config for nvim-tree.lua]], false)
 -- Config for: nvim-web-devicons
 time([[Config for nvim-web-devicons]], true)
 require('plugins.devicons')
@@ -289,34 +315,18 @@ time([[Config for nvim-web-devicons]], false)
 time([[Config for vim-illuminate]], true)
 require('plugins.illum')
 time([[Config for vim-illuminate]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-require('plugins.tree')
-time([[Config for nvim-tree.lua]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
 require('plugins.cmp')
 time([[Config for nvim-cmp]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+require('plugins.gitsigns')
+time([[Config for gitsigns.nvim]], false)
 -- Config for: vim-subversive
 time([[Config for vim-subversive]], true)
 require('plugins.subversive')
 time([[Config for vim-subversive]], false)
--- Config for: neogen
-time([[Config for neogen]], true)
-require('plugins.neogen')
-time([[Config for neogen]], false)
--- Config for: Comment.nvim
-time([[Config for Comment.nvim]], true)
-require('plugins.comment')
-time([[Config for Comment.nvim]], false)
--- Config for: vim-yoink
-time([[Config for vim-yoink]], true)
-require('plugins.yoink')
-time([[Config for vim-yoink]], false)
--- Config for: dashboard-nvim
-time([[Config for dashboard-nvim]], true)
-require('plugins.dashboard')
-time([[Config for dashboard-nvim]], false)
 if should_profile then save_profiles() end
 
 end)
