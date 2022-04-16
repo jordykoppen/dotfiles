@@ -13,7 +13,7 @@ end
 
 local sources = {
   -- formatting
-  b.formatting.eslint_d,
+  b.formatting.prettier,
   b.formatting.fish_indent,
   b.formatting.stylua,
   -- b.formatting.stylua.with({
@@ -21,10 +21,10 @@ local sources = {
   -- }),
 
   -- diagnostics
-  b.diagnostics.eslint_d,
+  -- b.diagnostics.tsc,
 
   -- code actions
-  b.code_actions.eslint_d,
+  b.code_actions.eslint,
   b.code_actions.gitsigns,
 
   -- hover
@@ -36,7 +36,10 @@ local M = {
     return null_ls.setup({
       -- debug = true,
       sources = sources,
-      on_attach = on_attach,
+      on_attach = function(client, bufnr)
+        client.resolved_capabilities.document_formatting = false
+        on_attach(client, bufnr)
+      end,
     })
   end
 }

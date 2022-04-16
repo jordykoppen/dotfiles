@@ -1,9 +1,9 @@
 local M = {
   setup = function(on_attach, capabilities)
-    return {
+    require("lspconfig").tailwindcss.setup({
       on_attach = on_attach,
       capabilities = capabilities,
-    }
+    })
   end
 }
 

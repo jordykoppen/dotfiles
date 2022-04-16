@@ -1,5 +1,12 @@
-local settings = {
+local opts = {
   Lua = {
+    format = {
+      enable = true,
+      defaultConfig = {
+        indent_style = "space",
+        indent_size = "2",
+      }
+    },
     diagnostics = {
       globals = {
         'global',
@@ -12,6 +19,9 @@ local settings = {
         'after_each',
         'require',
       },
+      neededFileStatus = {
+        ["codestyle-check"] = "Any"
+      }
     },
     completion = {
       showWord = 'Disable',
@@ -39,7 +49,8 @@ M.setup = function(on_attach, capabilities)
       capabilities = capabilities,
     }
   })
-  return luadev
+
+  require("lspconfig").sumneko_lua.setup(luadev)
 end
 
 return M

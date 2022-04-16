@@ -41,55 +41,81 @@ local change_template_string_quotes = function()
     u.input("<Left>")
 end
 
-local M = {
-  setup = function(on_attach, capabilities)
-    -- local lspconfig = require("lspconfig")
-    local ts_utils = require("nvim-lsp-ts-utils")
+-- padding: 40px; ->
+-- padding: "40px",
+local css_to_js = function(opts)
+    local start_line, end_line
+    if type(opts) == "table" then
+        -- called via command
+        start_line, end_line = opts.line1 - 1, opts.line2
+    else
+        -- called as operator
+        start_line = api.nvim_buf_get_mark(0, "[")[1] - 1
+        end_line = api.nvim_buf_get_mark(0, "]")[1] + 1
+    end
 
-    require('typescript').setup({
-      server = {
-        on_attach = function(client, bufnr)
-          u.buf_map(bufnr, "n", "gs", ":TypescriptRemoveUnused<CR>")
-          u.buf_map(bufnr, "n", "gS", ":TypescriptOrganizeImports<CR>")
-          u.buf_map(bufnr, "n", "go", ":TypescriptAddMissingImports<CR>")
-          u.buf_map(bufnr, "n", "gA", ":TypescriptFixAll<CR>")
-          u.buf_map(bufnr, "n", "gI", ":TypescriptRenameFile<CR>")
-          u.buf_map(bufnr, "i", "${", change_template_string_quotes, { nowait = true })
+    local did_convert = false
+    for i, line in ipairs(api.nvim_buf_get_lines(0, start_line, end_line, false)) do
+        -- if the line ends in a comma, it's probably already js
+        if line:sub(#line) == "," then
+            goto continue
+        end
+        -- ignore comments
+        if line:find("%/%*") then
+            goto continue
+        end
 
-          -- api.nvim_buf_create_user_command(bufnr, "CssToJs", css_to_js, { range = true })
-          u.buf_map(bufnr, "n", "gx", ":set opfunc=v:lua.css_to_js<CR>g@")
-          u.buf_map(bufnr, "n", "gxx", ":CssToJs<CR>")
-          u.buf_map(bufnr, "v", "gx", ":CssToJs<CR>")
+        local indentation, name, val = line:match("(%s+)(.+):%s(.+)")
+        -- skip non-matching lines
+        if not (name and val) then
+            goto continue
+        end
 
-          on_attach(client, bufnr)
+        local parsed_name = ""
+        for j, component in ipairs(vim.split(name, "-")) do
+            parsed_name = parsed_name .. (j == 1 and component or (component:sub(1, 1):upper() .. component:sub(2)))
+        end
 
-          ts_utils.setup(ts_utils_settings)
-          ts_utils.setup(client)
-        end,
+        local parsed_val = val:gsub(";", "")
+        -- keep numbers, wrap others in quotes
+        parsed_val = tonumber(parsed_val) or string.format('"%s"', parsed_val)
+        local parsed_line = table.concat({ indentation, parsed_name, ": ", parsed_val, "," })
 
+        did_convert = true
+        local row = start_line + i
+        api.nvim_buf_set_lines(0, row - 1, row, false, { parsed_line })
 
-        capabilities = capabilities
-      }
+        ::continue::
+    end
+
+    if not did_convert then
+        u.warn("css-to-js: nothing to convert")
+    end
+end
+_G.css_to_js = css_to_js
+
+local M = {}
+M.setup = function(on_attach, capabilities)
+    require("typescript").setup({
+        server = {
+            on_attach = function(client, bufnr)
+                u.buf_map(bufnr, "n", "gs", ":TypescriptRemoveUnused<CR>")
+                u.buf_map(bufnr, "n", "gS", ":TypescriptOrganizeImports<CR>")
+                u.buf_map(bufnr, "n", "go", ":TypescriptAddMissingImports<CR>")
+                u.buf_map(bufnr, "n", "gA", ":TypescriptFixAll<CR>")
+                u.buf_map(bufnr, "n", "gI", ":TypescriptRenameFile<CR>")
+                u.buf_map(bufnr, "i", "${", change_template_string_quotes, { nowait = true })
+
+                api.nvim_buf_create_user_command(bufnr, "CssToJs", css_to_js, { range = true })
+                u.buf_map(bufnr, "n", "gx", ":set opfunc=v:lua.css_to_js<CR>g@")
+                u.buf_map(bufnr, "n", "gxx", ":CssToJs<CR>")
+                u.buf_map(bufnr, "v", "gx", ":CssToJs<CR>")
+
+                on_attach(client, bufnr)
+            end,
+            capabilities = capabilities,
+        },
     })
-    -- return { 
-    --   root_dir = lspconfig.util.root_pattern("package.json"),
-    --   init_options = ts_utils.init_options,
-    --   capabilities = capabilities,
-    --   on_attach = function(client, bufnr)
-    --     client.resolved_capabilities.document_formatting = false
-    --
-    --     on_attach(client, bufnr)
-    --
-    --     ts_utils.setup(ts_utils_settings)
-    --     ts_utils.setup_client(client)
-    --
-    --     u.nmap("gs", ":TSLspOrganize<CR>")
-    --     u.nmap("gI", ":TSLspRenameFile<CR>")
-    --     u.nmap("go", ":TSLspImportAll<CR>")
-    --     u.imap("${", change_template_string_quotes, { nowait = true })
-    --   end,
-    -- }
-  end
-}
+end
 
 return M

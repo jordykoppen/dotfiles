@@ -16,9 +16,9 @@ end
 
 local M = {
   setup = function(on_attach, capabilities)
-    -- local lspconfig = require('lspconfig')
+    local lspconfig = require('lspconfig')
 
-    return {
+    lspconfig.eslint.setup({
       -- root_dir = lspconfig.util.root_pattern('.eslintrc', '.eslintrc.js', '.eslintrc.json'),
       root_dir = function ()
         if not eslint_config_exists() then
@@ -50,7 +50,7 @@ local M = {
             return vim.lsp.handlers["window/showMessageRequest"](nil, result)
         end,
       }
-    }
+    })
   end
 }
 

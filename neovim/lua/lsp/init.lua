@@ -101,9 +101,7 @@ end
 local capabilities = lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
-local lsp_installer = require("nvim-lsp-installer")
-
-local server_configs = {
+for _, server in ipairs({
   'null-ls',
   'tsserver',
   'sumneko_lua',
@@ -111,29 +109,10 @@ local server_configs = {
   'tailwindcss',
   'css',
   'prismals',
-}
-
-
-local function has_value (tab, val)
-    for _, value in ipairs(tab) do
-        if value == val then
-            return true
-        end
-    end
-
-    return false
+}) do
+  require('lsp.' .. server).setup(on_attach, capabilities)
 end
 
--- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished
--- or if the server is already installed).
-lsp_installer.on_server_ready(function(server)
-  local opts = { capabilities = capabilities, on_attach = on_attach, }
 
-  if has_value(server_configs, server.name) then
-    opts = require('lsp.' .. server.name).setup(on_attach, capabilities)
-  end
-
-  server:setup(opts)
-end)
 
 diagnostics.setup()
