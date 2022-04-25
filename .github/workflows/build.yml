@@ -7,8 +7,6 @@ on:
     paths:
       - keyboards/crkbd/**
 name: crkbd firmware build
-inputs: 
-  config_path: keyboards/crkbd
 jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
