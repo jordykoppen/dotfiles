@@ -12,14 +12,12 @@
 #define LWR     1
 #define RSE     2
 #define ADJ     3
-#define ALTR    4
 
 #define NXT   C_NEXT
 #define PRV   C_PREV
 #define VUP   C_VOL_UP
 #define VDN   C_VOL_DN
 #define PLY   C_PP
-#define MENU  K_APP
 
 / {
         keymap {
@@ -77,19 +75,5 @@
                                         &kp LGUI     &trans       &kp SPACE       &kp RET &trans &kp RALT
                         >;
                 };
-                alternate_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-// |CTLESC|  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | SHFT |
-//                    | APP | LWR | SPC |   | ENT | RSE  | ALT |
-                        bindings = <
-   &kp TAB       &kp Q &kp W &kp E &kp R &kp T    &kp Y &kp U &kp I     &kp O   &kp P    &kp BSPC
-   &mt LCTRL ESC &kp A &kp S &kp D &kp F &kp G    &kp H &kp J &kp K     &kp L   &kp SEMI &kp SQT
-   &kp LSHFT     &kp Z &kp X &kp C &kp V &kp B    &kp N &kp M &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                    &kp MENU &mo LWR &kp SPACE    &kp RET &mo RSE &kp RALT
-                        >;
-                };
-
         };
 };
