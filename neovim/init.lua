@@ -162,5 +162,23 @@ vim.notify = function(msg, ...)
   notify(msg, ...)
 end
 
+-- lazygit
+u.command("Lazygit", "tabnew | term lazygit")
+u.nmap("<Leader>gg", ":Lazygit<CR>")
+
+vim.api.nvim_create_autocmd("TermClose", {
+    pattern = "term://*lazygit",
+    callback = function()
+        -- check buffers for changes
+        vim.cmd("checktime")
+
+        local bufnr = tonumber(vim.fn.expand("<abuf>"))
+        if vim.api.nvim_buf_is_loaded(bufnr) then
+            -- suppress process exited messages
+            vim.api.nvim_buf_delete(tonumber(bufnr), { force = true })
+        end
+    end,
+})
+
 require('lsp')
 require('theme')

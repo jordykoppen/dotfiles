@@ -8,6 +8,14 @@ local preferred_formatting_clients = { 'eslint', 'prismals' }
 local fallback_formatting_client = 'null-ls'
 local buffer_client_ids = {}
 
+local border_opts = { border = "single", focusable = false, scope = "line" }
+
+
+vim.diagnostic.config({ virtual_text = false, float = border_opts })
+
+lsp.handlers["textDocument/signatureHelp"] = lsp.with(lsp.handlers.signature_help, border_opts)
+lsp.handlers["textDocument/hover"] = lsp.with(lsp.handlers.hover, border_opts)
+
 _G.formatting = function(bufnr)
   bufnr = tonumber(bufnr) or api.nvim_get_current_buf()
 
@@ -109,6 +117,7 @@ for _, server in ipairs({
   'tailwindcss',
   'css',
   'prismals',
+  'rust'
 }) do
   require('lsp.' .. server).setup(on_attach, capabilities)
 end

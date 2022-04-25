@@ -15,6 +15,8 @@ return require('packer').startup({function()
   use_with_config('nvim-telescope/telescope.nvim', 'telescope')
   use 'nvim-telescope/telescope-symbols.nvim'
 
+  use 'simrat39/rust-tools.nvim'
+
   -- treesitter
   use({
     'nvim-treesitter/nvim-treesitter',
@@ -24,9 +26,14 @@ return require('packer').startup({function()
   })
   use 'RRethy/nvim-treesitter-textsubjects' -- adds smart text objects
   use 'windwp/nvim-ts-autotag' -- automatically close JSX tags
-  use_with_config('danymat/neogen', 'neogen') -- annotation generator
   use 'RRethy/nvim-treesitter-endwise' -- wisely add end
+  -- use 'theHamsta/nvim-treesitter-commonlisp'
+
+  use_with_config('danymat/neogen', 'neogen') -- annotation generator
   use_with_config('lewis6991/gitsigns.nvim', 'gitsigns')
+
+  use 'nvim-treesitter/playground'
+
 
 
   -- LSP + utils
@@ -71,7 +78,7 @@ return require('packer').startup({function()
   use_with_config("ibhagwan/fzf-lua", "fzf") -- better lua version of fzf.vim
 
   -- themes
-  use 'jordykoppen/moonlight.nvim'
+  use '~/workspace/moonlight.nvim'
   use "projekt0n/github-nvim-theme"
   use_with_config('kyazdani42/nvim-web-devicons', 'devicons')
 

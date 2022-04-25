@@ -104,7 +104,7 @@ M.setup = function(on_attach, capabilities)
                 u.buf_map(bufnr, "n", "go", ":TypescriptAddMissingImports<CR>")
                 u.buf_map(bufnr, "n", "gA", ":TypescriptFixAll<CR>")
                 u.buf_map(bufnr, "n", "gI", ":TypescriptRenameFile<CR>")
-                u.buf_map(bufnr, "i", "${", change_template_string_quotes, { nowait = true })
+                -- u.buf_map(bufnr, "i", "${", change_template_string_quotes, { nowait = true })
 
                 api.nvim_buf_create_user_command(bufnr, "CssToJs", css_to_js, { range = true })
                 u.buf_map(bufnr, "n", "gx", ":set opfunc=v:lua.css_to_js<CR>g@")

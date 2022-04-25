@@ -1,7 +1,8 @@
 schemes:
   moonlight: &dark
     primary:
-      background: '0x1e2030'
+      background: '#212337'
+      # background: '0x1e2030'
       foreground: '0x7f85a3'
 
     cursor:

@@ -1,7 +1,7 @@
 window:
   # DO NOT CHANGE LINE POSITION FOR PADDING. Nvim is dynamically adjust padding based on line num
   padding:
-    x: 10
-    y: 10
+    x: 6
+    y: 6
   dynamic_padding: true
   decorations: Buttonless
