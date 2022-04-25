@@ -6,8 +6,14 @@ on:
   push:
     paths:
       - keyboards/crkbd/**
+
 name: crkbd firmware build
+
+
+defaults:
+  run:
+    working-directory: ./keyboards/crkbd
+
 jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
-    working-directory: ./keyboards/crkbd
