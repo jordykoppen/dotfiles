@@ -80,7 +80,7 @@ jobs:
         run: west init -l ./keyboards/crkbd/config
 
       - name: West Update
-        run: west update -- -DZMK_CONFIG=${GITHUB_WORKSPACE}/keyboards/crkbd/config
+        run: west update ${GITHUB_WORKSPACE}/keyboards/crkbd/config
 
       - name: West Zephyr export
         run: west zephyr-export
