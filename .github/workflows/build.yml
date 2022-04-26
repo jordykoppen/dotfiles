@@ -77,10 +77,10 @@ jobs:
             ${{ runner.os }}-
 
       - name: West Init
-        run: west init -l keyboards/crkbd/config
+        run: west init -l ./keyboards/crkbd/config
 
       - name: West Update
-        run: west update
+        run: west update -- -DZMK_CONFIG=${GITHUB_WORKSPACE}/keyboards/crkbd/config
 
       - name: West Zephyr export
         run: west zephyr-export
