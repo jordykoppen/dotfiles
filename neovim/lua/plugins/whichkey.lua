@@ -1,4 +1,14 @@
 local wk = require("which-key")
+local builtin = require("telescope.builtin")
+
+builtin.find_project_files = function()
+  local ok = pcall(builtin.git_files)
+
+  if not ok then
+    builtin.find_files()
+  end
+end
+
 local config = {
   setup = {
     plugins = {
@@ -64,8 +74,7 @@ local config = {
     ["q"] = { "<cmd>q!<CR>", "Quit" },
     ["/"] = { "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", "Comment" },
     ["c"] = { "<cmd>BufferKill<CR>", "Close Buffer" },
-    -- ["f"] = { require("lvim.core.telescope.custom-finders").find_project_files, "Find File" }
-    ["f"] = { "<cmd>lua require('telescope.builtin').find_files()<cr>", "Find File" }, -- TODO: Enable when telescope is installed.
+    ["f"] = { "<cmd>lua require('telescope.builtin').find_project_files()<cr>", "Find File" },
     ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
     b = {
       name = "Buffers",

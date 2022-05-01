@@ -1,17 +1,5 @@
--- local border = {
---       {"🭽", "FloatBorder"},
---       {"▔", "FloatBorder"},
---       {"🭾", "FloatBorder"},
---       {"▕", "FloatBorder"},
---       {"🭿", "FloatBorder"},
---       {"▁", "FloatBorder"},
---       {"🭼", "FloatBorder"},
---       {"▏", "FloatBorder"},
--- }
---
--- local handlers = {
---   ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover),
---   ['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help)
--- }
+local c = require("config.diagnostics")
+local lsp = vim.lsp
 
--- return handlers
+lsp.handlers["textDocument/signatureHelp"] = lsp.with(lsp.handlers.signature_help, c.float)
+lsp.handlers["textDocument/hover"] = lsp.with(lsp.handlers.hover, c.float)

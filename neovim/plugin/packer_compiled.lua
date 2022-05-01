@@ -289,10 +289,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: twilight.nvim
-time([[Config for twilight.nvim]], true)
-require('plugins.twilight')
-time([[Config for twilight.nvim]], false)
 -- Config for: trouble.nvim
 time([[Config for trouble.nvim]], true)
 require('plugins.troubles')
@@ -301,6 +297,10 @@ time([[Config for trouble.nvim]], false)
 time([[Config for Comment.nvim]], true)
 require('plugins.comment')
 time([[Config for Comment.nvim]], false)
+-- Config for: twilight.nvim
+time([[Config for twilight.nvim]], true)
+require('plugins.twilight')
+time([[Config for twilight.nvim]], false)
 -- Config for: neogen
 time([[Config for neogen]], true)
 require('plugins.neogen')
@@ -337,18 +337,18 @@ time([[Config for fzf-lua]], false)
 time([[Config for gitsigns.nvim]], true)
 require('plugins.gitsigns')
 time([[Config for gitsigns.nvim]], false)
--- Config for: vim-illuminate
-time([[Config for vim-illuminate]], true)
-require('plugins.illum')
-time([[Config for vim-illuminate]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-require('plugins.treesitter')
-time([[Config for nvim-treesitter]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
 require('plugins.cmp')
 time([[Config for nvim-cmp]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require('plugins.treesitter')
+time([[Config for nvim-treesitter]], false)
+-- Config for: vim-illuminate
+time([[Config for vim-illuminate]], true)
+require('plugins.illum')
+time([[Config for vim-illuminate]], false)
 -- Config for: nvim-tree.lua
 time([[Config for nvim-tree.lua]], true)
 require('plugins.tree')

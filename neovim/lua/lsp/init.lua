@@ -1,19 +1,12 @@
 local u = require("config.utils")
+require("lsp.handlers")
 
 local api = vim.api
 local lsp = vim.lsp
-local diagnostics = require("lsp.diagnostics")
 
 local preferred_formatting_clients = { "eslint", "prismals" }
 local fallback_formatting_client = "null-ls"
 local buffer_client_ids = {}
-
-local border_opts = { border = "single", focusable = false, scope = "line" }
-
-vim.diagnostic.config({ virtual_text = false, float = border_opts })
-
-lsp.handlers["textDocument/signatureHelp"] = lsp.with(lsp.handlers.signature_help, border_opts)
-lsp.handlers["textDocument/hover"] = lsp.with(lsp.handlers.hover, border_opts)
 
 _G.formatting = function(bufnr)
   bufnr = tonumber(bufnr) or api.nvim_get_current_buf()
@@ -40,7 +33,7 @@ _G.formatting = function(bufnr)
 
   buffer_client_ids[bufnr] = selected_client.id
 
-  local params = lsp.util.make_formatting_params()
+  local params = lsp.util.make_formatting_params({})
   selected_client.request("textDocument/formatting", params, function(err, res)
     if err then
       local err_msg = type(err) == "string" and err or err.message
@@ -73,9 +66,9 @@ local on_attach = function(client, bufnr)
   u.command("LspTypeDef", vim.lsp.buf.type_definition)
   u.command("LspRangeAct", vim.lsp.buf.range_code_action)
   -- not sure why this is necessary?
-  u.command("LspRename", function()
-    vim.lsp.buf.rename()
-  end)
+  -- u.command("LspRename", function()
+  --   vim.lsp.buf.rename(_)
+  -- end)
 
   -- bindings
   u.buf_map(bufnr, "n", "gi", ":LspRename<CR>")
@@ -119,5 +112,3 @@ for _, server in ipairs({
 }) do
   require("lsp." .. server).setup(on_attach, capabilities)
 end
-
-diagnostics.setup()
