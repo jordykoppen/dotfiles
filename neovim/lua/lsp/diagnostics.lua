@@ -2,36 +2,35 @@ local M = {}
 
 -- local border_opts = { border = "single", focusable = false, scope = "line" }
 
--- local float = {
---     focusable = false,
---     style = 'minimal',
---     border = 'rounded',
---     source = 'always',
---     header = '',
---     prefix = '',
---     format = function(d)
---       local t = vim.deepcopy(d)
---       local code = d.code or (d.user_data and d.user_data.lsp.code)
---
---       if code then
---         t.message = string.format("%s [%s]", t.message, code):gsub("1. ", "")
---       end
---
---       return t.message
---     end,
--- }
+local float = {
+  focusable = false,
+  style = "minimal",
+  border = "rounded",
+  source = "always",
+  header = "",
+  prefix = "",
+  format = function(d)
+    local t = vim.deepcopy(d)
+    local code = d.code or (d.user_data and d.user_data.lsp.code)
 
+    if code then
+      t.message = string.format("%s [%s]", t.message, code):gsub("1. ", "")
+    end
+
+    return t.message
+  end,
+}
 
 M.setup = function()
   local signs = {
-    { name = 'DiagnosticSignError', text = "", },
-    { name = 'DiagnosticSignWarn', text = "", },
-    { name = 'DiagnosticSignHint', text = "", },
-    { name = 'DiagnosticSignInfo', text = "", },
+    { name = "DiagnosticSignError", text = "" },
+    { name = "DiagnosticSignWarn", text = "" },
+    { name = "DiagnosticSignHint", text = "" },
+    { name = "DiagnosticSignInfo", text = "" },
   }
 
   for _, sign in pairs(signs) do
-    vim.fn.sign_define(sign.name, { text = sign.text, texthl = sign.name, numhl = '' })
+    vim.fn.sign_define(sign.name, { text = sign.text, texthl = sign.name, numhl = "" })
   end
 
   local config = {
@@ -39,7 +38,7 @@ M.setup = function()
     virtual_text = false,
     -- show signs
     signs = {
-      active = signs
+      active = signs,
     },
     update_in_insert = false,
     underline = true,

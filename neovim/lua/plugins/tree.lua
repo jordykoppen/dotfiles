@@ -1,8 +1,8 @@
-local u = require('config.utils')
+local u = require("config.utils")
 
-u.nmap('<C-n>', ':NvimTreeFindFileToggle<CR>', { silent = true })
+u.nmap("<C-n>", ":NvimTreeFindFileToggle<CR>", { silent = true })
 
-local tree = require('nvim-tree')
+local tree = require("nvim-tree")
 
 tree.open_replacing_current_buffer()
 
@@ -12,13 +12,9 @@ tree.setup({
   hijack_netrw = true,
   open_on_setup = false,
   ignore_ft_on_setup = {
-    'startify',
-    'dashboard',
-    'alpha',
-  },
-  update_to_buf_dir = {
-    enable = true,
-    auto_open = true
+    "startify",
+    "dashboard",
+    "alpha",
   },
   open_on_tab = true,
   hijack_cursor = true,
@@ -30,17 +26,17 @@ tree.setup({
   },
   filters = {
     dotfiles = false,
-    custom = { ".DS_Store" }
+    custom = { ".DS_Store" },
   },
   view = {
     width = 30,
     height = 30,
     hide_root_folder = false,
-    side = 'left',
+    side = "left",
   },
   actions = {
     open_file = {
-      quit_on_open = true
-    }
-  }
+      quit_on_open = true,
+    },
+  },
 })
