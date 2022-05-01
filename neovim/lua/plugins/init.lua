@@ -1,3 +1,5 @@
+local u = require("config.utils")
+
 vim.cmd([[packadd packer.nvim]])
 
 return require("packer").startup({
@@ -31,7 +33,8 @@ return require("packer").startup({
     -- use 'theHamsta/nvim-treesitter-commonlisp'
 
     use_with_config("danymat/neogen", "neogen") -- annotation generator
-    use_with_config("lewis6991/gitsigns.nvim", "gitsigns")
+    -- GIT
+    use_with_config("lewis6991/gitsigns.nvim", "git")
 
     use("nvim-treesitter/playground")
 
@@ -70,7 +73,7 @@ return require("packer").startup({
     use_with_config("folke/which-key.nvim", "whichkey")
 
     -- file/project navigation
-    use_with_config("kyazdani42/nvim-tree.lua", "tree")
+    use_with_config("kyazdani42/nvim-tree.lua", "filetree")
     use_with_config("glepnir/dashboard-nvim", "dashboard")
 
     -- utils
@@ -97,11 +100,24 @@ return require("packer").startup({
     use("rcarriga/nvim-notify")
 
     use_with_config("folke/trouble.nvim", "troubles")
+
+    -- Packer which-key Mappings
+    u.registerMappings({
+      p = {
+        name = "Packer",
+        c = { "<cmd>PackerCompile<cr>", "Compile" },
+        i = { "<cmd>PackerInstall<cr>", "Install" },
+        r = { "<cmd>lua require('lvim.plugin-loader').recompile()<cr>", "Re-compile" },
+        s = { "<cmd>PackerSync<cr>", "Sync" },
+        S = { "<cmd>PackerStatus<cr>", "Status" },
+        u = { "<cmd>PackerUpdate<cr>", "Update" },
+      },
+    })
   end,
   config = {
     display = {
       open_fn = function()
-        return require("packer.util").float({ border = "single" })
+        return require("packer.util").float(require("config.diagnostics"))
       end,
     },
   },

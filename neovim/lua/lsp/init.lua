@@ -112,3 +112,37 @@ for _, server in ipairs({
 }) do
   require("lsp." .. server).setup(on_attach, capabilities)
 end
+
+u.registerMappings({
+  l = {
+    name = "LSP",
+    a = { "<cmd>lua require('lvim.core.telescope').code_actions()<cr>", "Code Action" },
+    d = { "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", "Buffer Diagnostics" },
+    w = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
+    f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
+    i = { "<cmd>LspInfo<cr>", "Info" },
+    I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
+    j = {
+      "<cmd>lua vim.diagnostic.goto_next()<cr>",
+      "Next Diagnostic",
+    },
+    k = {
+      "<cmd>lua vim.diagnostic.goto_prev()<cr>",
+      "Prev Diagnostic",
+    },
+    l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
+    p = {
+      name = "Peek",
+      d = { "<cmd>lua require('lvim.lsp.peek').Peek('definition')<cr>", "Definition" },
+      t = { "<cmd>lua require('lvim.lsp.peek').Peek('typeDefinition')<cr>", "Type Definition" },
+      i = { "<cmd>lua require('lvim.lsp.peek').Peek('implementation')<cr>", "Implementation" },
+    },
+    q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
+    r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+    s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+    S = {
+      "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
+      "Workspace Symbols",
+    },
+  },
+})

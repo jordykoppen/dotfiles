@@ -1,3 +1,4 @@
+local u = require("config.utils")
 require("nvim-treesitter.configs").setup({
   ensure_installed = "all",
   ignore_install = { "phpdoc" }, -- phpdoc doesn't work on M1
@@ -36,5 +37,12 @@ require("nvim-treesitter.configs").setup({
       goto_node = "<cr>",
       show_help = "?",
     },
+  },
+})
+
+u.registerMappings({
+  T = {
+    name = "Treesitter",
+    i = { ":TSConfigInfo<cr>", "Info" },
   },
 })

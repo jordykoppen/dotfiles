@@ -1,3 +1,4 @@
+local u = require("config.utils")
 require("trouble").setup({
   position = "bottom", -- position of the list can be: bottom, top, left, right
   height = 10, -- height of the trouble list when position is top or bottom
@@ -38,4 +39,14 @@ require("trouble").setup({
   auto_fold = false, -- automatically fold a file trouble list at creation
   auto_jump = { "lsp_definitions" }, -- for the given modes, automatically jump if there is only a single result
   use_diagnostic_signs = true, -- enabling this will use the signs defined in your lsp client
+})
+
+u.registerMappings({
+  t = {
+    name = "Trouble",
+    d = { "<cmd>TroubleToggle lsp_definitions<cr>", "Definitions" },
+    q = { "<cmd>TroubleToggle quickfix<cr>", "Quickfix" },
+    r = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
+    t = { "<cmd>TroubleToggle lsp_type_definitions<cr>", "Type Definitions" },
+  },
 })

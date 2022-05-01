@@ -52,4 +52,19 @@ M.decreaseTerminalPadding = function()
   Sad("08", 20, 0, "~/dotfiles/alacritty/alacritty.yml")
 end
 
+M.registerMappings = function(mappings, opts)
+  opts = opts or {}
+
+  local conf = {
+    mode = opts.mode or "n", -- NORMAL mode
+    prefix = opts.prefix or "<leader>",
+    buffer = opts.buffer or nil, -- Global mappings. Specify a buffer number for buffer local mappings
+    silent = opts.silets or true, -- use `silent` when creating keymaps
+    noremap = opts.noremap or true, -- use `noremap` when creating keymaps
+    nowait = opts.nowait or true, -- use `nowait` when creating keymaps
+  }
+
+  require("which-key").register(mappings, conf)
+end
+
 return M
