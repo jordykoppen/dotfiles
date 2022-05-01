@@ -16,11 +16,11 @@ end
 
 local M = {
   setup = function(on_attach, capabilities)
-    local lspconfig = require('lspconfig')
+    local lspconfig = require("lspconfig")
 
     lspconfig.eslint.setup({
       -- root_dir = lspconfig.util.root_pattern('.eslintrc', '.eslintrc.js', '.eslintrc.json'),
-      root_dir = function ()
+      root_dir = function()
         if not eslint_config_exists() then
           return nil
         end
@@ -35,23 +35,23 @@ local M = {
       capabilities = capabilities,
       settings = {
         format = {
-          enable = true
+          enable = true,
         },
       },
-      bin = 'eslint_d',
+      bin = "eslint_d",
       handlers = {
         -- this error shows up occasionally when formatting
         -- formatting actually works, so this will supress it
         ["window/showMessageRequest"] = function(_, result)
-            if result.message:find("ENOENT") then
-                return vim.NIL
-            end
+          if result.message:find("ENOENT") then
+            return vim.NIL
+          end
 
-            return vim.lsp.handlers["window/showMessageRequest"](nil, result)
+          return vim.lsp.handlers["window/showMessageRequest"](nil, result)
         end,
-      }
+      },
     })
-  end
+  end,
 }
 
 return M

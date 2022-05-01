@@ -2,5 +2,5 @@
 
 local function apply_defaults(configs, defaults)
   configs = configs or {}
-  return vim.tbl_deep_extend('keep', configs, defaults)
+  return vim.tbl_deep_extend("keep", configs, defaults)
 end

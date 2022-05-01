@@ -1,15 +1,14 @@
-local u = require('config.utils')
+local u = require("config.utils")
 
 local api = vim.api
 local lsp = vim.lsp
-local diagnostics = require('lsp.diagnostics')
+local diagnostics = require("lsp.diagnostics")
 
-local preferred_formatting_clients = { 'eslint', 'prismals' }
-local fallback_formatting_client = 'null-ls'
+local preferred_formatting_clients = { "eslint", "prismals" }
+local fallback_formatting_client = "null-ls"
 local buffer_client_ids = {}
 
 local border_opts = { border = "single", focusable = false, scope = "line" }
-
 
 vim.diagnostic.config({ virtual_text = false, float = border_opts })
 
@@ -24,14 +23,14 @@ _G.formatting = function(bufnr)
     selected_client = lsp.get_client_by_id(buffer_client_ids[bufnr])
   else
     for _, client in pairs(lsp.buf_get_clients(bufnr)) do
-        if vim.tbl_contains(preferred_formatting_clients, client.name) then
-            selected_client = client
-            break
-        end
+      if vim.tbl_contains(preferred_formatting_clients, client.name) then
+        selected_client = client
+        break
+      end
 
-        if client.name == fallback_formatting_client then
-            selected_client = client
-        end
+      if client.name == fallback_formatting_client then
+        selected_client = client
+      end
     end
   end
 
@@ -56,72 +55,69 @@ _G.formatting = function(bufnr)
     if res then
       lsp.util.apply_text_edits(res, bufnr, selected_client.offset_encoding or "utf-16")
       api.nvim_buf_call(bufnr, function()
-          vim.cmd("silent noautocmd update")
+        vim.cmd("silent noautocmd update")
       end)
     end
   end, bufnr)
 end
 
 local on_attach = function(client, bufnr)
-    -- commands
-    u.command("LspFormatting", vim.lsp.buf.formatting)
-    u.command("LspHover", vim.lsp.buf.hover)
-    u.command("LspDiagPrev", vim.diagnostic.goto_prev)
-    u.command("LspDiagNext", vim.diagnostic.goto_next)
-    u.command("LspDiagLine", vim.diagnostic.open_float)
-    u.command("LspDiagQuickfix", vim.diagnostic.setqflist)
-    u.command("LspSignatureHelp", vim.lsp.buf.signature_help)
-    u.command("LspTypeDef", vim.lsp.buf.type_definition)
-    u.command("LspRangeAct", vim.lsp.buf.range_code_action)
-    -- not sure why this is necessary?
-    u.command("LspRename", function()
-        vim.lsp.buf.rename()
-    end)
+  -- commands
+  u.command("LspFormatting", vim.lsp.buf.formatting)
+  u.command("LspHover", vim.lsp.buf.hover)
+  u.command("LspDiagPrev", vim.diagnostic.goto_prev)
+  u.command("LspDiagNext", vim.diagnostic.goto_next)
+  u.command("LspDiagLine", vim.diagnostic.open_float)
+  u.command("LspDiagQuickfix", vim.diagnostic.setqflist)
+  u.command("LspSignatureHelp", vim.lsp.buf.signature_help)
+  u.command("LspTypeDef", vim.lsp.buf.type_definition)
+  u.command("LspRangeAct", vim.lsp.buf.range_code_action)
+  -- not sure why this is necessary?
+  u.command("LspRename", function()
+    vim.lsp.buf.rename()
+  end)
 
-    -- bindings
-    u.buf_map(bufnr, "n", "gi", ":LspRename<CR>")
-    u.buf_map(bufnr, "n", "K", ":LspHover<CR>")
-    u.buf_map(bufnr, "n", "[a", ":LspDiagPrev<CR>")
-    u.buf_map(bufnr, "n", "]a", ":LspDiagNext<CR>")
-    u.buf_map(bufnr, "n", "<Leader>a", ":LspDiagLine<CR>")
-    u.buf_map(bufnr, "i", "<C-x><C-x>", "<cmd> LspSignatureHelp<CR>")
+  -- bindings
+  u.buf_map(bufnr, "n", "gi", ":LspRename<CR>")
+  u.buf_map(bufnr, "n", "K", ":LspHover<CR>")
+  u.buf_map(bufnr, "n", "[a", ":LspDiagPrev<CR>")
+  u.buf_map(bufnr, "n", "]a", ":LspDiagNext<CR>")
+  u.buf_map(bufnr, "n", "<Leader>a", ":LspDiagLine<CR>")
+  u.buf_map(bufnr, "i", "<C-x><C-x>", "<cmd> LspSignatureHelp<CR>")
 
-    u.buf_map(bufnr, "n", "gy", ":LspRef<CR>")
-    u.buf_map(bufnr, "n", "gh", ":LspTypeDef<CR>")
-    u.buf_map(bufnr, "n", "gd", ":LspDef<CR>")
-    u.buf_map(bufnr, "n", "ga", ":LspAct<CR>")
-    u.buf_map(bufnr, "v", "ga", "<Esc><cmd> LspRangeAct<CR>")
+  u.buf_map(bufnr, "n", "gy", ":LspRef<CR>")
+  u.buf_map(bufnr, "n", "gh", ":LspTypeDef<CR>")
+  u.buf_map(bufnr, "n", "gd", ":LspDef<CR>")
+  u.buf_map(bufnr, "n", "ga", ":LspAct<CR>")
+  u.buf_map(bufnr, "v", "ga", "<Esc><cmd> LspRangeAct<CR>")
 
-    -- On save, run _G.formatting func defined above.
-    if client.supports_method("textDocument/formatting") then
-      vim.cmd([[
+  -- On save, run _G.formatting func defined above.
+  if client.supports_method("textDocument/formatting") then
+    vim.cmd([[
         augroup LspFormatting
             autocmd! * <buffer>
             autocmd BufWritePost <buffer> lua formatting(vim.fn.expand("<abuf>"))
         augroup END
       ]])
-    end
+  end
 
-  require('illuminate').on_attach(client)
+  require("illuminate").on_attach(client)
 end
-
 
 local capabilities = lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 for _, server in ipairs({
-  'null-ls',
-  'tsserver',
-  'sumneko_lua',
-  'eslint',
-  'tailwindcss',
-  'css',
-  'prismals',
-  'rust'
+  "null-ls",
+  "tsserver",
+  "sumneko_lua",
+  "eslint",
+  "tailwindcss",
+  "css",
+  "prismals",
+  "rust",
 }) do
-  require('lsp.' .. server).setup(on_attach, capabilities)
+  require("lsp." .. server).setup(on_attach, capabilities)
 end
-
-
 
 diagnostics.setup()

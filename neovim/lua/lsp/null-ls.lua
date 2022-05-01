@@ -1,7 +1,7 @@
-local null_ls = require('null-ls')
+local null_ls = require("null-ls")
 local b = null_ls.builtins
 
-local diagnostics_template = '#{m} [#{c}]'
+local diagnostics_template = "#{m} [#{c}]"
 
 local with_root_file = function(builtin, file)
   return builtin.with({
@@ -28,7 +28,7 @@ local sources = {
   b.code_actions.gitsigns,
 
   -- hover
-  b.hover.dictionary
+  b.hover.dictionary,
 }
 
 local M = {
@@ -41,7 +41,7 @@ local M = {
         on_attach(client, bufnr)
       end,
     })
-  end
+  end,
 }
 
 return M

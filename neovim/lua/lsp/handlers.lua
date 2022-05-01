@@ -10,7 +10,7 @@
 -- }
 --
 -- local handlers = {
---   ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover), 
+--   ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover),
 --   ['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help)
 -- }
 

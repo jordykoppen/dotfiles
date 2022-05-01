@@ -1,31 +1,31 @@
 local u = require("config.utils")
 
 require("fzf-lua").setup({
-    keymap = {
-        fzf = {
-            ["ctrl-q"] = "select-all+accept",
-        },
+  keymap = {
+    fzf = {
+      ["ctrl-q"] = "select-all+accept",
     },
-    winopts = {
-        height = 0.95,
-        width = 0.95,
-        preview = {
-            scrollbar = false,
-        },
+  },
+  winopts = {
+    height = 0.95,
+    width = 0.95,
+    preview = {
+      scrollbar = false,
     },
-    fzf_opts = {
-        ["--layout"] = "default",
+  },
+  fzf_opts = {
+    ["--layout"] = "default",
+  },
+  files = {
+    actions = {
+      ["ctrl-e"] = function(selected)
+        for i, item in ipairs(selected) do
+          local command = i == 1 and "edit" or i % 2 == 0 and "vsplit" or "split"
+          vim.cmd(string.format("%s %s", command, item))
+        end
+      end,
     },
-    files = {
-        actions = {
-            ["ctrl-e"] = function(selected)
-                for i, item in ipairs(selected) do
-                    local command = i == 1 and "edit" or i % 2 == 0 and "vsplit" or "split"
-                    vim.cmd(string.format("%s %s", command, item))
-                end
-            end,
-        },
-    },
+  },
 })
 
 -- fzf.vim-like commands
@@ -40,9 +40,9 @@ u.command("Commits", "FzfLua git_commits")
 u.command("HelpTags", "FzfLua help_tags")
 u.command("ManPages", "FzfLua man_pages")
 u.command("GrepClipboard", function()
-    -- remove newlines, since they'll break the search
-    local search = vim.fn.getreg("*"):gsub("\n", "")
-    require("fzf-lua").grep({ search = search })
+  -- remove newlines, since they'll break the search
+  local search = vim.fn.getreg("*"):gsub("\n", "")
+  require("fzf-lua").grep({ search = search })
 end)
 
 u.nmap("<Leader>ff", "<cmd>Files<CR>")
@@ -58,5 +58,5 @@ u.command("LspRef", "FzfLua lsp_references")
 u.command("LspSym", "FzfLua lsp_workspace_symbols")
 u.command("LspAct", "FzfLua lsp_code_actions")
 u.command("LspDef", function()
-    require("fzf-lua").lsp_definitions({ jump_to_single_result = true })
+  require("fzf-lua").lsp_definitions({ jump_to_single_result = true })
 end)

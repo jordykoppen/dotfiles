@@ -2,9 +2,9 @@ local M = {
   setup = function(on_attach, capabilities)
     require("lspconfig").cssls.setup({
       on_attach = on_attach,
-      capabilities = capabilities
+      capabilities = capabilities,
     })
-  end
+  end,
 }
 
 return M
