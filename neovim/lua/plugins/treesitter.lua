@@ -3,7 +3,7 @@ require("nvim-treesitter.configs").setup({
   ensure_installed = "all",
   ignore_install = { "phpdoc" }, -- phpdoc doesn't work on M1
   highlight = { enable = true },
-  additional_vim_regex_highlighting = true,
+  -- additional_vim_regex_highlighting = true,
   -- plugins
   autopairs = { enable = true },
   context_commentstring = {

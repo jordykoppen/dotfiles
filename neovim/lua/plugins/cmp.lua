@@ -205,36 +205,13 @@ cmp.setup({
       luasnip.lsp_expand(args.body)
     end,
   },
-  -- mapping = {
-  --   ["<C-Space>"] = cmp.mapping({ i = cmp.mapping.complete() }),
-  --   ["<C-e>"] = cmp.mapping({ i = cmp.mapping.abort() }),
-  --   ["<CR>"] = cmp.mapping.confirm({ select = true }),
-  --   ["<Tab>"] = cmp.mapping(function(fallback)
-  --       if cmp.visible() then
-  --           cmp.select_next_item()
-  --       else
-  --           fallback()
-  --       end
-  --   end, {
-  --       "i",
-  --       "s",
-  --   }),
-  -- },
-  mapping = cmp.mapping.preset.insert({
-    ["<C-k>"] = cmp.mapping.select_prev_item(),
-    ["<C-j>"] = cmp.mapping.select_next_item(),
-    ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-f>"] = cmp.mapping.scroll_docs(4),
-    -- TODO: potentially fix emmet nonsense
+  mapping = {
+    ["<C-Space>"] = cmp.mapping({ i = cmp.mapping.complete(_) }),
+    ["<C-e>"] = cmp.mapping({ i = cmp.mapping.abort() }),
+    ["<CR>"] = cmp.mapping.confirm({ select = true }),
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
-      elseif luasnip.expandable() then
-        luasnip.expand()
-      elseif jumpable() then
-        luasnip.jump(1)
-      elseif check_backspace() then
-        fallback()
       else
         fallback()
       end
@@ -242,38 +219,60 @@ cmp.setup({
       "i",
       "s",
     }),
-    ["<S-Tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
-      end
-    end, {
-      "i",
-      "s",
-    }),
-
-    ["<C-Space>"] = cmp.mapping.complete(),
-    ["<C-e>"] = cmp.mapping.abort(),
-    ["<CR>"] = cmp.mapping(function(fallback)
-      if cmp.visible() and cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }) then
-        if jumpable() then
-          luasnip.jump(1)
-        end
-        return
-      end
-
-      if jumpable() then
-        if not luasnip.jump(1) then
-          fallback()
-        end
-      else
-        fallback()
-      end
-    end),
-  }),
+  },
+  -- mapping = {
+  --   ["<C-Space>"] = cmp.mapping({ i = cmp.mapping.complete(_) }),
+  --   ["<C-k>"] = cmp.mapping.select_prev_item(),
+  --   ["<C-j>"] = cmp.mapping.select_next_item(),
+  --   ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+  --   ["<C-f>"] = cmp.mapping.scroll_docs(4),
+  --   -- TODO: potentially fix emmet nonsense
+  --   ["<Tab>"] = cmp.mapping(function(fallback)
+  --     if cmp.visible() then
+  --       cmp.select_next_item()
+  --     elseif luasnip.expandable() then
+  --       luasnip.expand()
+  --     elseif jumpable() then
+  --       luasnip.jump(1)
+  --     elseif check_backspace() then
+  --       fallback()
+  --     else
+  --       fallback()
+  --     end
+  --   end, {
+  --     "i",
+  --     "s",
+  --   }),
+  --   ["<S-Tab>"] = cmp.mapping(function(fallback)
+  --     if cmp.visible() then
+  --       cmp.select_prev_item()
+  --     elseif jumpable(-1) then
+  --       luasnip.jump(-1)
+  --     else
+  --       fallback()
+  --     end
+  --   end, {
+  --     "i",
+  --     "s",
+  --   }),
+  --   ["<C-e>"] = cmp.mapping.abort(),
+  --   ["<CR>"] = cmp.mapping(function(fallback)
+  --     if cmp.visible() and cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }) then
+  --       if jumpable() then
+  --         luasnip.jump(1)
+  --       end
+  --       return
+  --     end
+  --
+  --     if jumpable() then
+  --       if not luasnip.jump(1) then
+  --         fallback()
+  --       end
+  --     else
+  --       fallback()
+  --     end
+  --   end),
+  -- },
   formatting = {
     fields = formatting.fields,
     max_width = formatting.max_width,

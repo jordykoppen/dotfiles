@@ -20,6 +20,8 @@ return require("packer").startup({
 
     use("simrat39/rust-tools.nvim")
 
+    use_with_config("feline-nvim/feline.nvim", "feline")
+
     -- treesitter
     use({
       "nvim-treesitter/nvim-treesitter",
@@ -85,6 +87,10 @@ return require("packer").startup({
     use("~/workspace/moonlight.nvim")
     use("projekt0n/github-nvim-theme")
     use_with_config("kyazdani42/nvim-web-devicons", "devicons")
+    use({
+      "catppuccin/nvim",
+      as = "catppuccin",
+    })
 
     -- comment
     use_with_config("numToStr/Comment.nvim", "comment")
@@ -117,7 +123,7 @@ return require("packer").startup({
   config = {
     display = {
       open_fn = function()
-        return require("packer.util").float(require("config.diagnostics"))
+        return require("packer.util").float({ border = "single" })
       end,
     },
   },
