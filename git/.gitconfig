@@ -18,6 +18,8 @@
     autocorrect = 1
 [push]
     default = simple
+[pull]
+    rebase = false
 [init]
   defaultBranch = main
 [hub]
