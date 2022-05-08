@@ -53,6 +53,8 @@ return require("packer").startup({
       "williamboman/nvim-lsp-installer",
     })
 
+    use_with_config("ray-x/lsp_signature.nvim", "codesignatures")
+
     use_with_config("L3MON4D3/LuaSnip", "luasnip")
     use({
       "hrsh7th/nvim-cmp",
