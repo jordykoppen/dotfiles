@@ -168,10 +168,6 @@ vim.notify = function(msg, ...)
   notify(msg, ...)
 end
 
--- lazygit
-u.command("Lazygit", "tabnew | term lazygit")
-u.nmap("<Leader>gg", ":Lazygit<CR>")
-
 vim.api.nvim_create_autocmd("TermClose", {
   pattern = "term://*lazygit",
   callback = function()
