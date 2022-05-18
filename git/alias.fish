@@ -11,3 +11,6 @@ alias gpl="git pull"
 alias gp="git push"
 alias gpu="git push -u origin \$(git branch | grep * | cut -d ' ' -f2)"
 alias gacop="ga .; gc; gp"
+
+# Lazygit aliases
+alias lg="lazygit"
