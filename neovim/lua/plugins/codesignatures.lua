@@ -32,7 +32,8 @@ require("lsp_signature").setup({
     border = "rounded", -- double, rounded, single, shadow, none
   },
 
-  always_trigger = false, -- sometime show signature on new line or in middle of parameter can be confusing, set it to false for #58
+  -- sometime show signature on new line or in middle of parameter can be confusing, set it to false for #58
+  always_trigger = false,
 
   auto_close_after = nil, -- autoclose signature float win after x sec, disabled if nil.
   extra_trigger_chars = {}, -- Array of extra characters that will trigger signature completion, e.g., {"(", ","}

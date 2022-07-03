@@ -13,3 +13,5 @@ u.imap("<C-e>", function()
     u.input("<C-e>", "n")
   end
 end)
+
+require("luasnip.loaders.from_snipmate").lazy_load()

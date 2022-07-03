@@ -1,0 +1,31 @@
+# Simple React function component
+snippet sfc "Simple React Function Component"
+				const ${1:$TM_FILENAME_BASE} = () => {
+					console.log(${1}.name)
+
+					return (
+						<div>
+							${1:${VISUAL}}
+							<div />
+						</div>
+					)
+				}
+
+				export default ${1}
+
+snippet tfc "Typescript Function Component"
+				type ${1:$TM_FILENAME_BASE}Props = {
+					${2}
+				}
+
+				const ${1} = (${3:props}: ${1}Props): JSX.Element => {
+					console.log(${1}.name)
+
+					return (
+						<>
+							${4}
+						</>
+					)
+				}
+
+				export default ${1}
