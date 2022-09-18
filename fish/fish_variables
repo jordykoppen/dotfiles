@@ -1,8 +1,10 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export BUN_INSTALL:/Users/jordykoppen/\x2ebun
 SETUVAR --export DOTFILES:/Users/jordykoppen/dotfiles
 SETUVAR --export EDITOR:nvim
 SETUVAR --export N_PREFIX:/Users/jordykoppen/\x2elocal/share/
+SETUVAR --export SSH_AUTH_SOCK:/Users/jordykoppen/\x2e1password/agent\x2esock
 SETUVAR --export TERMINAL:alacritty
 SETUVAR ZO_CMD:zo
 SETUVAR Z_CMD:z
@@ -10,9 +12,16 @@ SETUVAR Z_DATA:/Users/jordykoppen/\x2elocal/share/z/data
 SETUVAR Z_DATA_DIR:/Users/jordykoppen/\x2elocal/share/z
 SETUVAR Z_EXCLUDE:\x5e/Users/jordykoppen\x24
 SETUVAR __fish_initialized:3400
+SETUVAR _fish_abbr_ta:tmux\x20attach\x20\x2dt
+SETUVAR _fish_abbr_tad:tmux\x20attach\x20\x2dd\x20\x2dt
+SETUVAR _fish_abbr_tkss:tmux\x20kill\x2dsession\x20\x2dt
+SETUVAR _fish_abbr_tksv:tmux\x20kill\x2dserver
+SETUVAR _fish_abbr_tl:tmux\x20list\x2dsessions
+SETUVAR _fish_abbr_ts:tmux\x20new\x2dsession\x20\x2ds
+SETUVAR _fisher_budimanjojo_2F_tmux_2E_fish_files:/Users/jordykoppen/\x2econfig/fish/conf\x2ed/tmux\x2eextra\x2econf\x1e/Users/jordykoppen/\x2econfig/fish/conf\x2ed/tmux\x2efish\x1e/Users/jordykoppen/\x2econfig/fish/conf\x2ed/tmux\x2eonly\x2econf\x1e/Users/jordykoppen/\x2econfig/fish/conf\x2ed/tmux_abbrs\x2efish
 SETUVAR _fisher_jethrokuan_2F_z_files:/Users/jordykoppen/\x2econfig/fish/functions/__z\x2efish\x1e/Users/jordykoppen/\x2econfig/fish/functions/__z_add\x2efish\x1e/Users/jordykoppen/\x2econfig/fish/functions/__z_clean\x2efish\x1e/Users/jordykoppen/\x2econfig/fish/functions/__z_complete\x2efish\x1e/Users/jordykoppen/\x2econfig/fish/conf\x2ed/z\x2efish
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:/Users/jordykoppen/\x2econfig/fish/functions/fisher\x2efish\x1e/Users/jordykoppen/\x2econfig/fish/completions/fisher\x2efish
-SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ejethrokuan/z
+SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ejethrokuan/z\x1ebudimanjojo/tmux\x2efish
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:blue
@@ -41,4 +50,4 @@ SETUVAR fish_pager_color_description:B3A06D\x1eyellow\x1e\x2di
 SETUVAR fish_pager_color_prefix:cyan\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
-SETUVAR fish_user_paths:/Users/jordykoppen/\x2ecargo/bin\x1e/Users/jordykoppen/\x2elocal/share/nvim\x2dosx64/bin\x1e/opt/homebrew/opt/arm\x2dgcc\x2dbin\x408/bin\x1e/opt/homebrew/opt/avr\x2dgcc\x408/bin\x1e/Users/jordykoppen/\x2elocal/share//bin\x1e/opt/homebrew/bin\x1e/Users/jordykoppen/\x2elocal/bin\x1e/Users/jordykoppen/\x2efig/bin
+SETUVAR fish_user_paths:/Users/jordykoppen/\x2ebun/bin\x1e/Users/jordykoppen/\x2ecargo/bin\x1e/Users/jordykoppen/\x2elocal/share/nvim\x2dosx64/bin\x1e/opt/homebrew/opt/arm\x2dgcc\x2dbin\x408/bin\x1e/opt/homebrew/opt/avr\x2dgcc\x408/bin\x1e/Users/jordykoppen/\x2elocal/share//bin\x1e/opt/homebrew/bin\x1e/Users/jordykoppen/\x2elocal/bin\x1e/Users/jordykoppen/\x2efig/bin\x1e/opt/homebrew/opt/fzf/bin
