@@ -1,6 +1,7 @@
 import:
   - "~/dotfiles/alacritty/colors.yml"
   - "~/dotfiles/alacritty/window.yml"
+  - "~/dotfiles/alacritty/keybindings.yml"
 
 font:
   normal:
