@@ -4,27 +4,27 @@ ctpn.setup({
   transparent_background = false,
   term_colors = true,
   styles = {
-    comments = "italic",
-    functions = "italic",
-    keywords = "italic",
-    strings = "NONE",
-    variables = "italic",
+    comments = { "italic" },
+    functions = { "italic" },
+    keywords = { "italic" },
+    strings = {},
+    variables = { "italic" },
   },
   integrations = {
     treesitter = true,
     native_lsp = {
       enabled = true,
       virtual_text = {
-        errors = "italic",
-        hints = "italic",
-        warnings = "italic",
-        information = "italic",
+        errors = { "italic" },
+        hints = { "italic" },
+        warnings = { "italic" },
+        information = { "italic" },
       },
       underlines = {
-        errors = "underline",
-        hints = "underline",
-        warnings = "underline",
-        information = "underline",
+        errors = { "underline" },
+        hints = { "underline" },
+        warnings = { "underline" },
+        information = { "underline" },
       },
     },
     lsp_trouble = true,
@@ -50,4 +50,5 @@ ctpn.setup({
   },
 })
 
+-- vim.g.catppuccin_flavour = "latte"
 vim.cmd([[colorscheme catppuccin]])

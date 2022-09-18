@@ -67,12 +67,12 @@ local config = {
   -- NOTE: Prefer using : over <cmd> as the latter avoids going back in normal-mode.
   -- see https://neovim.io/doc/user/map.html#:map-cmd
   vmappings = {
-    ["/"] = { "<ESC><CMD>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", "Comment" },
+    ["/"] = { "<Plug>(comment_toggle_blockwise_current)", "Comment toggle linewise (visual)" },
   },
   mappings = {
     ["w"] = { "<cmd>w!<CR>", "Save" },
     ["q"] = { "<cmd>q!<CR>", "Quit" },
-    ["/"] = { "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", "Comment" },
+    ["/"] = { "<Plug>(comment_toggle_blockwise_current)", "Comment toggle linewise (visual)" },
     ["c"] = { "<cmd>BufferKill<CR>", "Close Buffer" },
     ["f"] = { "<cmd>lua require('telescope.builtin').find_project_files()<cr>", "Find File" },
     ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
