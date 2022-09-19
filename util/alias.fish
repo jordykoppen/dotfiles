@@ -1,5 +1,6 @@
 alias d="cd $HOME/dotfiles"
-alias cat="bat"
+alias oldcat="cat"
+# alias cat="bat"
 
 alias l="exa -1"
 alias ls="exa -alh --no-time --no-permissions --no-user"

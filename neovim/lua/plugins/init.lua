@@ -18,8 +18,7 @@ return require("packer").startup({
     use_with_config("nvim-telescope/telescope.nvim", "telescope")
     use("nvim-telescope/telescope-symbols.nvim")
 
-    use("simrat39/rust-tools.nvim")
-
+    -- statusline
     use_with_config("feline-nvim/feline.nvim", "feline")
 
     -- treesitter
@@ -74,6 +73,9 @@ return require("packer").startup({
 
     use("folke/lua-dev.nvim")
 
+    -- filetype
+    use_with_config("nathom/filetype.nvim", "filetype")
+
     -- keymap help
     use_with_config("folke/which-key.nvim", "whichkey")
 
@@ -87,13 +89,10 @@ return require("packer").startup({
     use_with_config("ibhagwan/fzf-lua", "fzf") -- better lua version of fzf.vim
 
     -- themes
-    use("~/workspace/moonlight.nvim")
-    use("projekt0n/github-nvim-theme")
+    use_with_config("~/workspace/nvim-tundra", "tundra")
+    -- use("~/workspace/moonlight.nvim")
+    -- use("projekt0n/github-nvim-theme")
     use_with_config("kyazdani42/nvim-web-devicons", "devicons")
-    use({
-      "catppuccin/nvim",
-      as = "catppuccin",
-    })
 
     -- comment
     use_with_config("numToStr/Comment.nvim", "comment")
@@ -108,7 +107,11 @@ return require("packer").startup({
     -- notify
     use("rcarriga/nvim-notify")
 
+    -- Diagnostics pane
     use_with_config("folke/trouble.nvim", "troubles")
+
+    -- other
+    use("simrat39/rust-tools.nvim")
 
     -- Packer which-key Mappings
     u.registerMappings({

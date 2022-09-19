@@ -86,11 +86,6 @@ _G.packer_plugins = {
     path = "/Users/jordykoppen/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
-  catppuccin = {
-    loaded = true,
-    path = "/Users/jordykoppen/.local/share/nvim/site/pack/packer/start/catppuccin",
-    url = "https://github.com/catppuccin/nvim"
-  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/jordykoppen/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -123,16 +118,17 @@ _G.packer_plugins = {
     path = "/Users/jordykoppen/.local/share/nvim/site/pack/packer/start/feline.nvim",
     url = "https://github.com/feline-nvim/feline.nvim"
   },
+  ["filetype.nvim"] = {
+    config = { "require('plugins.filetype')" },
+    loaded = true,
+    path = "/Users/jordykoppen/.local/share/nvim/site/pack/packer/start/filetype.nvim",
+    url = "https://github.com/nathom/filetype.nvim"
+  },
   ["fzf-lua"] = {
     config = { "require('plugins.fzf')" },
     loaded = true,
     path = "/Users/jordykoppen/.local/share/nvim/site/pack/packer/start/fzf-lua",
     url = "https://github.com/ibhagwan/fzf-lua"
-  },
-  ["github-nvim-theme"] = {
-    loaded = true,
-    path = "/Users/jordykoppen/.local/share/nvim/site/pack/packer/start/github-nvim-theme",
-    url = "https://github.com/projekt0n/github-nvim-theme"
   },
   ["gitsigns.nvim"] = {
     config = { "require('plugins.git')" },
@@ -156,11 +152,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/jordykoppen/.local/share/nvim/site/pack/packer/start/lua-dev.nvim",
     url = "https://github.com/folke/lua-dev.nvim"
-  },
-  ["moonlight.nvim"] = {
-    loaded = true,
-    path = "/Users/jordykoppen/.local/share/nvim/site/pack/packer/start/moonlight.nvim",
-    url = "/Users/jordykoppen/workspace/moonlight.nvim"
   },
   neogen = {
     config = { "require('plugins.neogen')" },
@@ -230,6 +221,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/jordykoppen/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring",
     url = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
+  },
+  ["nvim-tundra"] = {
+    config = { "require('plugins.tundra')" },
+    loaded = true,
+    path = "/Users/jordykoppen/.local/share/nvim/site/pack/packer/start/nvim-tundra",
+    url = "/Users/jordykoppen/workspace/nvim-tundra"
   },
   ["nvim-web-devicons"] = {
     config = { "require('plugins.devicons')" },
@@ -317,34 +314,22 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: vim-yoink
-time([[Config for vim-yoink]], true)
-require('plugins.yoink')
-time([[Config for vim-yoink]], false)
+-- Config for: neogen
+time([[Config for neogen]], true)
+require('plugins.neogen')
+time([[Config for neogen]], false)
+-- Config for: feline.nvim
+time([[Config for feline.nvim]], true)
+require('plugins.feline')
+time([[Config for feline.nvim]], false)
+-- Config for: filetype.nvim
+time([[Config for filetype.nvim]], true)
+require('plugins.filetype')
+time([[Config for filetype.nvim]], false)
 -- Config for: fzf-lua
 time([[Config for fzf-lua]], true)
 require('plugins.fzf')
 time([[Config for fzf-lua]], false)
--- Config for: which-key.nvim
-time([[Config for which-key.nvim]], true)
-require('plugins.whichkey')
-time([[Config for which-key.nvim]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-require('plugins.git')
-time([[Config for gitsigns.nvim]], false)
--- Config for: goto-preview
-time([[Config for goto-preview]], true)
-require('plugins.preview')
-time([[Config for goto-preview]], false)
--- Config for: LuaSnip
-time([[Config for LuaSnip]], true)
-require('plugins.luasnip')
-time([[Config for LuaSnip]], false)
--- Config for: lsp_signature.nvim
-time([[Config for lsp_signature.nvim]], true)
-require('plugins.codesignatures')
-time([[Config for lsp_signature.nvim]], false)
 -- Config for: telescope.nvim
 time([[Config for telescope.nvim]], true)
 require('plugins.telescope')
@@ -357,46 +342,66 @@ time([[Config for trouble.nvim]], false)
 time([[Config for twilight.nvim]], true)
 require('plugins.twilight')
 time([[Config for twilight.nvim]], false)
--- Config for: neogen
-time([[Config for neogen]], true)
-require('plugins.neogen')
-time([[Config for neogen]], false)
--- Config for: vim-subversive
-time([[Config for vim-subversive]], true)
-require('plugins.subversive')
-time([[Config for vim-subversive]], false)
--- Config for: nvim-cmp
-time([[Config for nvim-cmp]], true)
-require('plugins.cmp')
-time([[Config for nvim-cmp]], false)
--- Config for: vim-illuminate
-time([[Config for vim-illuminate]], true)
-require('plugins.illum')
-time([[Config for vim-illuminate]], false)
--- Config for: Comment.nvim
-time([[Config for Comment.nvim]], true)
-require('plugins.comment')
-time([[Config for Comment.nvim]], false)
--- Config for: nvim-web-devicons
-time([[Config for nvim-web-devicons]], true)
-require('plugins.devicons')
-time([[Config for nvim-web-devicons]], false)
--- Config for: dashboard-nvim
-time([[Config for dashboard-nvim]], true)
-require('plugins.dashboard')
-time([[Config for dashboard-nvim]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-require('plugins.filetree')
-time([[Config for nvim-tree.lua]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
 require('plugins.treesitter')
 time([[Config for nvim-treesitter]], false)
--- Config for: feline.nvim
-time([[Config for feline.nvim]], true)
-require('plugins.feline')
-time([[Config for feline.nvim]], false)
+-- Config for: vim-illuminate
+time([[Config for vim-illuminate]], true)
+require('plugins.illum')
+time([[Config for vim-illuminate]], false)
+-- Config for: vim-subversive
+time([[Config for vim-subversive]], true)
+require('plugins.subversive')
+time([[Config for vim-subversive]], false)
+-- Config for: Comment.nvim
+time([[Config for Comment.nvim]], true)
+require('plugins.comment')
+time([[Config for Comment.nvim]], false)
+-- Config for: vim-yoink
+time([[Config for vim-yoink]], true)
+require('plugins.yoink')
+time([[Config for vim-yoink]], false)
+-- Config for: LuaSnip
+time([[Config for LuaSnip]], true)
+require('plugins.luasnip')
+time([[Config for LuaSnip]], false)
+-- Config for: nvim-cmp
+time([[Config for nvim-cmp]], true)
+require('plugins.cmp')
+time([[Config for nvim-cmp]], false)
+-- Config for: which-key.nvim
+time([[Config for which-key.nvim]], true)
+require('plugins.whichkey')
+time([[Config for which-key.nvim]], false)
+-- Config for: nvim-tundra
+time([[Config for nvim-tundra]], true)
+require('plugins.tundra')
+time([[Config for nvim-tundra]], false)
+-- Config for: nvim-web-devicons
+time([[Config for nvim-web-devicons]], true)
+require('plugins.devicons')
+time([[Config for nvim-web-devicons]], false)
+-- Config for: goto-preview
+time([[Config for goto-preview]], true)
+require('plugins.preview')
+time([[Config for goto-preview]], false)
+-- Config for: lsp_signature.nvim
+time([[Config for lsp_signature.nvim]], true)
+require('plugins.codesignatures')
+time([[Config for lsp_signature.nvim]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+require('plugins.filetree')
+time([[Config for nvim-tree.lua]], false)
+-- Config for: dashboard-nvim
+time([[Config for dashboard-nvim]], true)
+require('plugins.dashboard')
+time([[Config for dashboard-nvim]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+require('plugins.git')
+time([[Config for gitsigns.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

@@ -10,5 +10,3 @@ bind \cg 'git diff; commandline -f repaint'
 # bun
 set -Ux BUN_INSTALL "/Users/jordykoppen/.bun"
 fish_add_path "/Users/jordykoppen/.bun/bin"
-
-rvm default

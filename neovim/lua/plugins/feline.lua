@@ -1,3 +1,3 @@
-require("feline").setup({
-  components = require("catppuccin.groups.integrations.feline").get(),
-})
+--require("feline").setup({
+--  components = require("catppuccin.groups.integrations.feline").get(),
+--})
