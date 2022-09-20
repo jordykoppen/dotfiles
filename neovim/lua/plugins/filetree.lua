@@ -16,22 +16,22 @@ local conf = {
     "alpha",
   },
   auto_reload_on_write = true,
-  open_on_tab = false,
+  open_on_tab = true,
   hijack_cursor = false,
   update_cwd = false,
   diagnostics = {
     enable = true,
     show_on_dirs = true,
     icons = {
-      hint = "",
-      info = "",
-      warning = "",
-      error = "",
+      hint = "",
+      info = "",
+      warning = "",
+      error = "",
     },
   },
   update_focused_file = {
     enable = true,
-    update_cwd = true,
+    update_cwd = false,
     ignore_list = {},
   },
   system_open = {
@@ -48,7 +48,7 @@ local conf = {
     height = 30,
     hide_root_folder = false,
     side = "left",
-    preserve_window_proportions = false,
+    preserve_window_proportions = true,
     number = false,
     relativenumber = false,
     signcolumn = "no",
@@ -67,13 +67,22 @@ local conf = {
   },
   actions = {
     use_system_clipboard = true,
+    file_popup = {
+      open_win_config = {
+        col = 1,
+        row = 1,
+        relative = "cursor",
+        border = "shadow",
+        style = "minimal",
+      },
+    },
     change_dir = {
       enable = false,
       global = false,
       restrict_above_cwd = true,
     },
     open_file = {
-      quit_on_open = false,
+      quit_on_open = true,
       resize_window = false,
       window_picker = {
         enable = true,
@@ -126,6 +135,7 @@ function M.start_telescope(telescope_mode)
   local abspath = node.link_to or node.absolute_path
   local is_folder = node.open ~= nil
   local basedir = is_folder and abspath or vim.fn.fnamemodify(abspath, ":h")
+
   require("telescope.builtin")[telescope_mode]({
     cwd = basedir,
   })
