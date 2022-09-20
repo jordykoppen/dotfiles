@@ -4,7 +4,7 @@
 local home = os.getenv("HOME")
 local db = require("dashboard")
 
-db.preview_command = "cat | lolcat -F 0.1 --seed=12 -a --speed=200"
+db.preview_command = "cat | lolcat -F 0.1 -a --speed=2000"
 db.preview_file_path = home .. "/.config/nvim/static/neovim.cat"
 db.preview_file_height = 6
 db.preview_file_width = 64
