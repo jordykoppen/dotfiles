@@ -31,15 +31,22 @@ return require("packer").startup({
     use("RRethy/nvim-treesitter-textsubjects") -- adds smart text objects
     use("windwp/nvim-ts-autotag") -- automatically close JSX tags
     use("RRethy/nvim-treesitter-endwise") -- wisely add end
+    use("nvim-treesitter/playground")
     -- use 'theHamsta/nvim-treesitter-commonlisp'
 
-    use_with_config("danymat/neogen", "neogen") -- annotation generator
+    -- annotation generator
+    use_with_config("danymat/neogen", "neogen")
     -- GIT
     use_with_config("lewis6991/gitsigns.nvim", "git")
 
-    use("nvim-treesitter/playground")
-
     use_with_config("folke/twilight.nvim", "twilight")
+
+    use({
+      "akinsho/bufferline.nvim",
+      tag = "v2.*",
+      requires = "kyazdani42/nvim-web-devicons",
+      config = config("bufferline"),
+    })
 
     -- LSP + utils
     use({
@@ -119,7 +126,6 @@ return require("packer").startup({
         name = "Packer",
         c = { "<cmd>PackerCompile<cr>", "Compile" },
         i = { "<cmd>PackerInstall<cr>", "Install" },
-        r = { "<cmd>lua require('lvim.plugin-loader').recompile()<cr>", "Re-compile" },
         s = { "<cmd>PackerSync<cr>", "Sync" },
         S = { "<cmd>PackerStatus<cr>", "Status" },
         u = { "<cmd>PackerUpdate<cr>", "Update" },
