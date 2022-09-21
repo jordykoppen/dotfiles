@@ -3,6 +3,7 @@ require("filetype").setup({
     extensions = {
       -- Set the filetype of *.mdx files to markdown
       mdx = "markdown",
+      fish = "fish",
     },
     literal = {
       eslintrc = "json",
