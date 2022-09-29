@@ -32,7 +32,6 @@ return require("packer").startup({
     use("windwp/nvim-ts-autotag") -- automatically close JSX tags
     use("RRethy/nvim-treesitter-endwise") -- wisely add end
     use("nvim-treesitter/playground")
-    -- use 'theHamsta/nvim-treesitter-commonlisp'
 
     -- annotation generator
     use_with_config("danymat/neogen", "neogen")
@@ -53,10 +52,9 @@ return require("packer").startup({
       "jose-elias-alvarez/null-ls.nvim",
       requires = { "nvim-lua/plenary.nvim" },
     })
-    use("jose-elias-alvarez/nvim-lsp-ts-utils")
+    use_with_config("williamboman/mason.nvim", "mason")
     use({
       "neovim/nvim-lspconfig",
-      "williamboman/nvim-lsp-installer",
     })
 
     use_with_config("ray-x/lsp_signature.nvim", "codesignatures")

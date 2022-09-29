@@ -1,4 +1,4 @@
-local opts = {
+local settings = {
   Lua = {
     format = {
       enable = true,
@@ -9,7 +9,6 @@ local opts = {
     },
     diagnostics = {
       globals = {
-        "global",
         "vim",
         "use",
         "describe",
@@ -17,13 +16,6 @@ local opts = {
         "assert",
         "before_each",
         "after_each",
-        "require",
-        "float",
-        "settings",
-        "use",
-      },
-      neededFileStatus = {
-        ["codestyle-check"] = "Any",
       },
     },
     completion = {
@@ -41,19 +33,25 @@ local opts = {
 }
 
 local M = {}
+
 M.setup = function(on_attach, capabilities)
-  local luadev = require("lua-dev").setup({
-    lspconfig = {
-      on_attach = on_attach,
-      settings = opts,
-      flags = {
-        debounce_text_changes = 150,
-      },
-      capabilities = capabilities,
-    },
+  require("lua-dev").setup({
+    override = function(root_dir, library)
+      if root_dir:match("neovim") then
+        library.enabled = true
+        library.plugins = true
+      end
+    end,
   })
 
-  require("lspconfig").sumneko_lua.setup(luadev)
+  require("lspconfig").sumneko_lua.setup({
+    on_attach = on_attach,
+    settings = settings,
+    flags = {
+      debounce_text_changes = 150,
+    },
+    capabilities = capabilities,
+  })
 end
 
 return M

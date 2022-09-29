@@ -1,47 +1,48 @@
 local null_ls = require("null-ls")
 local b = null_ls.builtins
 
-local diagnostics_template = "#{m} [#{c}]"
-
-local with_root_file = function(builtin, file)
-  return builtin.with({
-    condition = function(utils)
-      return utils.root_has_file(file)
-    end,
-  })
+local with_root_file = function(...)
+  local files = { ... }
+  return function(utils)
+    return utils.root_has_file(files)
+  end
 end
 
 local sources = {
   -- formatting
   b.formatting.prettier,
   b.formatting.fish_indent,
-  b.formatting.stylua,
-  -- b.formatting.stylua.with({
-  --   condition = with_root_file('stylua.toml')
-  -- }),
-
+  b.formatting.shfmt,
+  b.formatting.clang_format,
+  b.formatting.trim_whitespace.with({
+    filetypes = { "tmux", "snippets" },
+  }),
+  b.formatting.stylua.with({
+    condition = with_root_file("stylua.toml"),
+  }),
+  b.formatting.cbfmt.with({
+    condition = with_root_file(".cbfmt.toml"),
+  }),
   -- diagnostics
-  -- b.diagnostics.tsc,
-
+  b.diagnostics.selene.with({
+    condition = with_root_file("selene.toml"),
+  }),
+  b.diagnostics.write_good,
+  b.diagnostics.markdownlint,
   -- code actions
-  b.code_actions.eslint,
   b.code_actions.gitsigns,
-
+  b.code_actions.gitrebase,
   -- hover
   b.hover.dictionary,
 }
 
-local M = {
-  setup = function(on_attach)
-    return null_ls.setup({
-      -- debug = true,
-      sources = sources,
-      on_attach = function(client, bufnr)
-        client.resolved_capabilities.document_formatting = false
-        on_attach(client, bufnr)
-      end,
-    })
-  end,
-}
+local M = {}
+M.setup = function(on_attach)
+  null_ls.setup({
+    -- debug = true,
+    sources = sources,
+    on_attach = on_attach,
+  })
+end
 
 return M

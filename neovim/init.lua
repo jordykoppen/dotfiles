@@ -143,16 +143,6 @@ local AUTOCOMMANDS = {
 for _, cmd in pairs(AUTOCOMMANDS) do
   vim.cmd(cmd)
 end
-
-vim.cmd([[
-if exists("did_load_filetypes")
-  finish
-endif
-augroup filetypedetect
-  au! BufRead,BufNewFile .env*  setfiletype sh
-augroup END
-]])
-
 -- source remaining config
 require("config")
 require("plugins")
@@ -167,20 +157,6 @@ vim.notify = function(msg, ...)
 
   notify(msg, ...)
 end
-
-vim.api.nvim_create_autocmd("TermClose", {
-  pattern = "term://*lazygit",
-  callback = function()
-    -- check buffers for changes
-    vim.cmd("checktime")
-
-    local bufnr = tonumber(vim.fn.expand("<abuf>"))
-    if vim.api.nvim_buf_is_loaded(bufnr) then
-      -- suppress process exited messages
-      vim.api.nvim_buf_delete(tonumber(bufnr), { force = true })
-    end
-  end,
-})
 
 require("lsp")
 require("theme")

@@ -29,6 +29,29 @@ end
 M.command = function(name, fn, opts)
   api.nvim_create_user_command(name, fn, opts or {})
 end
+M.buf_command = function(bufnr, name, fn, opts)
+  api.nvim_buf_create_user_command(bufnr, name, fn, opts or {})
+end
+
+M.gfind = function(str, substr, cb, init)
+  init = init or 1
+  local start_pos, end_pos = str:find(substr, init)
+  if start_pos then
+    cb(start_pos, end_pos)
+    return M.gfind(str, substr, cb, end_pos + 1)
+  end
+end
+
+M.table = {
+  some = function(tbl, cb)
+    for k, v in pairs(tbl) do
+      if cb(k, v) then
+        return true
+      end
+    end
+    return false
+  end,
+}
 
 M.t = function(str)
   return api.nvim_replace_termcodes(str, true, true, true)
@@ -36,20 +59,6 @@ end
 
 M.input = function(keys, mode)
   api.nvim_feedkeys(M.t(keys), mode or "m", true)
-end
-
-function Sad(line_nr, from, to, fname)
-  vim.cmd(string.format("silent !sed -i '%ss/%s/%s/' %s", line_nr, from, to, fname))
-end
-
-M.increaseTerminalPadding = function()
-  Sad("07", 0, 20, "~/dotfiles/alacritty/alacritty.yml")
-  Sad("08", 0, 20, "~/dotfiles/alacritty/alacritty.yml")
-end
-
-M.decreaseTerminalPadding = function()
-  Sad("07", 20, 0, "~/dotfiles/alacritty/alacritty.yml")
-  Sad("08", 20, 0, "~/dotfiles/alacritty/alacritty.yml")
 end
 
 M.registerMappings = function(mappings, opts)
