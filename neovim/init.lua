@@ -99,9 +99,9 @@ u.xmap("H", "^")
 u.nmap("L", "%")
 u.omap("L", "%")
 u.xmap("L", "%")
-u.nmap("<Tab>", "%", { remap = true })
-u.xmap("<Tab>", "%", { remap = true })
-u.omap("<Tab>", "%", { remap = true })
+-- u.nmap("<Tab>", "%", { remap = true })
+-- u.xmap("<Tab>", "%", { remap = true })
+-- u.omap("<Tab>", "%", { remap = true })
 
 -- TAB MANAGEMENT
 -- create new tab

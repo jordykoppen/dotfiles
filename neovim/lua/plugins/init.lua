@@ -118,6 +118,9 @@ return require("packer").startup({
     -- other
     use("simrat39/rust-tools.nvim")
 
+    use_with_config("github/copilot.vim", "copilot")
+
+
     -- Packer which-key Mappings
     u.registerMappings({
       p = {
