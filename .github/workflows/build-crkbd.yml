@@ -1,4 +1,4 @@
-name: Corne-ish Zen ZMK Firmware Build
+name: CRKBD ZMK Firmware Build
 
 on:
   workflow_dispatch:
