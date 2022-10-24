@@ -14,13 +14,12 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: zmkfirmware/zmk-build-arm:2.5
-    defaults:
-      run:
-        working-directory: ./keyboards/corneishzen
     name: Build
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Create work folder
+        run: cp -a ${GITHUB_WORKSPACE}/keyboards/corneishzen config
       - name: Cache west modules
         uses: actions/cache@v2
         env:
@@ -38,13 +37,13 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       - name: West Init
-        run: west init -l ./
+        run: west init -l config
       - name: West Update
         run: west update
       - name: West Zephyr export
         run: west zephyr-export
       - name: West Build (Corne-ish Zen Left)
-        run: west build -s zmk/app -b corne-ish_zen_left -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/keyboards/corneishzen"
+        run: west build -s zmk/app -b corne-ish_zen_left -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
       - name: Corne-ish Zen DTS File
         if: ${{ always() }}
         run: cat -n build/zephyr/corne-ish_zen_left.dts.pre.tmp
