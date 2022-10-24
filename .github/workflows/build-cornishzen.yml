@@ -9,11 +9,15 @@ on:
     paths:
       - keyboards/corneishzen
 
+
 jobs:
   build:
     runs-on: ubuntu-latest
     container:
       image: zmkfirmware/zmk-build-arm:2.5
+    defaults:
+      run:
+        working-directory: ./keyboards/corneishzen
     name: Build
     steps:
       - name: Checkout
@@ -35,7 +39,7 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       - name: West Init
-        run: west init -l keyboards/corneishzen/config
+        run: west init -l config
       - name: West Update
         run: west update
       - name: West Zephyr export
