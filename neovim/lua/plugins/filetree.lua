@@ -4,7 +4,7 @@ local M = {}
 
 -- each of these options are document at :help nvim-tree.OPTION_NAME
 local conf = {
-  disable_netrw = true,
+  disable_netrw = false,
   hijack_netrw = true,
   open_on_setup = false,
   open_on_setup_file = false,
