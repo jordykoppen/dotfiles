@@ -1,4 +1,4 @@
-name: ZMK Firmware build
+name: CRKBD ZMK Firmware build
 
 on:
   workflow_dispatch:
@@ -91,7 +91,7 @@ jobs:
 
       - name: ${{ steps.variables.outputs.display-name }} Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$" | sort
-      
+
       - name: Rename artifacts
         run: |
           mkdir build/artifacts
@@ -102,7 +102,7 @@ jobs:
           then
             cp build/zephyr/zmk.bin "build/artifacts/${{ steps.variables.outputs.artifact-name }}.bin"
           fi
-      
+
       - name: Archive (${{ steps.variables.outputs.display-name }})
         uses: actions/upload-artifact@v2
         with:
