@@ -1,6 +1,7 @@
 local u = require("config.utils")
 local cmp = require("cmp")
 local luasnip = require("luasnip")
+local compare = cmp.config.compare
 
 local api = vim.api
 
@@ -286,7 +287,53 @@ cmp.setup({
     completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),
   },
+  sorting = {
+    priority_weight = 2,
+    comparators = {
+      compare.offset,
+      compare.exact,
+      -- compare.scopes,
+      compare.score,
+      compare.recently_used,
+      compare.locality,
+      -- compare.kind,
+      compare.sort_text,
+      compare.length,
+      compare.order,
+    },
+  },
   sources = {
+    {
+      name = "copilot",
+      -- keyword_length = 0,
+      max_item_count = 3,
+      trigger_characters = {
+        {
+          ".",
+          ":",
+          "(",
+          "'",
+          '"',
+          "[",
+          ",",
+          "#",
+          "*",
+          "@",
+          "|",
+          "=",
+          "-",
+          "{",
+          "/",
+          "\\",
+          "+",
+          "?",
+          " ",
+          -- "\t",
+          -- "\n",
+        },
+      },
+      group_index = 2,
+    },
     { name = "nvim_lsp" },
     { name = "path" },
     { name = "luasnip" },
@@ -310,18 +357,20 @@ cmp.setup({
   },
 })
 
-u.imap("<C-j>", function()
-  if luasnip.expand_or_jumpable() then
-    luasnip.expand_or_jump()
-  elseif require("neogen").jumpable() then
-    u.input("<cmd>lua require'neogen'.jump_next()<CR>")
-  end
-end)
+-- u.imap("<C-j>", function()
+--   if luasnip.expand_or_jumpable() then
+--     luasnip.expand_or_jump()
+--   elseif require("neogen").jumpable() then
+--     u.input("<cmd>lua require'neogen'.jump_next()<CR>")
+--   end
+-- end)
+-- 
+-- u.imap("<C-k>", function()
+--   if luasnip.jumpable(-1) then
+--     luasnip.jump(-1)
+--   elseif require("neogen").jumpable() then
+--     u.input("<cmd>lua require'neogen'.jump_prev()<CR>")
+--   end
+-- end)
 
-u.imap("<C-k>", function()
-  if luasnip.jumpable(-1) then
-    luasnip.jump(-1)
-  elseif require("neogen").jumpable() then
-    u.input("<cmd>lua require'neogen'.jump_prev()<CR>")
-  end
-end)
+vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })

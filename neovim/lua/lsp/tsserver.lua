@@ -118,8 +118,8 @@ M.setup = function(on_attach, capabilities)
   })
 end
 
-require("nvim-treesitter.highlight").set_custom_captures({
-  ["import_statement.import_clause.import_specifier"] = "ImportName",
-})
+-- require("nvim-treesitter.highlight").set_custom_captures({
+--   ["import_statement.import_clause.import_specifier"] = "ImportName",
+-- })
 
 return M

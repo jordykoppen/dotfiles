@@ -41,12 +41,12 @@ require("trouble").setup({
   use_diagnostic_signs = true, -- enabling this will use the signs defined in your lsp client
 })
 
-u.registerMappings({
-  t = {
-    name = "Trouble",
-    d = { "<cmd>TroubleToggle lsp_definitions<cr>", "Definitions" },
-    q = { "<cmd>TroubleToggle quickfix<cr>", "Quickfix" },
-    r = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
-    t = { "<cmd>TroubleToggle lsp_type_definitions<cr>", "Type Definitions" },
-  },
-})
+-- u.registerMappings({
+--   t = {
+--     name = "Trouble",
+--     d = { "<cmd>TroubleToggle lsp_definitions<cr>", "Definitions" },
+--     q = { "<cmd>TroubleToggle quickfix<cr>", "Quickfix" },
+--     r = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
+--     t = { "<cmd>TroubleToggle lsp_type_definitions<cr>", "Type Definitions" },
+--   },
+-- })

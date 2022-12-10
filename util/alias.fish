@@ -7,3 +7,5 @@ alias ls="exa -alh --no-time --no-permissions --no-user"
 alias lsd="exa -alD"
 
 alias wrk="cd $HOME/workspace"
+alias esz="esphome wizard"
+alias cheat="cht.sh"

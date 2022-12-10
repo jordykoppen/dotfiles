@@ -8,6 +8,7 @@
     ui = true
 [core]
     editor = nvim
+	attributesfile = ~/.gitattributes
 [apply]
     whitespace = nowarn
 [mergetool]
@@ -24,3 +25,7 @@
   defaultBranch = main
 [hub]
 	protocol = ssh
+[alias]
+	diff-image = "!f() { cd -- \"${GIT_PREFIX:-.}\"; GIT_DIFF_IMAGE_ENABLED=1 git diff \"$@\"; }; f"
+[diff "image"]
+	command = ~/Downloads/git-diff-image/git_diff_image

@@ -76,7 +76,7 @@ return require("packer").startup({
 
     use("jose-elias-alvarez/typescript.nvim")
 
-    use("folke/lua-dev.nvim")
+    use("folke/neodev.nvim")
 
     -- filetype
     use_with_config("nathom/filetype.nvim", "filetype")
@@ -120,6 +120,7 @@ return require("packer").startup({
 
     use_with_config("github/copilot.vim", "copilot")
 
+    use_with_config("akinsho/toggleterm.nvim", "toggleterm")
 
     -- Packer which-key Mappings
     u.registerMappings({
