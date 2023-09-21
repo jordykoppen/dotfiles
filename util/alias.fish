@@ -9,3 +9,5 @@ alias lsd="exa -alD"
 alias wrk="cd $HOME/workspace"
 alias esz="esphome wizard"
 alias cheat="cht.sh"
+
+alias s="kitty +kitten ssh"

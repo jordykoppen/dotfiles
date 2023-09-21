@@ -12,5 +12,11 @@ alias gp="git push"
 alias gpu="git push -u origin \$(git branch | grep * | cut -d ' ' -f2)"
 alias gacop="ga .; gc; gp"
 
+# rebasing
+alias grb="git rebase"
+alias grbi="git rebase -i"
+alias grbc="git rebase --continue"
+alias grba="git rebase --abort"
+
 # Lazygit aliases
 alias lg="lazygit"

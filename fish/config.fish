@@ -11,3 +11,7 @@ bind \cg 'git diff; commandline -f repaint'
 set -Ux BUN_INSTALL "/Users/jordykoppen/.bun"
 fish_add_path "/Users/jordykoppen/.bun/bin"
 rvm default
+# pnpm
+set -gx PNPM_HOME "/Users/jordykoppen/Library/pnpm"
+set -gx PATH "$PNPM_HOME" $PATH
+# pnpm end
