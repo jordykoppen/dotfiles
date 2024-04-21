@@ -1,5 +1,0 @@
-new -s Development -n Development
-neww -n foo/bar foo
-splitw -v -p 50 -t 0 bar
-selectw -t 1 
-selectp -t 0

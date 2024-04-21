@@ -1,0 +1,108 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+
+#define DEFAULT 0
+#define LOWER   1
+#define RAISE   2
+#define ADJUST  3
+
+#define VOLUP K_VOL_UP
+#define VOLDN K_VOL_DN
+
+#define BT(n) BT_SEL n
+#define CTLESC LCTRL ESC
+
+/ {
+    chosen {
+       zmk,matrix_transform = &mit_transform;
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+          /* Qwerty
+          *     ,-----------------------------------------------------------------------------------.
+          *     | Tab  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Bksp |
+          *     |------+------+------+------+------+------+------+------+------+------+------+------|
+          *     |CTLESC|   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  "   |
+          *     |------+------+------+------+------+------+------+------+------+------+------+------|
+          *     | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
+          *     |------+------+------+------+------+------+------+------+------+------+------+------|
+          *     | HYPER|      | Alt  | GUI  |Lower |    Space    |Raise | Left | Down |  Up  |Right |
+          *     `-----------------------------------------------------------------------------------'
+          */
+        base_layer {
+            label = "Default";
+            bindings = <
+              &kp TAB    &kp Q      &kp W      &kp E       &kp R          &kp T          &kp Y            &kp U          &kp I       &kp O      &kp P         &kp BKSP
+              &mt CTLESC &kp A      &kp S      &kp D       &kp F          &kp G          &kp H            &kp J          &kp K       &kp L      &kp SEMI      &kp QUOT
+              &kp LSHFT  &kp Z      &kp X      &kp C       &kp V          &kp B          &kp N            &kp M          &kp COMMA   &kp DOT    &kp FSLH      &kp RET
+              &kp LCTRL  &kp LCTRL  &kp LALT   &kp LGUI    &mo LOWER            &kp SPACE                 &mo RAISE      &kp LEFT    &kp DOWN   &kp UP      &kp RIGHT
+            >;
+        };
+
+          /* Lower
+          *     ,-----------------------------------------------------------------------------------.
+          *     |   ~  |   !  |   @  |   #  |   $  |   %  |   ^  |   &  |   *  |   (  |   )  |  DEL |
+          *     |------+------+------+------+------+------+------+------+------+------+------+------|
+          *     | Del  |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |   _  |   +  |   {  |   }  |  |   |
+          *     |------+------+------+------+------+------+------+------+------+------+------+------|
+          *     |      |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |ISO ~ |ISO | | Home | End  | Play |
+          *     |------+------+------+------+------+------+------+------+------+------+------+------|
+          *     |      |      |      |      |      |             |      | Prev | Vol- | Vol+ | Next |
+          *     `-----------------------------------------------------------------------------------'
+          */
+        lower_layer {
+            label = "Lower";
+            bindings = <
+              &kp TILDE   &kp EXCL   &kp AT     &kp HASH    &kp DLLR       &kp PRCNT      &kp CARET        &kp AMPS       &kp STAR    &kp LPAR   &kp RPAR      &kp DEL   
+              &trans      &kp F1     &kp F2     &kp F3      &kp F4         &kp F5         &kp F6           &kp UNDER      &kp PLUS    &kp LBRC   &kp RBRC      &kp PIPE
+              &trans      &kp F7     &kp F8     &kp F9      &kp F10        &kp F11        &kp F12          &kp TILDE      &kp PIPE    &kp HOME   &kp END       &kp K_PP
+              &trans      &trans     &trans     &trans      &trans                 &trans                  &mo ADJUST     &kp C_PREV  &kp VOLDN  &kp VOLUP     &kp C_NEXT
+            >;
+        };
+          /* Raise
+          *     ,-----------------------------------------------------------------------------------.
+          *     |   `  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  |  DEL |
+          *     |------+------+------+------+------+------+------+------+------+------+------+------|
+          *     | Del  | Left | Down |  Up  | Right|      |      |   -  |   =  |   [  |   ]  |  \   |
+          *     |------+------+------+------+------+------+------+------+------+------+------+------|
+          *     |      |      |      |      |      |      |      |      |      |Pg Up |Pg Dn | Play |
+          *     |------+------+------+------+------+------+------+------+------+------+------+------|
+          *     |      |      |      |      |      |             |      | Prev | Vol- | Vol+ | Next |
+          *     `-----------------------------------------------------------------------------------'
+          */
+        raise_layer {
+            label = "Raise";
+            bindings = <
+              &kp GRAVE   &kp N1     &kp N2     &kp N3      &kp N4         &kp N5         &kp N6           &kp N7         &kp N8      &kp N9     &kp N0        &kp DEL
+              &trans      &kp LEFT   &kp DOWN   &kp UP      &kp RIGHT      &trans         &trans           &kp MINUS      &kp EQUAL   &kp LBKT   &kp RBKT      &kp BSLH
+              &trans      &trans     &trans     &trans      &trans         &trans         &trans           &trans         &trans      &kp PG_UP  &kp PG_DN     &trans
+              &trans      &trans     &trans     &trans      &mo ADJUST             &trans                  &trans         &kp C_PREV  &kp VOLDN  &kp VOLUP     &kp C_NEXT
+            >;
+        };
+
+          /* Adjust (Lower + Raise)
+           *    ,-----------------------------------------------------------------------------------.
+           *    |      | Reset|Debug |      |      |      |      |      |      |      |      |SO_OFF|
+           *    |------+------+------+------+------+------+------+------+------+------+------+------|
+           *    |      |  BT1 |  BT2 |  BT3 |  BT4 |      |      |      |      |      |      |      |
+           *    |------+------+------+------+------+------+------+------+------+------+------+------|
+           *    |      |      |      |      |      |      |      |      |      |      |      |      |
+           *    |------+------+------+------+------+------+------+------+------+------+------+------|
+           *    |      |      |      |      |      |             |      |      |      |      |      |
+           *    `-----------------------------------------------------------------------------------'
+           */
+        adjust_layer {
+            label = "Adjust";
+            bindings = <
+              &trans      &sys_reset &bootloader &trans     &trans         &trans         &trans           &trans         &trans      &trans     &trans        &soft_off
+              &bt BT_CLR  &bt BT(0)  &bt BT(1)  &bt BT(2)   &bt BT(3)      &bt BT(4)      &trans           &trans         &trans      &trans     &trans        &trans
+              &trans      &trans     &trans     &trans      &trans         &trans         &trans           &trans         &trans      &trans     &trans        &trans
+              &trans      &trans     &trans     &trans      &trans                 &trans                  &trans         &trans      &trans     &trans        &trans
+            >;
+        };
+
+    };
+};

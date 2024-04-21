@@ -1,73 +1,50 @@
-tap "cmacrae/formulae"
-tap "cormacrelf/tap"
-tap "delphinus/sfmono-square"
-tap "epk/epk"
-tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/core"
-tap "homebrew/services"
-tap "koekeishiya/formulae"
-tap "osx-cross/arm"
-tap "osx-cross/avr"
-tap "qmk/qmk"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
-# Isolated development environments using Docker
-brew "docker-compose"
+
 # Modern replacement for 'ls'
 brew "exa"
-# User-friendly command-line shell for UNIX-like operating systems
-brew "fish"
+
 # Command-line fuzzy finder written in Go
 brew "fzf"
+
+# User-friendly command-line shell for UNIX-like operating systems
+brew "fish"
+
 # GitHub command-line tool
 brew "gh"
-# GNU implementation of the famous stream editor
-brew "gnu-sed"
-# Add GitHub support to git on the command-line
-brew "hub"
-# Node version management
-brew "n"
+
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim", args: ["HEAD"]
+
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+
 # Cross-shell prompt for astronauts
 brew "starship"
+
 # Simplified and community-driven man pages
 brew "tldr"
-# Terminal multiplexer
-brew "tmux"
-# A minimal status bar for macOS.
-brew "cmacrae/formulae/spacebar", args: ["HEAD"]
-# Simple hotkey-daemon for macOS.
-brew "koekeishiya/formulae/skhd"
-# A tiling window manager for macOS based on binary space partitioning.
-brew "koekeishiya/formulae/yabai"
-# Quantum Mechanical Keyboard (QMK) Firmware
-brew "qmk/qmk/qmk"
-# GPU-accelerated terminal emulator
-cask "alacritty"
+
 # Application launcher and productivity software
 cask "alfred"
+
 # Voice and text chat software
 cask "discord"
+
 # App to build and share containerized applications and microservices
 cask "docker"
+
 # Collaborative team software
 cask "figma"
-cask "font-sf-mono-nerd-font"
+
 # Web browser
 cask "google-chrome"
-# App for browsing icon, photo and music packages
-cask "icons8"
-# Terminal emulator as alternative to Apple's Terminal app
-cask "iterm2"
+
 # GPU-based terminal emulator
 cask "kitty"
+
 # Knowledge base that works on top of a local folder of plain text Markdown files
-cask "obsidian"
-# SSH in the secure enclave
-cask "sekey"
+cask "notion"
+
 # Music streaming service
 cask "spotify"

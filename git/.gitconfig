@@ -19,13 +19,15 @@
     autocorrect = 1
 [push]
     default = simple
+	autoSetupRemote = true
 [pull]
     rebase = false
 [init]
   defaultBranch = main
 [hub]
 	protocol = ssh
-[alias]
-	diff-image = "!f() { cd -- \"${GIT_PREFIX:-.}\"; GIT_DIFF_IMAGE_ENABLED=1 git diff \"$@\"; }; f"
-[diff "image"]
-	command = ~/Downloads/git-diff-image/git_diff_image
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

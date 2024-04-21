@@ -1,0 +1,25 @@
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - keyboards/qmk/
+
+jobs:
+  build:
+    name: Build QMK Keyboard Firmware
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Build Firmware
+        uses: ./
+        with:
+          keymap-path: "keyboards/qmk/keychron_q2"
+          keyboard: "keychron/q2/ansi_encoder"
+          keymap: "q2"
+
+      - name: Upload a Firmware
+        uses: actions/upload-artifact@v3.1.2
+        with:
+          name: firmware
+          path: build
