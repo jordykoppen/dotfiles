@@ -1,13 +1,15 @@
 on:
   workflow_dispatch:
+  pull_request:
+    paths:
+      - keyboards/zmk/**/*.*
   push:
     paths:
-      - keyboards/zmk/
-
+      - keyboards/zmk/**/*.*
 jobs:
   build:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    uses: ./.github/workflows/build-user-config.yml
     with:
-      config_path: keyboards/zmk/config/
-      build_matrix_path: keyboards/zmk/build.yaml
-      archive_name: zmk_firmware
+      zmk_config_path: keyboards/zmk
+      config_path: config
+      # archive_name: zmk_firmware
