@@ -32,7 +32,9 @@ jobs:
         path: users/${{ github.actor }}
 
     - name: Build firmware
-      run: qmk compile -kb $(basename "${{ matrix.file }}") -km default -j 4
+      run: |
+        KB=$(echo "${{ matrix.file }}" | sed 's|keyboards/||')
+        qmk compile -kb "$KB" -km default -j 4
       working-directory: users/${{ github.actor }}/
 
     - name: Archive firmware
