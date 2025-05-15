@@ -28,7 +28,6 @@ jobs:
     - name: Copy user keyboard files into QMK
       run: |
         ls -la /
-        // copy from the userspace to the qmk firmware
         cp -a /dotfiles/keyboards/qmk/cornelius /opt/qmk_firmware/keyboards/cornelius
         ls -la /opt/qmk_firmware/keyboards/cornelius
 
