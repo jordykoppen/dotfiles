@@ -20,12 +20,6 @@ jobs:
     - name: Disable git safe directory checks
       run : git config --global --add safe.directory '*'
 
-    - name: Checkout QMK
-      uses: actions/checkout@v3
-      with:
-        repository: qmk/qmk_firmware
-        submodules: recursive
-
     - name: Checkout userspace
       uses: actions/checkout@v3
       with:
@@ -33,8 +27,8 @@ jobs:
 
     - name: Copy user keyboard files into QMK
       run: |
-        mkdir -p /qmk_firmware/keyboards/cornelius
-        cp -r users/${{ github.actor }}/keyboards/qmk/cornelius/* /qmk_firmware/keyboards/cornelius/
+        mkdir -p /opt/qmk_firmware/keyboards/cornelius
+        cp -r users/${{ github.actor }}/keyboards/qmk/cornelius/* /opt/qmk_firmware/keyboards/cornelius/
       working-directory: .
 
     - uses: d3adb5/build-qmk-fw@v1
