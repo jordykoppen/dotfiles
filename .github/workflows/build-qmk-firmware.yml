@@ -33,7 +33,7 @@ jobs:
 
     - name: Build firmware
       run: qmk compile -kb "${{ matrix.file }}" -km default -j 4
-      working-directory: users/${{ github.actor }}/
+      working-directory: .
     
     - name: Archive firmware
       uses: actions/upload-artifact@v4
