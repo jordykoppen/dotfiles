@@ -23,6 +23,7 @@ jobs:
 
     - name: Checkout userspace
       uses: actions/checkout@v4
+      working-directory: .
 
     - name: Copy user keyboard files into QMK
       run: |
