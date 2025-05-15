@@ -13,7 +13,7 @@ jobs:
       fail-fast: false
       matrix:
         file:
-        - cornelius/rev2
+        - cornelius
 
     steps:
 
@@ -30,6 +30,13 @@ jobs:
       uses: actions/checkout@v3
       with:
         path: users/${{ github.actor }}
+
+    - name: Copy user keyboard files into QMK
+      run: |
+        rm -rf /qmk_firmware/keyboards/foostan/cornelius
+        mkdir -p /qmk_firmware/keyboards/foostan/cornelius
+        cp -r users/${{ github.actor }}/keyboards/qmk/cornelius/* /qmk_firmware/keyboards/foostan/cornelius/
+      working-directory: .
 
     - name: Build firmware
       run: qmk compile -kb "${{ matrix.file }}" -km default -j 4
