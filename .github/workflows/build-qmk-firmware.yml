@@ -29,7 +29,7 @@ jobs:
       run: |
         ls -la /
         // copy from the userspace to the qmk firmware
-        cp -a ${GITHUB_WORKSPACE}/dotfiles/keyboards/qmk/cornelius /opt/qmk_firmware/keyboards/cornelius
+        cp -a /dotfiles/keyboards/qmk/cornelius /opt/qmk_firmware/keyboards/cornelius
         ls -la /opt/qmk_firmware/keyboards/cornelius
 
 
