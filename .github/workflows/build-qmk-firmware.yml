@@ -36,7 +36,7 @@ jobs:
       working-directory: users/${{ github.actor }}/
 
     - name: Archive firmware
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       continue-on-error: true
       with:
         name: ${{ matrix.file }}_${{ github.actor }}
