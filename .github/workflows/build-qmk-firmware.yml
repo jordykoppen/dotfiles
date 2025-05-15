@@ -40,7 +40,7 @@ jobs:
 
     - name: Build firmware
       run: qmk compile -kb "cornelius/rev2" -km default
-      working-directory: .
+      working-directory:  qmk_firmware
     
     - name: Archive firmware
       uses: actions/upload-artifact@v4
