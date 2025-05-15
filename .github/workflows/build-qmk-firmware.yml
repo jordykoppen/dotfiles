@@ -39,14 +39,14 @@ jobs:
       working-directory: .
 
     - name: Build firmware
-      run: qmk compile -kb "${{ matrix.file }}" -km default -j 4
+      run: qmk compile -kb "cornelius/rev2" -km default
       working-directory: .
     
     - name: Archive firmware
       uses: actions/upload-artifact@v4
       continue-on-error: true
       with:
-        name: ${{ matrix.file }}_${{ github.actor }}
+        name: cornelius-firmware
         path: |
           *.hex
           *.bin
