@@ -33,21 +33,18 @@ jobs:
 
     - name: Copy user keyboard files into QMK
       run: |
-        rm -rf /qmk_firmware/keyboards/foostan/cornelius
-        mkdir -p /qmk_firmware/keyboards/foostan/cornelius
-        cp -r users/${{ github.actor }}/keyboards/qmk/cornelius/* /qmk_firmware/keyboards/foostan/cornelius/
+        mkdir -p /qmk_firmware/keyboards/cornelius
+        cp -r users/${{ github.actor }}/keyboards/qmk/cornelius/* /qmk_firmware/keyboards/cornelius/
       working-directory: .
 
-    - name: Build firmware
-      run: make cornelius/rev2:default
-      working-directory: /qmk_firmware
-    
+    - uses: d3adb5/build-qmk-fw@v1
+      with:
+        keyboard: cornelius
+        keymap: default
+        output-dir: /keyboard-fimware
+  
     - name: Archive firmware
       uses: actions/upload-artifact@v4
-      continue-on-error: true
       with:
-        name: cornelius-firmware
-        path: |
-          *.hex
-          *.bin
-          *.uf2
+        name: built-images
+        path: /keyboard-fimware
