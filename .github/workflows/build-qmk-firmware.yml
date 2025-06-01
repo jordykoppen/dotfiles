@@ -29,7 +29,7 @@ jobs:
       with:
         repository: qmk/qmk_firmware
         submodules: recursive
-        path: qmk_firmware
+        path: /qmk_firmware
       
     - name: Copy user keyboard files into QMK
       run: |
