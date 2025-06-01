@@ -29,17 +29,17 @@ jobs:
       with:
         repository: qmk/qmk_firmware
         submodules: recursive
-        path: /qmk_firmware
+        path: qmk_firmware
       
     - name: Copy user keyboard files into QMK
       run: |
-        ls -la /qmk_firmware
-        ls -la /qmk_firmware/keyboards
+        ls -la $GITHUB_WORKSPACE/qmk_firmware
+        ls -la $GITHUB_WORKSPACE/qmk_firmware/keyboards
         cp -a $GITHUB_WORKSPACE/keyboards/qmk/jornelius /opt/qmk_firmware/keyboards/jornelius
 
     - name: Build firmware
       run: |
-        cd /qmk_firmware
+        cd $GITHUB_WORKSPACE/qmk_firmware
         qmk compile -kb jornelius -km default
   
     - name: Archive firmware
@@ -47,5 +47,5 @@ jobs:
       with:
         name: firmware-files
         path: |
-          /qmk_firmware/.build/*.uf2
-          /qmk_firmware/.build/*.hex
+          $GITHUB_WORKSPACE/qmk_firmware/.build/*.uf2
+          $GITHUB_WORKSPACE/qmk_firmware/.build/*.hex
