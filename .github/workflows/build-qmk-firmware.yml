@@ -27,6 +27,7 @@ jobs:
 
     - name: Copy user keyboard files into QMK
       run: |
+        ls -la /opt/qmk_firmware
         ls -la /opt/qmk_firmware/keyboards
         cp -a $GITHUB_WORKSPACE/keyboards/qmk/jornelius /opt/qmk_firmware/keyboards/jornelius
 
