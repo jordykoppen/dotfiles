@@ -33,6 +33,7 @@ jobs:
         mkdir output
         cd qmk_firmware
         qmk compile -kb jornelius -km default
+        ls -la .build
         cp -a *.hex *.bin *.uf2 ../output/
   
     - name: Archive firmware
