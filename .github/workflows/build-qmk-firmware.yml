@@ -10,19 +10,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container: ghcr.io/qmk/qmk_cli
-    strategy:
-      fail-fast: false
-      matrix:
-        file:
-        - jornelius
 
     steps:
 
-    - name: Disable git safe directory checks
-      run : git config --global --add safe.directory '*'
-
     - name: Checkout userspace
       uses: actions/checkout@v4
+      with:
+        path: main
       
     - name: Checkout QMK firmware
       uses: actions/checkout@v4
@@ -32,16 +26,15 @@ jobs:
         path: qmk_firmware
       
     - name: Copy user keyboard files into QMK
-      run: cp -a $GITHUB_WORKSPACE/keyboards/qmk/jornelius $GITHUB_WORKSPACE/qmk_firmware/keyboards/jornelius
+      run: cp -a keyboards/qmk/jornelius qmk_firmware/keyboards/jornelius
 
     - name: Build firmware
       run: |
-        cd $GITHUB_WORKSPACE/qmk_firmware
+        cd qmk_firmware
         qmk compile -kb jornelius -km default
-        ls -al $GITHUB_WORKSPACE/qmk_firmware/.build
   
     - name: Archive firmware
       uses: actions/upload-artifact@v4
       with:
         name: firmware-files
-        path: $GITHUB_WORKSPACE/qmk_firmware/.build
+        path: qmk_firmware/.build
