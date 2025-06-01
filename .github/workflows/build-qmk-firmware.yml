@@ -32,10 +32,7 @@ jobs:
         path: qmk_firmware
       
     - name: Copy user keyboard files into QMK
-      run: |
-        ls -la $GITHUB_WORKSPACE/qmk_firmware
-        ls -la $GITHUB_WORKSPACE/qmk_firmware/keyboards
-        cp -a $GITHUB_WORKSPACE/keyboards/qmk/jornelius /opt/qmk_firmware/keyboards/jornelius
+      run: cp -a $GITHUB_WORKSPACE/keyboards/qmk/jornelius $GITHUB_WORKSPACE/qmk_firmware/keyboards/jornelius
 
     - name: Build firmware
       run: |
