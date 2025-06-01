@@ -44,5 +44,5 @@ jobs:
       with:
         name: firmware-files
         path: |
-          $GITHUB_WORKSPACE/qmk_firmware/.build/*.uf2
-          $GITHUB_WORKSPACE/qmk_firmware/.build/*.hex
+          $GITHUB_WORKSPACE/qmk_firmware/*.uf2
+          $GITHUB_WORKSPACE/qmk_firmware/*.hex
