@@ -37,7 +37,7 @@ jobs:
   
     - name: Archive firmware
       uses: actions/upload-artifact@v4
-      width:
+      with:
         name: firmware-files
         path: |
           output/*.hex
