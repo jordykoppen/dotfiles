@@ -26,7 +26,7 @@ jobs:
         path: qmk_firmware
       
     - name: Copy user keyboard files into QMK
-      run: cp -a keyboards/qmk/jornelius qmk_firmware/keyboards/jornelius
+      run: cp -a main/keyboards/qmk/jornelius qmk_firmware/keyboards/jornelius
 
     - name: Build firmware
       run: |
@@ -37,4 +37,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: firmware-files
-        path: qmk_firmware/.build
+        path: ./qmk_firmware/.build
