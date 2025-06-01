@@ -43,5 +43,3 @@ jobs:
           output/*.hex
           output/*.bin
           output/*.uf2
-
-d
