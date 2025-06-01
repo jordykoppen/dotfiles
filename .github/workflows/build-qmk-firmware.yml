@@ -30,16 +30,18 @@ jobs:
 
     - name: Build firmware
       run: |
+        mkdir output
         cd qmk_firmware
         qmk compile -kb jornelius -km default
+        cp -a *.hex *.bin *.uf2 ../output/
   
     - name: Archive firmware
       uses: actions/upload-artifact@v4
       width:
         name: firmware-files
         path: |
-          qmk_firmware/*.hex
-          qmk_firmware/*.bin
-          qmk_firmware/*.uf2
+          output/*.hex
+          output/*.bin
+          output/*.uf2
 
 d
