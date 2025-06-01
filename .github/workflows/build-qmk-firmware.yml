@@ -44,6 +44,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: firmware-files
-        path: |
-          $GITHUB_WORKSPACE/qmk_firmware/*.uf2
-          $GITHUB_WORKSPACE/qmk_firmware/*.hex
+        path: $GITHUB_WORKSPACE/qmk_firmware/.build
