@@ -35,6 +35,11 @@ jobs:
   
     - name: Archive firmware
       uses: actions/upload-artifact@v4
-      with:
+      width:
         name: firmware-files
-        path: ./qmk_firmware/.build
+        path: |
+          qmk_firmware/*.hex
+          qmk_firmware/*.bin
+          qmk_firmware/*.uf2
+
+d
