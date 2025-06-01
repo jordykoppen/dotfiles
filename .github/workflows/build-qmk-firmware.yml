@@ -14,7 +14,7 @@ jobs:
       fail-fast: false
       matrix:
         file:
-        - cornelius
+        - jornelius
 
     steps:
 
@@ -28,12 +28,11 @@ jobs:
     - name: Copy user keyboard files into QMK
       run: |
         ls -la /opt/qmk_firmware/keyboards
-        cp -a $GITHUB_WORKSPACE/keyboards/qmk/cornelius /opt/qmk_firmware/keyboards/cornelius
-
+        cp -a $GITHUB_WORKSPACE/keyboards/qmk/jornelius /opt/qmk_firmware/keyboards/jornelius
 
     - uses: d3adb5/build-qmk-fw@v1
       with:
-        keyboard: cornelius
+        keyboard: jornelius
         keymap: default
         output-dir: /keyboard-fimware
   
