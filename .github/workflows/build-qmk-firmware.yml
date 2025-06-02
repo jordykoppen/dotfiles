@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - keyboards/qmk/
+      - keyboards/qmk/*
       - .github/workflows/build-qmk-firmware.yml
 
 jobs:
