@@ -32,7 +32,7 @@ jobs:
 
     - name: Build firmware
       run: |
-        mkdir -p output
+        mkdir output
         cd qmk_firmware
         
         # Process each keyboard configuration
@@ -45,7 +45,7 @@ jobs:
           
           # Create output directory using the keyboard name
           output_name=$(echo "$keyboard" | tr '/' '_')
-          mkdir -p ../output/"$output_name"
+          mkdir ../output/"$output_name"
           cp -a .build/*.uf2 ../output/"$output_name"/
         done < <(jq -c '.[]' ../main/keyboards/qmk/keyboard_config.json)
   
