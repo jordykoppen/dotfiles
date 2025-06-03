@@ -36,37 +36,19 @@ jobs:
         mkdir output
         cd qmk_firmware
         
-        # Get list of changed files in the commit
-        if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-          # For manual triggers, build all keyboards
-          changed_keyboards=$(jq -c '.[]' ../main/keyboards/qmk/keyboard_config.json)
-        else
-          # For push events, only build changed keyboards
-          changed_files=$(git diff --name-only ${{ github.event.before }} ${{ github.event.after }})
-          changed_keyboards=$(jq -c '.[]' ../main/keyboards/qmk/keyboard_config.json | while read -r config; do
-            keyboard=$(echo "$config" | jq -r '.keyboard')
-            keyboard_path="keyboards/$keyboard"
-            if echo "$changed_files" | grep -q "$keyboard_path"; then
-              echo "$config"
-            fi
-          done)
-        fi
-        
         # Process each keyboard configuration
-        echo "$changed_keyboards" | while IFS= read -r config; do
-          if [ -n "$config" ]; then
-            keyboard=$(echo "$config" | jq -r '.keyboard')
-            keymap=$(echo "$config" | jq -r '.keymap')
-            
-            echo "Building firmware for $keyboard with keymap $keymap"
-            qmk compile -kb "$keyboard" -km "$keymap"
-            
-            # Create output directory using the keyboard name
-            output_name=$(echo "$keyboard" | tr '/' '_')
-            mkdir ../output/"$output_name"
-            cp -a .build/*.uf2 ../output/"$output_name"/
-          fi
-        done
+        while IFS= read -r config; do
+          keyboard=$(echo "$config" | jq -r '.keyboard')
+          keymap=$(echo "$config" | jq -r '.keymap')
+          
+          echo "Building firmware for $keyboard with keymap $keymap"
+          qmk compile -kb "$keyboard" -km "$keymap"
+          
+          # Create output directory using the keyboard name
+          output_name=$(echo "$keyboard" | tr '/' '_')
+          mkdir ../output/"$output_name"
+          cp -a .build/*.uf2 ../output/"$output_name"/
+        done < <(jq -c '.[]' ../main/keyboards/qmk/keyboard_config.json)
   
     - name: Archive firmware
       uses: actions/upload-artifact@v4
