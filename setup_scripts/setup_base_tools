@@ -12,6 +12,7 @@ export PATH=/opt/homebrew/bin:$PATH
 
 echo "→ fish installed successfully. Adding to shells..."
 sudo echo /opt/homebrew/bin/fish >> /etc/shells
+sudo ln -s /opt/homebrew/bin/fish /usr/local/bin/fish
 
 echo "→ setting fish as the default shell..."
 chsh -s /opt/homebrew/bin/fish
