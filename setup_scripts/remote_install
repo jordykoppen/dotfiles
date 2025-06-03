@@ -12,6 +12,13 @@ done 2>/dev/null &
 sudo_pid=$!
 trap 'kill $sudo_pid' EXIT
 
+
+echo "→ installing git"
+xcode-select --install
+
+echo "→ cloning dotfiles repository"
+git clone https://github.com/jordykoppen/dotfiles $HOME/dotfiles
+
 bash $HOME/dotfiles/setup_base_tools
 bash $HOME/dotfiles/system_defaults
 fish $HOME/dotfiles/install.fish

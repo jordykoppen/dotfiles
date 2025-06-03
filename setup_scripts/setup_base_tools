@@ -2,12 +2,6 @@
 
 echo "→ setting up necessary tools to continue installation..."
 
-echo "→ installing git"
-xcode-select --install
-
-echo "→ cloning dotfiles repository"
-git clone https://github.com/jordykoppen/dotfiles $HOME/dotfiles
-
 echo "→ installing Homebrew"
 NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
