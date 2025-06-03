@@ -44,7 +44,7 @@ echo >> ~/.zprofile
 echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-export PATH=/opt/homebrew/bin:$PATH
+export PATH="/opt/homebrew/bin:$PATH"
 
 echo "→ installing fish"
 brew install fish
@@ -59,4 +59,4 @@ echo "→ done setting up base tools"
 
 source $HOME/dotfiles/setup_scripts/system_defaults
 
-fish -c "source $HOME/dotfiles/install.fish"
+exec fish $HOME/dotfiles/install.fish
