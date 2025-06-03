@@ -27,7 +27,13 @@ else
 fi
 
 echo "→ cloning dotfiles repository"
-git clone https://github.com/jordykoppen/dotfiles $HOME/dotfiles
+## check if the dotfiles directory already exists
+if [ -d "$HOME/dotfiles" ]; then
+  echo "The directory $HOME/dotfiles already exists. Please remove it before running this script."
+  exit 1
+else
+  git clone https://github.com/jordykoppen/dotfiles $HOME/dotfiles
+fi
 
 bash $HOME/dotfiles/setup_scripts/setup_base_tools
 bash $HOME/dotfiles/setup_scripts/system_defaults
