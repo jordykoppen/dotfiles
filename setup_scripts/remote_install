@@ -35,6 +35,24 @@ else
   git clone https://github.com/jordykoppen/dotfiles $HOME/dotfiles
 fi
 
-source $HOME/dotfiles/setup_scripts/setup_base_tools
+echo "→ setting up necessary tools to continue installation..."
+
+echo "→ installing Homebrew"
+NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+echo "→ installing fish"
+brew install fish
+
+export PATH=/opt/homebrew/bin:$PATH
+
+echo "→ fish installed successfully. Adding to shells..."
+sudo echo /opt/homebrew/bin/fish >> /etc/shells
+
+echo "→ setting fish as the default shell..."
+chsh -s /opt/homebrew/bin/fish
+
+echo "→ done setting up base tools"
+
 source $HOME/dotfiles/setup_scripts/system_defaults
+
 fish -c "source $HOME/dotfiles/install.fish"

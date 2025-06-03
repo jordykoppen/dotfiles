@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Keep-alive: update existing `sudo` time stamp until script finishes
+while true; do
+  sudo -n true
+  sleep 60
+done 2>/dev/null &
+sudo_pid=$!
+trap 'kill $sudo_pid' EXIT
+
 # Set key repeat rate as system preferences isn't fast enough 
 defaults write NSGlobalDomain KeyRepeat -int 1
 defaults write NSGlobalDomain InitialKeyRepeat -int 10
