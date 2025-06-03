@@ -1,6 +1,3 @@
-tap "homebrew/services"
-tap "oven-sh/bun"
-
 # Automatically exclude development dependencies from Time Machine backups
 brew "asimov", restart_service: :changed
 

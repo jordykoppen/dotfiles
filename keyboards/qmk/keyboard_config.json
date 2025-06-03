@@ -1,0 +1,22 @@
+[
+  {
+    "keyboard": "jornelius",
+    "keymap": "default"
+  },
+  {
+    "keyboard": "planck/rev6",
+    "keymap": "jordy"
+  },
+  {
+    "keyboard": "preonic/rev3",
+    "keymap": "jordy"
+  },
+  {
+    "keyboard": "keychron/q2/ansi_encoder",
+    "keymap": "jordy"
+  },
+  {
+    "keyboard": "keychron/q8/ansi_encoder",
+    "keymap": "jordy"
+  }
+]

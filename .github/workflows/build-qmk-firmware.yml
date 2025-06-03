@@ -12,6 +12,8 @@ jobs:
     container: ghcr.io/qmk/qmk_cli
 
     steps:
+    - name: Install jq
+      run: sudo apt update && sudo apt install -y jq
 
     - name: Checkout userspace
       uses: actions/checkout@v4
@@ -26,20 +28,30 @@ jobs:
         path: qmk_firmware
       
     - name: Copy user keyboard files into QMK
-      run: cp -a main/keyboards/qmk/jornelius qmk_firmware/keyboards/jornelius
+      run: cp -a main/keyboards/qmk/. qmk_firmware/keyboards/
 
     - name: Build firmware
       run: |
-        mkdir output
+        mkdir -p output
         cd qmk_firmware
-        qmk compile -kb jornelius -km default
-        cp -a .build/*.uf2 ../output/
+        
+        # Process each keyboard configuration
+        while IFS= read -r config; do
+          keyboard=$(echo "$config" | jq -r '.keyboard')
+          keymap=$(echo "$config" | jq -r '.keymap')
+          
+          echo "Building firmware for $keyboard with keymap $keymap"
+          qmk compile -kb "$keyboard" -km "$keymap"
+          
+          # Create output directory using the keyboard name
+          output_name=$(echo "$keyboard" | tr '/' '_')
+          mkdir -p ../output/"$output_name"
+          cp -a .build/*.uf2 ../output/"$output_name"/
+        done < <(jq -c '.[]' ../main/keyboards/qmk/keyboard_config.json)
   
     - name: Archive firmware
       uses: actions/upload-artifact@v4
       with:
         name: firmware-files
-        path: |
-          output/*.hex
-          output/*.bin
-          output/*.uf2
+        path: output/
+        if-no-files-found: error
