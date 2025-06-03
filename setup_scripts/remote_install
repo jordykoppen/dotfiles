@@ -13,5 +13,5 @@ sudo_pid=$!
 trap 'kill $sudo_pid' EXIT
 
 bash $HOME/dotfiles/setup_base_tools
-
+bash $HOME/dotfiles/system_defaults
 fish $HOME/dotfiles/install.fish
