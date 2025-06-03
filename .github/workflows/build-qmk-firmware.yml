@@ -35,7 +35,20 @@ jobs:
       run: |
         mkdir output
         cd qmk_firmware
-        qmk compile -kb all -km jordy
+        
+        # Process each keyboard configuration
+        while IFS= read -r config; do
+          keyboard=$(echo "$config" | jq -r '.keyboard')
+          keymap=$(echo "$config" | jq -r '.keymap')
+          
+          echo "Building firmware for $keyboard with keymap $keymap"
+          qmk compile -kb "$keyboard" -km "$keymap"
+          
+          # Create output directory using the keyboard name
+          output_name=$(echo "$keyboard" | tr '/' '_')
+          mkdir ../output/"$output_name"
+          cp -a .build/* ../output/"$output_name"/
+        done < <(jq -c '.[]' ../main/keyboards/qmk/keyboard_config.json)
   
     - name: Archive firmware
       uses: actions/upload-artifact@v4
