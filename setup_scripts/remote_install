@@ -29,6 +29,6 @@ fi
 echo "→ cloning dotfiles repository"
 git clone https://github.com/jordykoppen/dotfiles $HOME/dotfiles
 
-bash $HOME/dotfiles/setup_base_tools
-bash $HOME/dotfiles/system_defaults
+bash $HOME/dotfiles/setup_scripts/setup_base_tools
+bash $HOME/dotfiles/setup_scripts/system_defaults
 fish $HOME/dotfiles/install.fish
