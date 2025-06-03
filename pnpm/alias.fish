@@ -1,4 +1,5 @@
 alias p="pnpm"
+alias pa="pnpm add"
 alias px="pnpx"
 alias pi="pnpm install"
 alias pid="pnpm install --save-dev"

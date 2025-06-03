@@ -1,9 +1,0 @@
-#!/bin/bash
-
-export PATH=/opt/homebrew/bin:$PATH
-
-if test ! $(which brew); then
-  NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
-
-brew bundle --file=~/dotfiles/brew/Brewfile

@@ -1,0 +1,25 @@
+#!/bin/bash
+
+echo "→ setting up necessary tools to continue installation..."
+
+echo "→ installing git"
+xcode-select --install
+
+echo "→ cloning dotfiles repository"
+git clone https://github.com/jordykoppen/dotfiles $HOME/dotfiles
+
+echo "→ installing Homebrew"
+NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+echo "→ installing fish"
+brew install fish
+
+export PATH=/opt/homebrew/bin:$PATH
+
+echo "→ fish installed successfully. Adding to shells..."
+sudo echo /opt/homebrew/bin/fish >> /etc/shells
+
+echo "→ setting fish as the default shell..."
+chsh -s /opt/homebrew/bin/fish
+
+echo "→ done setting up base tools"

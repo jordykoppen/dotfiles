@@ -1,7 +1,17 @@
 #!/bin/bash
 
-# Install commandline tools
-xcode-select --install
-git clone https://github.com/jordykoppen/macos-dotfiles $HOME/dotfiles
+# Ask for the admin password upfront
+echo "Please enter your password to install the necessary tools."
+sudo -v
 
-./$HOME/dotfiles/install
+# Keep-alive: update existing `sudo` time stamp until script finishes
+while true; do
+  sudo -n true
+  sleep 60
+done 2>/dev/null &
+sudo_pid=$!
+trap 'kill $sudo_pid' EXIT
+
+bash $HOME/dotfiles/setup_base_tools
+
+fish $HOME/dotfiles/install.fish

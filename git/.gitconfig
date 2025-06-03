@@ -1,31 +1,39 @@
 [user]
 	name = Jordy Koppen
 	email = 24296556+jordykoppen@users.noreply.github.com
+	username = jordykoppen
+	signingkey = $HOME/.ssh/id_ed25519.pub
 [color]
-    diff = auto
-    status = auto
-    branch = auto
-    ui = true
+  diff = auto
+  status = auto
+  branch = auto
+  ui = true
 [core]
-    editor = nvim
+  editor = nvim
 	attributesfile = ~/.gitattributes
 [apply]
-    whitespace = nowarn
+  whitespace = nowarn
 [mergetool]
-    keepBackup = false
+  keepBackup = true
 [difftool]
-    prompt = true
+  prompt = true
 [help]
-    autocorrect = 1
+  autocorrect = 1
 [push]
-    default = simple
+  default = simple
 	autoSetupRemote = true
 [pull]
-    rebase = false
+  rebase = false
 [init]
   defaultBranch = main
 [hub]
 	protocol = ssh
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[commit]
+	gpgsign = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

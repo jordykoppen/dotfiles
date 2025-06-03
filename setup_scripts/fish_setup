@@ -1,8 +1,0 @@
-#!/bin/bash
-
-if  ["$(which fish)" = "/opt/homebrew/bin/fish"]; then
-  sudo echo /opt/homebrew/bin/fish >> /etc/shells
-  chsh -s /opt/homebrew/bin/fish
-else 
-  echo "Fish already set up"
-fi
