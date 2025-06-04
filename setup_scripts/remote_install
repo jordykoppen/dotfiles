@@ -57,6 +57,6 @@ chsh -s /opt/homebrew/bin/fish
 
 echo "→ done setting up base tools"
 
-source $HOME/dotfiles/setup_scripts/system_defaults
+## source $HOME/dotfiles/setup_scripts/system_defaults
 
 exec fish $HOME/dotfiles/install.fish

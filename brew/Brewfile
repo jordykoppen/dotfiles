@@ -43,7 +43,7 @@ brew "tree"
 brew "atuin"
 
 # Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
-brew "oven-sh/bun/bun"
+brew "oven-sh/bun"
 
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
