@@ -49,7 +49,6 @@ This repository contains my personal dotfiles and configuration files for variou
 ```
 dotfiles/
 ├── alias.fish        # Fish shell aliases
-├── init.fish         # Fish shell initialization
 ├── install.fish      # Main installation script
 ├── setup_scripts/    # Additional setup scripts
 ├── fish/            # Fish shell configuration

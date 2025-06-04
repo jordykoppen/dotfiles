@@ -46,6 +46,8 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 export PATH="/opt/homebrew/bin:$PATH"
 
+ln -sf $HOME/dotfiles/fish $HOME/.config/fish
+
 echo "→ installing fish"
 brew install fish
 
@@ -54,9 +56,10 @@ echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells
 
 echo "→ setting fish as the default shell..."
 chsh -s /opt/homebrew/bin/fish
+fish -c "set -Ux DOTFILES $HOME/dotfiles"
 
 echo "→ done setting up base tools"
 
 ## source $HOME/dotfiles/setup_scripts/system_defaults
 
-exec fish $HOME/dotfiles/install.fish
+exec fish $HOME/dotfiles/setup.fish

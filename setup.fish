@@ -11,5 +11,3 @@ for file in (find $DOTFILES/**/ -name install.fish)
         echo "File $file not found"
     end
 end
-
-source $DOTFILES/init.fish
