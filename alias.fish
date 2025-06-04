@@ -1,2 +1,2 @@
-alias ls="exa"
+alias ls="eza"
 alias cat="bat"

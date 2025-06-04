@@ -5,7 +5,7 @@ brew "asimov", restart_service: :changed
 brew "bat"
 
 # Modern replacement for 'ls'
-brew "exa"
+brew "eza"
 
 # Command-line fuzzy finder written in Go
 brew "fzf"
