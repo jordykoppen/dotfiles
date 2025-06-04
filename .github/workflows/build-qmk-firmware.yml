@@ -41,6 +41,7 @@ jobs:
           keyboard=$(echo "$config" | jq -r '.keyboard')
           keymap=$(echo "$config" | jq -r '.keymap')
           
+          qmk clean
           echo "Building firmware for $keyboard with keymap $keymap"
           qmk compile -kb "$keyboard" -km "$keymap"
           
