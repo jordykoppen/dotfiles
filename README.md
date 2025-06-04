@@ -39,22 +39,10 @@ This repository contains my personal dotfiles and configuration files for variou
 
 ## Installation
 
-1. Clone this repository:
+1. Run the remote install script from the terminal:
    ```bash
-   git clone https://github.com/yourusername/dotfiles.git ~/dotfiles
+    curl -fsSL https://raw.githubusercontent.com/jordykoppen/dotfiles/refs/heads/main/setup_scripts/remote_install | bash
    ```
-
-2. Run the installation script:
-   ```bash
-   cd ~/dotfiles
-   ./install.fish
-   ```
-
-The installation script will:
-- Set up the `DOTFILES` environment variable
-- Source all environment configurations
-- Run individual installation scripts for each component
-- Initialize the final configuration
 
 ## Structure
 
