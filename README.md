@@ -24,7 +24,6 @@ This repository contains my personal dotfiles and configuration files for variou
     - crkbd
     - blank slate (wireless planck)
   - Automated builds via GitHub Actions
-    - Automatic firmware builds on keymap changes. 
 - 🔑 SSH configuration
 - ⭐ Starship prompt configuration
 - 📝 Atuin shell history

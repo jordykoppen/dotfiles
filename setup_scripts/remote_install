@@ -49,7 +49,7 @@ export PATH="/opt/homebrew/bin:$PATH"
 ln -sf $HOME/dotfiles/fish $HOME/.config/fish
 
 echo "→ installing fish"
-brew install fish
+brew install fish > /dev/null
 
 echo "→ fish installed successfully. Adding to shells..."
 echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells
@@ -60,6 +60,9 @@ fish -c "set -Ux DOTFILES $HOME/dotfiles"
 
 echo "→ done setting up base tools"
 
-## source $HOME/dotfiles/setup_scripts/system_defaults
+# Set up fish_greeting to run the setup script
+fish -c "function fish_greeting; echo '🐟 Welcome to fish shell'; echo '⚡️ Setting up your environment as this is your first time...'; fish $HOME/dotfiles/setup.fish; end; funcsave fish_greeting"
 
-exec fish $HOME/dotfiles/setup.fish
+echo ""
+echo "✨ Installation complete! Please close this terminal and open a new one to continue the setup."
+echo ""
