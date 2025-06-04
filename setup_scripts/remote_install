@@ -50,7 +50,7 @@ echo "→ installing fish"
 brew install fish
 
 echo "→ fish installed successfully. Adding to shells..."
-sudo echo /opt/homebrew/bin/fish >> /etc/shells
+echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells
 
 echo "→ setting fish as the default shell..."
 chsh -s /opt/homebrew/bin/fish
