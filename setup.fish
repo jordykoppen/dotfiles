@@ -10,5 +10,4 @@ end
 function fish_greeting
     fastfetch
 end
-
 funcsave fish_greeting
