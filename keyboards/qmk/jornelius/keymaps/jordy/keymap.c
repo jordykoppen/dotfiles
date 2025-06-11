@@ -1,4 +1,4 @@
-/* Copyright 2020 foostan
+/* Copyright  2020 foostan
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,10 +28,12 @@ enum layers {
 
 // Mod Tap defintion
 #define MT_A LGUI_T(KC_A)
-#define MT_S LCTL_T(KC_S)
+#define MT_S LSFT_T(KC_S)
+#define MT_D LALT_T(KC_D)
 
+#define MT_K RALT_T(KC_K)
+#define MT_L RSFT_T(KC_L)
 #define MT_SCLN RGUI_T(KC_SCLN)
-#define MT_QUOT RALT_T(KC_QUOT)
 
 #define CTLESC LCTL_T(KC_ESC)
 
@@ -41,6 +43,8 @@ enum layers {
 #define AGDOWN LALT(LGUI(KC_DOWN))
 #define AGF LALT(LGUI(KC_F))
 #define AGC LALT(LGUI(KC_C))
+#define ALLIN1 LSFT(LGUI(KC_5))
+#define SCRNSHT LSFT(LGUI(KC_6))
 
 #define FLOW_TAP_TERM 200
 
@@ -49,18 +53,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     * ,------------------------------------------------------------------------------------------.
     * | Tab  |   Q  |   W  |   E  |   R  |   T  |      |   Y  |   U  |   I  |   O  |   P  | Bksp |
     * |------+------+------+------+------+------+      +------+------+------+------+------+------|
-    * |CTLESC|   A  |   S  |   D  |   F  |   G  |      |   H  |   J  |   K  |   L  |   ;  |  "   |
+    * |CTLESC|LGUI_A|LSFT_S|LATL_D|   F  |   G  |      |   H  |   J  |RALT_K|RSFT_L|RGUI_;|  "   |
     * |------+------+------+------+------+------+      +------+------+------+------+------+------|
     * | Shift|   Z  |   X  |   C  |   V  |   B  |      |   N  |   M  |   ,  |   .  |   /  |Enter |
     * |------+------+------+------+------+------+      +------+------+------+------+------+------|
-    * | HYPER|      | Alt  | GUI  |Lower |SPACE |      | ENTER|Raise | Left | Down |  Up  |Right |
+    * | HYPER| LCTL | LALT |      | LOWER| SPACE|      |ENTER |RAISE |      | RALT | RCTL |HYPER |
     * `------------------------------------------------------------------------------------------'
     */
   [_DEFAULT] = LAYOUT(
       KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,         KC_Y,    KC_U,     KC_I,    KC_O,    KC_P, KC_BSPC,
-      CTLESC,    MT_A,    MT_S,    KC_D,    KC_F,    KC_G,         KC_H,    KC_J,     KC_K,    KC_L, MT_SCLN, MT_QUOT,
+      CTLESC,    MT_A,    MT_S,    MT_D,    KC_F,    KC_G,         KC_H,    KC_J,     MT_K,    MT_L, MT_SCLN, KC_QUOT,
       KC_LSFT,   KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,         KC_N,    KC_M,  KC_COMM,  KC_DOT, KC_SLSH, KC_RSFT,
-      KC_ESC,  KC_LCTL,KC_LALT, XXXXXXX,   LOWER,  KC_SPC,       KC_ENT,   RAISE,  KC_RGUI, KC_RALT, KC_RCTL,  KC_ESC
+      KC_HYPR,KC_LCTL, KC_LALT, XXXXXXX,   LOWER,  KC_SPC,       KC_ENT,   RAISE,  XXXXXXX, KC_RALT, KC_RCTL, KC_HYPR
   ),
   [_LOWER] = LAYOUT(
      KC_TILD,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,         KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_BSPC,
@@ -75,9 +79,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      _______, _______, _______, _______,   ADJST, _______,      _______,   RAISE, _______, _______, _______, _______
   ),
   [_ADJUST] = LAYOUT(
-     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-     QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, AGF, XXXXXXX,      AGLEFT, AGDOWN, AGUP, AGRIGHT, XXXXXXX, XXXXXXX,
-     _______, XXXXXXX, XXXXXXX, AGC, XXXXXXX, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+     _______, XXXXXXX, XXXXXXX, XXXXXXX,  ALLIN1, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+     QK_BOOT, XXXXXXX, SCRNSHT, XXXXXXX,     AGF, XXXXXXX,       AGLEFT,  AGDOWN,    AGUP, AGRIGHT, XXXXXXX, XXXXXXX,
+     _______, XXXXXXX, XXXXXXX,     AGC, XXXXXXX, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
      _______, _______, _______, _______,   ADJST, _______,      _______,   ADJST, _______, _______, _______, _______
   ),
 };
