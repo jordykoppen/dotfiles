@@ -1,2 +1,2 @@
-alias ls="eza"
 alias cat="bat"
+alias rimraf="rm -rf"

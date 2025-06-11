@@ -4,9 +4,6 @@ brew "asimov", restart_service: :changed
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 
-# Modern replacement for 'ls'
-brew "eza"
-
 # Command-line fuzzy finder written in Go
 brew "fzf"
 
