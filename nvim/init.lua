@@ -52,17 +52,21 @@ end
 -- initialize global config object
 -- global = {}
 
-vim.g.mapleader = ' '
-vim.api.nvim_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<c-h>', '<C-W>h', { noremap = true })
-vim.api.nvim_set_keymap('n', '<c-j>', '<C-W>j', { noremap = true })
-vim.api.nvim_set_keymap('n', '<c-k>', '<C-W>k', { noremap = true })
-vim.api.nvim_set_keymap('n', '<c-l>', '<C-W>l', { noremap = true })
-vim.api.nvim_set_keymap('n', 'qq', '<cmd>qa<cr>', { noremap = true })
+  vim.g.mapleader = ' '
+  vim.api.nvim_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', { noremap = true })
+  vim.api.nvim_set_keymap('n', '<c-h>', '<C-W>h', { noremap = true })
+  vim.api.nvim_set_keymap('n', '<c-j>', '<C-W>j', { noremap = true })
+  vim.api.nvim_set_keymap('n', '<c-k>', '<C-W>k', { noremap = true })
+  vim.api.nvim_set_keymap('n', '<c-l>', '<C-W>l', { noremap = true })
+  vim.api.nvim_set_keymap('n', 'qq', '<cmd>qa<cr>', { noremap = true })
 
-vim.cmd('highlight clear SignColumn')
+  vim.cmd('highlight clear SignColumn')
 
-package.path = package.path .. ';' .. vim.fn.expand('$HOME') .. '/.luarocks/share/lua/5.1/?/init.lua;'
-package.path = package.path .. ';' .. vim.fn.expand('$HOME') .. '/.luarocks/share/lua/5.1/?.lua;'
+  package.path = package.path .. ';' .. vim.fn.expand('$HOME') .. '/.luarocks/share/lua/5.1/?/init.lua;'
+  package.path = package.path .. ';' .. vim.fn.expand('$HOME') .. '/.luarocks/share/lua/5.1/?.lua;'
 
-require('config.lazy')
+if vim.g.vscode then
+
+else 
+  require('config.lazy')
+end
