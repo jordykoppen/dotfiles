@@ -2,7 +2,6 @@
 	name = Jordy Koppen
 	email = 24296556+jordykoppen@users.noreply.github.com
 	username = jordykoppen
-	signingkey = $HOME/.ssh/id_ed25519.pub
 [color]
   diff = auto
   status = auto
@@ -32,6 +31,7 @@
 	format = ssh
 [gpg "ssh"]
 	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+  	defaultKeyCommand = "op item get 'Personal SSH Key' --fields public_key"
 [commit]
 	gpgsign = true
 [filter "lfs"]
