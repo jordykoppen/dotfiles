@@ -1,2 +1,0 @@
-
-source $DOTFILES/**/alias.fish
