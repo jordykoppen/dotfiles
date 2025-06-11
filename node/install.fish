@@ -1,5 +1,5 @@
 if not type -q node
-    set -Ux N_PREFIX $HOME/.local/share/n
+    set -gx N_PREFIX $HOME/.local/share/n
 
     echo "→ node not found, installing now with tj/n"
 

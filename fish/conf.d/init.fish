@@ -1,6 +1,6 @@
-set -x DOTFILES $HOME/dotfiles
+set -gx DOTFILES $HOME/dotfiles
 
-for file in $DOTFILES/**/env.fish $DOTFILES/**/alias.fish
+for file in (find $DOTFILES -name env.fish -o -name alias.fish)
     source $file
 end
 

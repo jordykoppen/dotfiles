@@ -56,9 +56,18 @@ echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells
 
 echo "→ setting fish as the default shell..."
 chsh -s /opt/homebrew/bin/fish
-fish -c "set -Ux DOTFILES $HOME/dotfiles"
 
 echo "→ done setting up base tools"
+
+echo "→ symlinking dotfiles to home directory"
+mkdir -p $HOME/.config
+ln -sf $HOME/dotfiles/.gitconfig $HOME/.gitconfig
+ln -sf $HOME/dotfiles/fish $HOME/.config/fish
+ln -sf $HOME/dotfiles/atuin $HOME/.config/atuin
+ln -sf $HOME/dotfiles/starship.toml $HOME/.config/starship.toml
+ln -sf $HOME/dotfiles/nvim $HOME/.config/nvim
+ln -sf $HOME/dotfiles/kitty $HOME/.config/kitty
+ln -sf $HOME/dotfiles/gh $HOME/.config/gh
 
 # Set up fish_greeting to run the setup script
 fish -c "function fish_greeting; echo '🐟 Welcome to fish shell'; echo '⚡️ Setting up your environment as this is your first time...'; fish $HOME/dotfiles/setup.fish; end; funcsave fish_greeting"

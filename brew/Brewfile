@@ -37,17 +37,6 @@ brew "tldr"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
 
-brew "atuin"
-
-# Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
-brew "oven-sh/bun"
-
-# Password manager that keeps all passwords secure behind one password
-cask "1password"
-
-# Command-line interface for 1Password
-cask "1password-cli"
-
 # Chromium based browser
 cask "arc"
 
