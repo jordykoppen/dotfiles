@@ -27,7 +27,7 @@ enum layers {
 #define ADJST MO(_ADJUST)
 
 // Mod Tap defintion
-#define MT_A LGUI_T(KC_A)
+#define MT_A LCTL_T(KC_A)
 #define MT_S LSFT_T(KC_S)
 #define MT_D LALT_T(KC_D)
 
