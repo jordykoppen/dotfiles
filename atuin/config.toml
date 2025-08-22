@@ -21,7 +21,7 @@ auto_sync = true
 update_check = true
 
 ## address of the sync server
-sync_address = "http://192.168.21.105:8888"
+sync_address = "https://atuin.joko.tech"
 
 ## which search mode to use
 ## possible values: prefix, fulltext, fuzzy, skim
