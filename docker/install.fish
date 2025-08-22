@@ -8,6 +8,7 @@ if not type -q docker
     # enable "docker compose" command
     mkdir -p $HOME/.docker/cli-plugins
     ln -sfn $HOMEBREW_PREFIX/opt/docker-compose/bin/docker-compose $HOME/.docker/cli-plugins/docker-compose
+    ln -sfn $DOTFILES/docker/config.json $HOME/.docker/config.json
 else
     echo "docker is already installed."
 end
