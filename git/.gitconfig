@@ -22,7 +22,7 @@
   default = simple
 	autoSetupRemote = true
 [pull]
-  rebase = false
+	rebase = true
 [init]
   defaultBranch = main
 [hub]
