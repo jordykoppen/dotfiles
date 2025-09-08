@@ -115,7 +115,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     * `------------------------------------------------------------------------------------------'
     */
   [_ADJUST] = LAYOUT(
-     _______, XXXXXXX, XXXXXXX, XXXXXXX,  ALLIN1, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MPLY, XXXXXXX,
+     _______, XXXXXXX, XXXXXXX, XXXXXXX,  ALLIN1, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MPLY, KC_SLEP,
      QK_BOOT, XXXXXXX, SCRNSHT, XXXXXXX,     AGF, XXXXXXX,       AGLEFT,  AGDOWN,    AGUP, AGRIGHT, XXXXXXX, XXXXXXX,
      _______, XXXXXXX, XXXXXXX,     AGC, XXXXXXX, XXXXXXX,      KC_MNXT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
      _______, _______, _______, _______,   ADJST, _______,      _______,   ADJST, _______, _______, _______, _______
