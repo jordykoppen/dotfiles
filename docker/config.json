@@ -8,6 +8,6 @@
     "staging-k8s.gcr.io": "gcloud",
     "us.gcr.io": "gcloud"
   },
-  "currentContext": "colima",
+  "currentContext": "orbstack",
   "cliPluginsExtraDirs": ["/opt/homebrew/lib/docker/cli-plugins"]
 }
