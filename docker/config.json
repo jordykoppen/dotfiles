@@ -6,7 +6,8 @@
     "gcr.io": "gcloud",
     "marketplace.gcr.io": "gcloud",
     "staging-k8s.gcr.io": "gcloud",
-    "us.gcr.io": "gcloud"
+    "us.gcr.io": "gcloud",
+    "europe-west4-docker.pkg.dev": "gcloud"
   },
   "currentContext": "orbstack",
   "cliPluginsExtraDirs": ["/opt/homebrew/lib/docker/cli-plugins"]
