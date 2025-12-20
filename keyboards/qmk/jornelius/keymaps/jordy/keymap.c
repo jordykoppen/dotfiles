@@ -50,14 +50,14 @@ enum layers {
 #define FLOW_TAP_TERM 200
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-   /* Qwerty
+   /* Qwerty (with homerow mods)
     * ,------------------------------------------------------------------------------------------.
     * | Tab  |   Q  |   W  |   E  |   R  |   T  |      |   Y  |   U  |   I  |   O  |   P  | Bksp |
-    * |------+------+------+------+------+------+      +------+------+------+------+------+------|
+    * |------+------+------+------+------+------+------+------+------+------+------+------+------|
     * |CTLESC|LGUI_A|LSFT_S|LATL_D|   F  |   G  |      |   H  |   J  |RALT_K|RSFT_L|RGUI_;|  "   |
-    * |------+------+------+------+------+------+      +------+------+------+------+------+------|
+    * |------+------+------+------+------+------+------+------+------+------+------+------+------|
     * | Shift|   Z  |   X  |   C  |   V  |   B  |      |   N  |   M  |   ,  |   .  |   /  |Enter |
-    * |------+------+------+------+------+------+      +------+------+------+------+------+------|
+    * |------+------+------+------+------+------+------+------+------+------+------+------+------|
     * | HYPER| LCTL | LALT |      | LOWER| SPACE|      |ENTER |RAISE |      | RALT | RCTL |HYPER |
     * `------------------------------------------------------------------------------------------'
     */
@@ -118,7 +118,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_ADJUST] = LAYOUT(
      _______, XXXXXXX, XXXXXXX, XXXXXXX,  ALLIN1, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MPLY, KC_SLEP,
      QK_BOOT, XXXXXXX, SCRNSHT, XXXXXXX,     AGF, XXXXXXX,       AGLEFT,  AGDOWN,    AGUP, AGRIGHT, XXXXXXX, XXXXXXX,
-     _______, XXXXXXX, XXXXXXX,     AGC, XXXXXXX, XXXXXXX,      KC_MNXT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,DF(_NOMODS),
+     _______, XXXXXXX, XXXXXXX,     AGC, XXXXXXX, XXXXXXX,      KC_MNXT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,TG(_NOMODS),
      _______, _______, _______, _______,   ADJST, _______,      _______,   ADJST, _______, _______, _______, _______
   ),
 
