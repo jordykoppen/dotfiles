@@ -20,6 +20,7 @@ enum layers {
     _LOWER = 1,
     _RAISE = 2,
     _ADJUST = 3,
+    _NOMODS = 4,
 };
 
 #define LOWER MO(_LOWER)
@@ -117,7 +118,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_ADJUST] = LAYOUT(
      _______, XXXXXXX, XXXXXXX, XXXXXXX,  ALLIN1, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MPLY, KC_SLEP,
      QK_BOOT, XXXXXXX, SCRNSHT, XXXXXXX,     AGF, XXXXXXX,       AGLEFT,  AGDOWN,    AGUP, AGRIGHT, XXXXXXX, XXXXXXX,
-     _______, XXXXXXX, XXXXXXX,     AGC, XXXXXXX, XXXXXXX,      KC_MNXT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+     _______, XXXXXXX, XXXXXXX,     AGC, XXXXXXX, XXXXXXX,      KC_MNXT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,DF(_NOMODS),
      _______, _______, _______, _______,   ADJST, _______,      _______,   ADJST, _______, _______, _______, _______
+  ),
+
+   /* NoMods (Default without homerow mods)
+    * ,------------------------------------------------------------------------------------------.
+    * | Tab  |   Q  |   W  |   E  |   R  |   T  |      |   Y  |   U  |   I  |   O  |   P  | Bksp |
+    * |------+------+------+------+------+------+      +------+------+------+------+------+------|
+    * |CTLESC|   A  |   S  |   D  |   F  |   G  |      |   H  |   J  |   K  |   L  |   ;  |  "   |
+    * |------+------+------+------+------+------+      +------+------+------+------+------+------|
+    * | Shift|   Z  |   X  |   C  |   V  |   B  |      |   N  |   M  |   ,  |   .  |   /  |Enter |
+    * |------+------+------+------+------+------+      +------+------+------+------+------+------|
+    * | HYPER| LCTL | LALT |      | LOWER| SPACE|      |ENTER |RAISE |      | RALT | RCTL |HYPER |
+    * `------------------------------------------------------------------------------------------'
+    */
+  [_NOMODS] = LAYOUT(
+      KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,         KC_Y,    KC_U,     KC_I,    KC_O,    KC_P, KC_BSPC,
+      CTLESC,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,         KC_H,    KC_J,     KC_K,    KC_L, KC_SCLN, KC_QUOT,
+      KC_LSFT,   KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,         KC_N,    KC_M,  KC_COMM,  KC_DOT, KC_SLSH, KC_RSFT,
+      KC_HYPR,KC_LCTL, KC_LALT, XXXXXXX,   LOWER,  KC_SPC,       KC_ENT,   RAISE,  XXXXXXX, KC_RALT, KC_RCTL, KC_HYPR
   ),
 };
