@@ -49,6 +49,12 @@ enum layers {
 
 #define FLOW_TAP_TERM 200
 
+// macOS never sleeping fixes
+#define USB_POLLING_INTERVAL_MS 10
+#define USB_SUSPEND_WAKEUP_DELAY_MS 0
+#define USB_MAX_POWER_CONSUMPTION 100
+#define NO_USB_STARTUP_CHECK
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    /* Qwerty (with homerow mods)
     * ,------------------------------------------------------------------------------------------.
